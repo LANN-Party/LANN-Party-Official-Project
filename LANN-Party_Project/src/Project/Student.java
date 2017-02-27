@@ -1,4 +1,5 @@
 package Project;
+import java.util.*;
 	/**
 	 * FileName: Student.java
 	 */
@@ -6,7 +7,7 @@ package Project;
 	/**
 	 * Class dedicated to users who are Students
 	 * @author Logan Dahlquist
-	 * @version 2/21/2017
+	 * @version 2/27/2017
 	 *
 	 */
 	public class Student {
@@ -104,7 +105,7 @@ package Project;
 		/**
 		 * Sets the Student's First Name
 		 * 
-		 * @param String newfName
+		 * @param String new first name to be set
 		 */
 		public void setFirstName(String newfName)
 		{
@@ -114,7 +115,7 @@ package Project;
 		/**
 		 * Sets the Student's Last Name
 		 * 
-		 * @param String newlName
+		 * @param String lew last name to be set
 		 */
 		public void setLastName(String newlName)
 		{
@@ -124,7 +125,7 @@ package Project;
 		/**
 		 * Sets the Student's Password
 		 * 
-		 * @param String pass
+		 * @param String new password to be set
 		 */
 		public void setPassword(String pass)
 		{
@@ -134,7 +135,7 @@ package Project;
 		/**
 		 * Sets the Student's Type
 		 * 
-		 * @param String type
+		 * @param String new type to be set
 		 */
 		public void setType(String type)
 		{
@@ -144,7 +145,7 @@ package Project;
 		/**
 		 * Sets the Student's Stat
 		 * 
-		 * @param String stat
+		 * @param String new status to be set
 		 */
 		public void setStatus(String stat)
 		{
@@ -155,10 +156,9 @@ package Project;
 		/**
 		 * gets the Student's Stat
 		 * 
-		 * @param String stat
-		 * @returns firstName
+		 * @returns status of Student 
 		 */
-		public String getStatus(String stat)
+		public String getStatus()
 		{
 			return null;
 		}
@@ -167,10 +167,9 @@ package Project;
 		/**
 		 * Get's the students saved schools
 		 * 
-		 * @param String stat
 		 * @returns firstName
 		 */
-		public String[] getSavedSchools()
+		public ArrayList<University> getSavedSchools()
 		{
 			return null;
 		}
@@ -178,9 +177,9 @@ package Project;
 		/**
 		 * Sets the Student's saved schools
 		 * 
-		 * @param String[] schools
+		 * @param ArrayList<University> list of saved schools
 		 */
-		public void setSavedSchools(String[] schools)
+		public void setSavedSchools(ArrayList<University> schools)
 		{
 			
 		}
@@ -188,7 +187,7 @@ package Project;
 		/**
 		 * Adds a school to saved schools
 		 * 
-		 * @param String school
+		 * @param String school to add
 		 */
 		public void addSchool(String school)
 		{
@@ -198,7 +197,7 @@ package Project;
 		/**
 		 * Updates the students info
 		 * 
-		 * @param String uName, fName, pWord
+		 * @param String the username, fNam, pWord
 		 * @param char Type, Status
 		 */
 		public void updateInfo(String uName, String fName, String pWord, char type, char status)
@@ -209,7 +208,8 @@ package Project;
 		/**
 		 * Checks if Student is logged in
 		 * 
-		 * @param nonr
+		 * @param none
+		 * @return boolean true
 		 */
 		public boolean isLoggedOn()
 		{
@@ -227,9 +227,9 @@ package Project;
 		}
 		
 		/**
-		 * Removes school from saved scchools
+		 * Removes school from saved schools
 		 * 
-		 * @param String school
+		 * @param String school to remove
 		 */
 		public void removeSchool(String school)
 		{
