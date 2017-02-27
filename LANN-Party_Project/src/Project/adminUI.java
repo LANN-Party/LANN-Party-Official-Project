@@ -1,6 +1,5 @@
-/**
- * 
- */
+package Project;
+
 
 /**
  * @author njfloeder
@@ -33,7 +32,7 @@ public class adminUI {
 	 * @param status
 	 */
 	public void editUser(String uName, String fName, String lName, String pWord, 
-Character type, Character status){}
+char type, char status){}
 	
 	/**
 	 * lets on deactivate a user from their username
@@ -53,7 +52,7 @@ Character type, Character status){}
 	 * @param status
 	 */
 	public void addUser(String uName, String fName, String lName, String pWord, 
-			Character type, Character status){}
+			char type, char status){}
 	
 	
 	/**
@@ -81,7 +80,7 @@ Character type, Character status){}
 	 */
 	
 	public void saveChanges(String uName, String fName, String lName, String pWord, 
-			Character type, Character status){}
+			char type, char status){}
 	/**
 	 * lets a school to be edited
 	 * 
@@ -98,7 +97,7 @@ Character type, Character status){}
 	 * @param academicScale
 	 * @param qualityOfLiffe
 	 * @param emphases
-	 */ 
+	 */   
 	public void editSchool(String state, String name, String ocation, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
 			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){}
 	/**
