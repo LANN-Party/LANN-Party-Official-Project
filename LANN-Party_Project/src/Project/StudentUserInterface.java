@@ -49,7 +49,7 @@ public class StudentUserInterface {
 	 * @param status
 	 */
 	public void editInfo(String uName, String fName, String lName, 
-			String pWord, Char type, Char status){
+			String pWord, char type, char status){
 		
 	}
 	

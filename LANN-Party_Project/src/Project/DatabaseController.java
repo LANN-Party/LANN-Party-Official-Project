@@ -17,14 +17,14 @@ public class DatabaseController {
 	  
 	  //Data fields
 	  /**All created users*/
-	  User users;
+	  Student users;
 	  
 	  /**
 	   * Displays all users in the database  
 	   * 
 	   * @param none
 	   */
-	  public User getUsers()
+	  public Student getUsers()
 	  {
 	    return null;
 	  }
@@ -40,7 +40,7 @@ public class DatabaseController {
 	   * @param type
 	   * @param status
 	   */
-	  public void addUser(String uName, String fName, String lName, String pWord, Char type, Char status)
+	  public void addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
 	  
 	  }
@@ -72,7 +72,7 @@ public class DatabaseController {
 	   */
 	  public void saveSchool(University university)
 	  {
-	    return null;
+	    
 	  }
 	  
 	  /**
@@ -80,7 +80,7 @@ public class DatabaseController {
 	   * 
 	   * @param uName
 	   */
-	  public User getUser(String uName)
+	  public Student getUser(String uName)
 	  {
 	    return null;
 	  }
@@ -155,7 +155,7 @@ public class DatabaseController {
 	   */
 	  public void editSchool(String state, String name, String location, String control, int numberOfStudentsLow, 
 	   int numberOfStudentsHigh, double percentFemalesLow, double percentFemalesHigh, int satVerbalLow, 
-	   int satVerbalHigh int satMathLow, int satMathHigh, double expensesLow, double expensesHigh, 
+	   int satVerbalHigh, int satMathLow, int satMathHigh, double expensesLow, double expensesHigh, 
 	   double percentFinAidLow, double percentFinAidHigh, int applicantsLow, int applicantsHigh,
 	   double percentAdmittedLow, double percentAdmittedHigh, double percentEnrolledLow, double percentEnrolledHigh,
 	   int academScaleLow, int academScaleHigh, int socialScaleLow, int socialScaleHigh, 
@@ -203,7 +203,7 @@ public class DatabaseController {
 	   */
 	  public void addSchool(String state, String name, String location, String control, int numberOfStudentsLow, 
 	   int numberOfStudentsHigh, double percentFemalesLow, double percentFemalesHigh, int satVerbalLow, 
-	   int satVerbalHigh int satMathLow, int satMathHigh, double expensesLow, double expensesHigh, 
+	   int satVerbalHigh, int satMathLow, int satMathHigh, double expensesLow, double expensesHigh, 
 	   double percentFinAidLow, double percentFinAidHigh, int applicantsLow, int applicantsHigh,
 	   double percentAdmittedLow, double percentAdmittedHigh, double percentEnrolledLow, double percentEnrolledHigh,
 	   int academScaleLow, int academScaleHigh, int socialScaleLow, int socialScaleHigh, 
