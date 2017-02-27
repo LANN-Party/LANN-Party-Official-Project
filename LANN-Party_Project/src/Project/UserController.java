@@ -33,7 +33,7 @@ package Project;
 		   * @param type
 		   * @param status
 		   */
-		  public void editInfo(String uName, String fName, String lName, String pWord, Char type, Char status)
+		  public void editInfo(String uName, String fName, String lName, String pWord, char type, char status)
 		  {
 		    
 		  }
@@ -47,7 +47,7 @@ package Project;
 		   * @param type
 		   * @param status
 		   */
-		  public void confirmSaveChanges(String uName, String fName, String lName, String pWord, Char type, Char status)
+		  public void confirmSaveChanges(String uName, String fName, String lName, String pWord, char type, char status)
 		  {
 		    
 		  }
