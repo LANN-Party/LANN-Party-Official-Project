@@ -1,5 +1,5 @@
 package Project;
-
+import java.util.*;
 /**
  * @author njfloeder
  *
@@ -7,14 +7,14 @@ package Project;
 public class Search_Controler {
 
 	private University school;
-	private Object[] schools;
+	private ArrayList<University> schools;
 	
 	/**
 	 * this method gets related schools from a user search school name
 	 * @param name, name of user
 	 * @return an object array of schools
 	 */
-	public Object[] displaySearchResults(String name){
+	public ArrayList<University> displaySearchResults(String name){
 		return null;
 	}
 	
