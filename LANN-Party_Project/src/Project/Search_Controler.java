@@ -8,12 +8,7 @@ public class Search_Controler {
 
 	public University school;
 	public Object[] schools;
-	/**
-	 * 
-	 */
-	public Search_Controler() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * this method gets related schools from a user search school name
 	 * @param name

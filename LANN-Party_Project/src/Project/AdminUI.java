@@ -10,13 +10,7 @@ public class AdminUI {
 	public boolean u,c;
 	public University svhool;
 	public Object check;
-	
-	/**
-	 * 
-	 */
-	public AdminUI() {
-		// TODO Auto-generated constructor stub
-	}
+
 	/**
 	 * views all users
 	 */
