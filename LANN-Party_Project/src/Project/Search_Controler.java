@@ -6,12 +6,12 @@ package Project;
  */
 public class Search_Controler {
 
-	public University school;
-	public Object[] schools;
+	private University school;
+	private Object[] schools;
 	
 	/**
 	 * this method gets related schools from a user search school name
-	 * @param name
+	 * @param name, name of user
 	 * @return an object array of schools
 	 */
 	public Object[] displaySearchResults(String name){
