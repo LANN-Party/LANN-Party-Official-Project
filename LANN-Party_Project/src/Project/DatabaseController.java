@@ -171,43 +171,28 @@ public class DatabaseController {
 	   * @param name
 	   * @param location
 	   * @param control
-	   * @param numberOfStudentsLow
-	   * @param numberOfStudentsHigh
-	   * @param percentFemalesLow
-	   * @param percentFemalesHigh
-	   * @param satVerbalLow
-	   * @param satVerbalHigh
-	   * @param satMathLow
-	   * @param satMathHigh
-	   * @param expensesHigh
-	   * @param expensesLow
-	   * @param percentFinAidLow
-	   * @param percentFinAidHigh
-	   * @param applicantsLow
-	   * @param applicantsHigh
-	   * @param percentAdmittedLow
-	   * @param percentAdmittedHigh
-	   * @param percentEnrolledLow
-	   * @param percentEnrolledHigh
-	   * @param academScaleLow
-	   * @param academScaleHigh
-	   * @param socialScaleLow
-	   * @param socialScaleHigh
-	   * @param qualOfLifeLow
-	   * @param qualOfLifeHigh
+	   * @param numberOfStudents
+	   * @param percentFemales
+	   * @param satVerbal
+	   * @param satMath
+	   * @param expenses
+	   * @param percentFinAid
+	   * @param applicants
+	   * @param percentAdmitted
+	   * @param percentEnrolled
+	   * @param academScale
+	   * @param socialScale
+	   * @param qualOfLife
 	   * @param emphasis1
 	   * @param emphasis2
 	   * @param emphasis3
 	   * @param emphasis4
 	   * @param emphasis5
 	   */
-	  public void addSchool(String state, String name, String location, String control, int numberOfStudentsLow, 
-	   int numberOfStudentsHigh, double percentFemalesLow, double percentFemalesHigh, int satVerbalLow, 
-	   int satVerbalHigh, int satMathLow, int satMathHigh, double expensesLow, double expensesHigh, 
-	   double percentFinAidLow, double percentFinAidHigh, int applicantsLow, int applicantsHigh,
-	   double percentAdmittedLow, double percentAdmittedHigh, double percentEnrolledLow, double percentEnrolledHigh,
-	   int academScaleLow, int academScaleHigh, int socialScaleLow, int socialScaleHigh, 
-	   int qualOfLifeLow, int qualOfLifeHigh, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
+	  public void addSchool(String state, String name, String location, String control, int numberOfStudents, 
+	   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+	   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
+	   int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
 	  {
 	    
 	  }
