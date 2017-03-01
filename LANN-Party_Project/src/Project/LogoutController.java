@@ -2,16 +2,10 @@ package Project;
 
 /**
  * @author ajmcintyre
- *
+ * @version 2/27/17
+ * @filename: LogoutController.java
  */
 public class LogoutController {
-
-	/**
-	 * 
-	 */
-	public LogoutController() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	/**
 	 * @param s the student object to be logged out
