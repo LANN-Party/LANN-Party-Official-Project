@@ -11,7 +11,7 @@ public class LogoutController {
 	 * @param s the student object to be logged out
 	 */
 	public void studentLogout(Student s){
-		
+		s.setLogon(false);
 	}
 	
 	/**
@@ -19,7 +19,7 @@ public class LogoutController {
 	 * @param a the admin object to be logged out
 	 */
 	public void adminLogout(Admin a){
-		
+		a.setLogon(false);
 	}
 
 }
