@@ -19,7 +19,7 @@ public class University {
 	 * @param state the state the university is in
 	 * @param name the name of the university
 	 * @param location the town of the university
-	 * @param control the *********
+	 * @param control state or private university
 	 * @param percentFemale	the female percentage of the population
 	 * @param sATVerbal the average SAT Verbal score
 	 * @param sATMath the average SAT Math score
