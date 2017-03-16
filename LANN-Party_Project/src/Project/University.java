@@ -2,7 +2,8 @@ package Project;
 
 /**
  * @author ajmcintyre
- *
+ * @version 2/27/17
+ * @filename: University.java
  */
 public class University {
 
@@ -15,22 +16,22 @@ public class University {
 	private String[] emphases;
 	
 	/**
-	 * @param state
-	 * @param name
-	 * @param location
-	 * @param control
-	 * @param percentFemale
-	 * @param sATVerbal
-	 * @param sATMath
-	 * @param expenses
-	 * @param percentFinancialAid
-	 * @param numOfApplicants
-	 * @param percentAdmitted
-	 * @param percentEnrolled
-	 * @param academicScale
-	 * @param socialScale
-	 * @param qualityOfLife
-	 * @param emphases
+	 * @param state the state the university is in
+	 * @param name the name of the university
+	 * @param location the town of the university
+	 * @param control state or private university
+	 * @param percentFemale	the female percentage of the population
+	 * @param sATVerbal the average SAT Verbal score
+	 * @param sATMath the average SAT Math score
+	 * @param expenses the cost of attendance 
+	 * @param percentFinancialAid the percent of students receiving financial aid
+	 * @param numOfApplicants the number of applicants
+	 * @param percentAdmitted the percent of applicants admitted
+	 * @param percentEnrolled the percent of admitted students that enroll
+	 * @param academicScale the academic grading scale
+	 * @param socialScale the social scale
+	 * @param qualityOfLife the quality of life rating
+	 * @param emphases the focuses of the school's academics
 	 */
 	public University(String state, String name, String location, String control, int percentFemale, int sATVerbal,
 			int sATMath, int expenses, int percentFinancialAid, int numOfApplicants, int percentAdmitted,
