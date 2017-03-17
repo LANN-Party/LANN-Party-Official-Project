@@ -1,4 +1,5 @@
 package Project;
+import java.util.*;
 	/**
 	 * FileName: Student.java
 	 */
@@ -6,7 +7,7 @@ package Project;
 	/**
 	 * Class dedicated to users who are Students
 	 * @author Logan Dahlquist
-	 * @version 2/21/2017
+	 * @version 2/27/2017
 	 *
 	 */
 	public class Student {
@@ -39,13 +40,37 @@ package Project;
 			 * currently a String[] due to unknown variable
 			 * type as of 2/26/17
 			 * please change later */
-		private String[] savedSchools;
+		private ArrayList<University> savedSchools;
 		
 		//Data fields
 			/**The Student's logon status (Boolean)*/
 		private boolean logon; 
 		
 		
+			/**
+			 * Creates a new Student, with the given inputs
+				 * @param firstName
+				 * @param lastName
+				 * @param userName
+				 * @param password
+				 * @param type
+				 * @param status
+				 * @param savedSchools
+				 * @param logon
+				 */
+		public Student(String firstName, String lastName, String userName, String password, char type, char status,
+				ArrayList<University> savedSchools) {
+					super();
+					this.firstName = firstName;
+					this.lastName = lastName;
+					this.userName = userName;
+					this.password = password;
+					this.type = type;
+					this.status = status;
+					this.savedSchools = savedSchools;
+					this.logon = false;
+				}
+
 		/**
 		 * Return's the Student's first name
 		 * 
@@ -54,7 +79,7 @@ package Project;
 		 */
 		public String getFirstName()
 		{
-			return null;
+			return this.firstName;
 		}
 		
 		/**
@@ -65,7 +90,7 @@ package Project;
 		 */
 		public String getLastName()
 		{
-			return null;
+			return this.lastName;
 		}
 		
 		/**
@@ -76,7 +101,7 @@ package Project;
 		 */
 		public String getUserName()
 		{
-			return null;
+			return this.userName;
 		}
 		
 		/**
@@ -87,7 +112,7 @@ package Project;
 		 */
 		public char getType()
 		{
-			return ' ';
+			return this.type;
 		}
 		
 		/**
@@ -98,122 +123,125 @@ package Project;
 		 */
 		public String getPassword()
 		{
-			return null;
+			return this.password;
 		}
 		
 		/**
 		 * Sets the Student's First Name
 		 * 
-		 * @param String newfName
+		 * @param String new first name to be set
 		 */
 		public void setFirstName(String newfName)
 		{
-			
+			this.firstName = newfName;
 		}
 		
 		/**
 		 * Sets the Student's Last Name
 		 * 
-		 * @param String newlName
+		 * @param String lew last name to be set
 		 */
 		public void setLastName(String newlName)
 		{
-			
+			this.lastName = newlName;
 		}
 		
 		/**
 		 * Sets the Student's Password
 		 * 
-		 * @param String pass
+		 * @param String new password to be set
 		 */
 		public void setPassword(String pass)
 		{
-			
+			this.password = pass;
 		}
 		
 		/**
 		 * Sets the Student's Type
 		 * 
-		 * @param String type
+		 * @param String new type to be set
 		 */
-		public void setType(String type)
+		public void setType(char type)
 		{
-			
+			this.type = type;
 		}
 		
 		/**
 		 * Sets the Student's Stat
 		 * 
-		 * @param String stat
+		 * @param String new status to be set
 		 */
-		public void setStatus(String stat)
+		public void setStatus(char stat)
 		{
-			
+			this.status = stat;
 		}
 		
 
 		/**
 		 * gets the Student's Stat
 		 * 
-		 * @param String stat
-		 * @returns firstName
+		 * @returns status of Student 
 		 */
-		public String getStatus(String stat)
+		public char getStatus()
 		{
-			return null;
+			return this.status;
 		}
 		
 
 		/**
 		 * Get's the students saved schools
 		 * 
-		 * @param String stat
 		 * @returns firstName
 		 */
-		public String[] getSavedSchools()
+		public ArrayList<University> getSavedSchools()
 		{
-			return null;
+			return this.savedSchools;
 		}
 		
 		/**
 		 * Sets the Student's saved schools
 		 * 
-		 * @param String[] schools
+		 * @param ArrayList<University> list of saved schools
 		 */
-		public void setSavedSchools(String[] schools)
+		public void setSavedSchools(ArrayList<University> schools)
 		{
-			
+			this.savedSchools = schools;
 		}
 		
 		/**
 		 * Adds a school to saved schools
 		 * 
-		 * @param String school
+		 * @param String school to add
 		 */
-		public void addSchool(String school)
+		public void addSchool(University school)
 		{
-			
+			this.savedSchools.add(school);
 		}
 		
 		/**
 		 * Updates the students info
 		 * 
-		 * @param String uName, fName, pWord
+		 * @param String the username, fNam, pWord
 		 * @param char Type, Status
 		 */
-		public void updateInfo(String uName, String fName, String pWord, char type, char status)
+		public void updateInfo(String uName, String fName, String lName, String pWord, char type, char status)
 		{
-			
+			this.userName = uName;
+			this.setFirstName(fName);
+			this.setLastName(lName);
+			this.setType(type);
+			this.setStatus(status);
 		}
 		
 		/**
 		 * Checks if Student is logged in
 		 * 
-		 * @param nonr
+		 * @param none
+		 * @return boolean logon
 		 */
 		public boolean isLoggedOn()
 		{
-			return true;
+			return this.logon;
 		}
 		
 		/**
@@ -223,17 +251,17 @@ package Project;
 		 */
 		public void setLogon(boolean log )
 		{
-			
+			this.logon = log;
 		}
 		
 		/**
-		 * Removes school from saved scchools
+		 * Removes school from saved schools
 		 * 
-		 * @param String school
+		 * @param String school to remove
 		 */
-		public void removeSchool(String school)
+		public void removeSchool(University school)
 		{
-			
+			this.savedSchools.remove(this.savedSchools.lastIndexOf(school));
 		}
 		
 		
