@@ -264,6 +264,7 @@ import java.util.*;
 			int index = this.savedSchools.lastIndexOf(school);
 			if (index > -1)
 				this.savedSchools.remove(index);
+			
 		}
 		
 	}
