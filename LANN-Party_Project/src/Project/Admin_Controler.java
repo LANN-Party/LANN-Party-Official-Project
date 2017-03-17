@@ -11,7 +11,7 @@ public class Admin_Controler {
 
 	public Object[] schools;
 	
-
+	DatabaseController dc = new DatabaseController();
 	/**
 	 * @param schools
 	 */
@@ -54,18 +54,18 @@ public class Admin_Controler {
 	public void saveChanges(String uName, String fName, String lName, int pWord, char type, char status){
 
 		Student temp = new Student(uName, fName, lName, pWord, type, status);
-		 = temp;
+		dc.saveChangesToUser();
 	}
 	/**
 	 * save a school object
 	 */
 	public void saveSchool(University university){
-		
-		= university;
+		dc.saveSchool(university);
 	}
 	/**
 	 * add a user into database
 	 * 
+	 * @param schools
 	 * @param uName username of user
 	 * @param fName first name of user
 	 * @param lName last name of user
@@ -73,10 +73,9 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void addUser(String uName, String fName, String lName, int pWord, char type, char status){
+	public void addUser(String uName, String fName, String lName, String pWord, char type, char status){
 		
-		Student newStu = new Student(uName,fName,lName,pWord, type,status);
-		.add(newStu);
+		dc.addUser(uName, fName, lName, pWord, type, status);
 	}
 	/**
 	 * checks the users username
@@ -86,11 +85,8 @@ public class Admin_Controler {
 	 */
 	public boolean checkUserName(String uName){
 		
-		for(Student s: ){
-			if(s.getUserName().equals(uName))
+			if(dc.getUser(uName)!=null)
 				return true;
-		}
-		
 		return false;
 	}
 	/**
@@ -100,7 +96,6 @@ public class Admin_Controler {
 	 */
 	public void deleteUser(String uName){
 		
-		.remove();
 	}
 	/**
 	 * displays a school
@@ -112,7 +107,7 @@ public class Admin_Controler {
 	 * displays the schools
 	 */
 	public void displaySchools(){
-		for(University x: ){
+		for(University x: dc.getSchools()){
 		System.out.println(x);
 		}
 	}
@@ -122,9 +117,9 @@ public class Admin_Controler {
 	 * 
 	 * @return University university
 	 */
-	public University getSchool(){
+	public University getSchool(String uName){
 		
-		return null;
+		return dc.getSchool(uName);
 	}
 	/**
 	 * allows admin to edit a university
@@ -146,9 +141,8 @@ public class Admin_Controler {
 	public void editSchool(String state, String name, String ocation, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
 			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){
 		
-		University newU = new University( state,  name,  ocation,  control,  percentF,  SATVerbal,  SATMath,  expenses,  numberOfApp,
-				 percentAdmitted,  academicScale,  qualityOfLiffe,  emphases);
+
 		
-		saveSchool(newU);
+		dc.editSchool(state, name, location, control, numberOfStudentsLow, numberOfStudentsHigh, percentFemalesLow, percentFemalesHigh, satVerbalLow, satVerbalHigh, satMathLow, satMathHigh, expensesLow, expensesHigh, percentFinAidLow, percentFinAidHigh, applicantsLow, applicantsHigh, percentAdmittedLow, percentAdmittedHigh, percentEnrolledLow, percentEnrolledHigh, academScaleLow, academScaleHigh, socialScaleLow, socialScaleHigh, qualOfLifeLow, qualOfLifeHigh, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
 	}
 }
