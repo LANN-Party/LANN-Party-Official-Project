@@ -21,6 +21,10 @@ public class Search_Controler {
 	/**
 	 * views one school that they select on the screen 
 	 */
-	public void viewSchool(){}
+	public void viewSchool(){
+		
+		System.out.println();
+	
+	}
 }
 

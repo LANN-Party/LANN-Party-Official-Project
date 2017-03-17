@@ -13,7 +13,9 @@ public class Admin_Controler {
 	/**
 	 * displays the users profile
 	 */
-	public void displayProfile(){}
+	public void displayProfile(){
+		
+	}
 	/**
 	 * displays users info
 	 * 
@@ -24,7 +26,10 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void displayInfo(String uName, String fName, String lName, int pWord, char type, char status){}
+	public void displayInfo(String uName, String fName, String lName, int pWord, char type, char status){
+		
+		System.out.println(uName+ " " + fName + " " + lName + " "+ pWord +" " + type+ " " + status);
+	}
 	/**
 	 * save changes to a user
 	 * 
@@ -35,11 +40,18 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void saveChanges(String uName, String fName, String lName, int pWord, char type, char status){}
+	public void saveChanges(String uName, String fName, String lName, int pWord, char type, char status){
+
+		Student temp = new Student(uName, fName, lName, pWord, type, status);
+		 = temp;
+	}
 	/**
 	 * save a school object
 	 */
-	public void saveSchool(University university){}
+	public void saveSchool(University university){
+		
+		= university;
+	}
 	/**
 	 * add a user into database
 	 * 
@@ -50,7 +62,11 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void addUser(String uName, String fName, String lName, int pWord, char type, char status){}
+	public void addUser(String uName, String fName, String lName, int pWord, char type, char status){
+		
+		Student newStu = new Student(uName,fName,lName,pWord, type,status);
+		.add(newStu);
+	}
 	/**
 	 * checks the users username
 	 * 
@@ -58,6 +74,12 @@ public class Admin_Controler {
 	 * @return boolean true or false 
 	 */
 	public boolean checkUserName(String uName){
+		
+		for(Student s: ){
+			if(s.getUserName().equals(uName))
+				return true;
+		}
+		
 		return false;
 	}
 	/**
@@ -65,15 +87,24 @@ public class Admin_Controler {
 	 * 
 	 * @param uName
 	 */
-	public void deleteUser(String uName){}
+	public void deleteUser(String uName){
+		
+		.remove();
+	}
 	/**
 	 * displays a school
 	 */
-	public void displaySchool(){}
+	public void displaySchool(){
+		System.out.println();
+	}
 	/**
 	 * displays the schools
 	 */
-	public void displaySchools(){}
+	public void displaySchools(){
+		for(University x: ){
+		System.out.println(x);
+		}
+	}
 
 	/**
 	 * gets a university
@@ -81,6 +112,7 @@ public class Admin_Controler {
 	 * @return University university
 	 */
 	public University getSchool(){
+		
 		return null;
 	}
 	/**
@@ -101,5 +133,11 @@ public class Admin_Controler {
 	 * @param emphases, emphases at the school
 	 */
 	public void editSchool(String state, String name, String ocation, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
-			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){}
+			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){
+		
+		University newU = new University( state,  name,  ocation,  control,  percentF,  SATVerbal,  SATMath,  expenses,  numberOfApp,
+				 percentAdmitted,  academicScale,  qualityOfLiffe,  emphases);
+		
+		saveSchool(newU);
+	}
 }
