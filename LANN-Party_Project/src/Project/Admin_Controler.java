@@ -9,15 +9,15 @@ package Project;
  */
 public class Admin_Controler {
 
-	private DatabaseController dc;
 	public Object[] schools;
-	/**
-	 * constructor
-	 */
-	public Admin_Controler(){
-		dc = new DatabaseController();
-	}
 	
+
+	/**
+	 * @param schools
+	 */
+	public Admin_Controler() {
+		super();
+	}
 	/**
 	 * displays the users profile
 	 * 
@@ -35,7 +35,7 @@ public class Admin_Controler {
 	 * @param lName last name of user
 	 * @param pWord password for user to log in 
 	 * @param type either a user is admin or student
-	 * @param status if they aStringre signed in or not
+	 * @param status if they are signed in or not
 	 */
 	public void displayInfo(String uName, String fName, String lName, int pWord, char type, char status){
 		
@@ -53,13 +53,15 @@ public class Admin_Controler {
 	 */
 	public void saveChanges(String uName, String fName, String lName, int pWord, char type, char status){
 
-		dc.saveChangesToUser(wsrgh);
+		Student temp = new Student(uName, fName, lName, pWord, type, status);
+		 = temp;
 	}
 	/**
 	 * save a school object
 	 */
 	public void saveSchool(University university){
-		dc.saveSchool(university);
+		
+		= university;
 	}
 	/**
 	 * add a user into database
@@ -71,9 +73,10 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void addUser(String uName, String fName, String lName, String pWord, char type, char status){
+	public void addUser(String uName, String fName, String lName, int pWord, char type, char status){
 		
-		dc.addUser(uName, fName, lName, pWord, type, status);
+		Student newStu = new Student(uName,fName,lName,pWord, type,status);
+		.add(newStu);
 	}
 	/**
 	 * checks the users username
@@ -82,9 +85,13 @@ public class Admin_Controler {
 	 * @return boolean true or false 
 	 */
 	public boolean checkUserName(String uName){
-	if(dc.getUser(uName)==null)
+		
+		for(Student s: ){
+			if(s.getUserName().equals(uName))
+				return true;
+		}
+		
 		return false;
-	return true;
 	}
 	/**
 	 * delete a user
@@ -92,7 +99,8 @@ public class Admin_Controler {
 	 * @param uName
 	 */
 	public void deleteUser(String uName){
-		dc.getUser(uName).setStatus('n');
+		
+		.remove();
 	}
 	/**
 	 * displays a school
@@ -104,7 +112,7 @@ public class Admin_Controler {
 	 * displays the schools
 	 */
 	public void displaySchools(){
-		for(University x: dc.getSchools()){
+		for(University x: ){
 		System.out.println(x);
 		}
 	}
@@ -114,9 +122,9 @@ public class Admin_Controler {
 	 * 
 	 * @return University university
 	 */
-	public University getSchool(String uName){
+	public University getSchool(){
 		
-		return dc.getSchool(uName);
+		return null;
 	}
 	/**
 	 * allows admin to edit a university
@@ -135,9 +143,12 @@ public class Admin_Controler {
 	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
 	 * @param emphases, emphases at the school
 	 */
-	public void editSchool(String state, String name, String location, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
+	public void editSchool(String state, String name, String ocation, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
 			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){
 		
-		dc.editSchool(state, name, location, control, numberOfStudentsLow, numberOfStudentsHigh, percentFemalesLow, percentFemalesHigh, satVerbalLow, satVerbalHigh, satMathLow, satMathHigh, expensesLow, expensesHigh, percentFinAidLow, percentFinAidHigh, applicantsLow, applicantsHigh, percentAdmittedLow, percentAdmittedHigh, percentEnrolledLow, percentEnrolledHigh, academScaleLow, academScaleHigh, socialScaleLow, socialScaleHigh, qualOfLifeLow, qualOfLifeHigh, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+		University newU = new University( state,  name,  ocation,  control,  percentF,  SATVerbal,  SATMath,  expenses,  numberOfApp,
+				 percentAdmitted,  academicScale,  qualityOfLiffe,  emphases);
+		
+		saveSchool(newU);
 	}
 }

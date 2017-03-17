@@ -9,7 +9,7 @@ package Project;
  */
 public class AdminUI {
 	
-	private Admin_Controler AC;
+	private Admin_Controler AC = new Admin_Controler();
 	
 	private boolean u,c;
 	
@@ -21,9 +21,7 @@ public class AdminUI {
 	 * constructor
 	 */
 	public AdminUI(){
-	
-	 AC = new Admin_Controler();
-	
+		
 	}
 	
 	/**
