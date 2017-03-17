@@ -10,6 +10,14 @@ package Project;
 public class Admin_Controler {
 
 	public Object[] schools;
+	
+
+	/**
+	 * @param schools
+	 */
+	public Admin_Controler() {
+		super();
+	}
 	/**
 	 * displays the users profile
 	 */

@@ -10,6 +10,7 @@ public class AdminUI {
 	public boolean u,c;
 	public University svhool;
 	public Object check;
+	public Admin_Controler admin = new Admin_Controler();
 
 	/**
 	 * views all users
