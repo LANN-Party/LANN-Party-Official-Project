@@ -12,6 +12,9 @@ public class Admin_Controler {
 	public Object[] schools;
 	/**
 	 * displays the users profile
+	 * 
+	 * 
+	 * 
 	 */
 	public void displayProfile(){
 		
