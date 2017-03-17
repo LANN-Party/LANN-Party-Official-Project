@@ -40,13 +40,37 @@ import java.util.*;
 			 * currently a String[] due to unknown variable
 			 * type as of 2/26/17
 			 * please change later */
-		private String[] savedSchools;
+		private ArrayList<University> savedSchools;
 		
 		//Data fields
 			/**The Student's logon status (Boolean)*/
 		private boolean logon; 
 		
 		
+			/**
+			 * Creates a new Student, with the given inputs
+				 * @param firstName
+				 * @param lastName
+				 * @param userName
+				 * @param password
+				 * @param type
+				 * @param status
+				 * @param savedSchools
+				 * @param logon
+				 */
+		public Student(String firstName, String lastName, String userName, String password, char type, char status,
+				ArrayList<University> savedSchools) {
+					super();
+					this.firstName = firstName;
+					this.lastName = lastName;
+					this.userName = userName;
+					this.password = password;
+					this.type = type;
+					this.status = status;
+					this.savedSchools = savedSchools;
+					this.logon = false;
+				}
+
 		/**
 		 * Return's the Student's first name
 		 * 
@@ -55,7 +79,7 @@ import java.util.*;
 		 */
 		public String getFirstName()
 		{
-			return null;
+			return this.firstName;
 		}
 		
 		/**
@@ -66,7 +90,7 @@ import java.util.*;
 		 */
 		public String getLastName()
 		{
-			return null;
+			return this.lastName;
 		}
 		
 		/**
@@ -77,7 +101,7 @@ import java.util.*;
 		 */
 		public String getUserName()
 		{
-			return null;
+			return this.userName;
 		}
 		
 		/**
@@ -88,7 +112,7 @@ import java.util.*;
 		 */
 		public char getType()
 		{
-			return ' ';
+			return this.type;
 		}
 		
 		/**
@@ -99,7 +123,7 @@ import java.util.*;
 		 */
 		public String getPassword()
 		{
-			return null;
+			return this.password;
 		}
 		
 		/**
@@ -109,7 +133,7 @@ import java.util.*;
 		 */
 		public void setFirstName(String newfName)
 		{
-			
+			this.firstName = newfName;
 		}
 		
 		/**
@@ -119,7 +143,7 @@ import java.util.*;
 		 */
 		public void setLastName(String newlName)
 		{
-			
+			this.lastName = newlName;
 		}
 		
 		/**
@@ -129,7 +153,7 @@ import java.util.*;
 		 */
 		public void setPassword(String pass)
 		{
-			
+			this.password = pass;
 		}
 		
 		/**
@@ -137,9 +161,9 @@ import java.util.*;
 		 * 
 		 * @param String new type to be set
 		 */
-		public void setType(String type)
+		public void setType(char type)
 		{
-			
+			this.type = type;
 		}
 		
 		/**
@@ -147,9 +171,9 @@ import java.util.*;
 		 * 
 		 * @param String new status to be set
 		 */
-		public void setStatus(String stat)
+		public void setStatus(char stat)
 		{
-			
+			this.status = stat;
 		}
 		
 
@@ -158,9 +182,9 @@ import java.util.*;
 		 * 
 		 * @returns status of Student 
 		 */
-		public String getStatus()
+		public char getStatus()
 		{
-			return null;
+			return this.status;
 		}
 		
 
@@ -171,7 +195,7 @@ import java.util.*;
 		 */
 		public ArrayList<University> getSavedSchools()
 		{
-			return null;
+			return this.savedSchools;
 		}
 		
 		/**
@@ -181,7 +205,7 @@ import java.util.*;
 		 */
 		public void setSavedSchools(ArrayList<University> schools)
 		{
-			
+			this.savedSchools = schools;
 		}
 		
 		/**
@@ -189,9 +213,9 @@ import java.util.*;
 		 * 
 		 * @param String school to add
 		 */
-		public void addSchool(String school)
+		public void addSchool(University school)
 		{
-			
+			this.savedSchools.add(school);
 		}
 		
 		/**
@@ -200,20 +224,24 @@ import java.util.*;
 		 * @param String the username, fNam, pWord
 		 * @param char Type, Status
 		 */
-		public void updateInfo(String uName, String fName, String pWord, char type, char status)
+		public void updateInfo(String uName, String fName, String lName, String pWord, char type, char status)
 		{
-			
+			this.userName = uName;
+			this.setFirstName(fName);
+			this.setLastName(lName);
+			this.setType(type);
+			this.setStatus(status);
 		}
 		
 		/**
 		 * Checks if Student is logged in
 		 * 
 		 * @param none
-		 * @return boolean true
+		 * @return boolean logon
 		 */
 		public boolean isLoggedOn()
 		{
-			return true;
+			return this.logon;
 		}
 		
 		/**
@@ -223,7 +251,7 @@ import java.util.*;
 		 */
 		public void setLogon(boolean log )
 		{
-			
+			this.logon = log;
 		}
 		
 		/**
@@ -231,9 +259,9 @@ import java.util.*;
 		 * 
 		 * @param String school to remove
 		 */
-		public void removeSchool(String school)
+		public void removeSchool(University school)
 		{
-			
+			this.savedSchools.remove(this.savedSchools.lastIndexOf(school));
 		}
 		
 		
