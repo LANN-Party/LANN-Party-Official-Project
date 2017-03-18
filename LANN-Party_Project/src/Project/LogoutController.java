@@ -7,6 +7,10 @@ package Project;
  */
 public class LogoutController {
 	
+	
+	public LogoutController() {
+		super();
+	}
 	/**
 	 * @param s the student object to be logged out
 	 */
