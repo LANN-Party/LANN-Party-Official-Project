@@ -1,5 +1,7 @@
 package Project;
 
+import java.util.ArrayList;
+
 //github.com/LANN-Party/LANN-Party-Official-Project.git
 /**
  * @author njfloeder
@@ -42,10 +44,10 @@ public class AdminUI {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void editUser(String uName, String fName, String lName, int pWord, 
-char type, char status){
+	public void editUser(String uName, String fName, String lName, String pWord, 
+char type, char status,ArrayList<University> savedSchools){
 		
-		AC.saveChanges( uName,  fName,  lName,  pWord,  type,  status);
+		AC.saveChanges( uName,  fName,  lName,  pWord,  type,  status, savedSchools);
 
 	}
 	
@@ -105,10 +107,10 @@ char type, char status){
 	 * @param status if they are signed in or not
 	 */
 	
-	public void saveChanges(String uName, String fName, String lName, int pWord, 
-			char type, char status){
+	public void saveChanges(String uName, String fName, String lName, String pWord, 
+			char type, char status,ArrayList<University> savedSchools){
 		
-		AC.saveChanges( uName,  fName,  lName,  pWord,  type,  status);
+		AC.saveChanges( uName,  fName,  lName,  pWord,  type,  status, savedSchools);
 	}
 	/**
 	 * lets a school to be edited
@@ -127,13 +129,13 @@ char type, char status){
 	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
 	 * @param emphases, emphases at the school
 	 */   
-	public void editSchool(String state, String name, String location, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
-			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){
-		
-		AC.editSchool( state,  name,  location,  control,  percentF,  SATVerbal,  SATMath,  expenses,  numberOfApp,
-				 percentAdmitted,  academicScale,  qualityOfLiffe,  emphases);
-		
-	}
+	public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
+			double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
+		    int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5){
+				
+				AC.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+			}
 	/**
 	 * confirms the changes were made 
 	 * @return true or false if the changes were made
@@ -160,14 +162,13 @@ char type, char status){
 	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
 	 * @param emphases, emphases at the school
 	 */
-	public void addSchool(String state, String name, String ocation, String control, int percentF, int SATVerbal, int SATMath, int expenses, int numberOfApp,
-			int percentAdmitted, int academicScale, int qualityOfLiffe, String[] emphases){
-			
-		University newU = new University( state,  name,  ocation,  control,  percentF,  SATVerbal,  SATMath,  expenses,  numberOfApp,
-					 percentAdmitted,  academicScale,  qualityOfLiffe,  emphases);
-		
-		AC.saveSchool(newU);		
-	}
+	 public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
+			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
+			   int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
+			  {
+		 		AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+			  }
 	/**
 	 * cancle an action in progress
 	 */
