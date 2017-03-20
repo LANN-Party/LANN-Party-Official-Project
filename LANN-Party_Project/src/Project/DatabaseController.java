@@ -235,16 +235,7 @@ public class DatabaseController {
 		uDBL.university_addUniversityEmphasis(name, emphasis4);
 		uDBL.university_addUniversityEmphasis(name, emphasis5);
 	  }
-	  
-	  /**
-	   * Makes final changes to the specific user's profile   
-	   * 
-	   * @param none
-	   */
-	  public void saveChangesToUser()
-	  {
-	    //what do I save? why again aren't we making the changes as they happen?
-	  }
+
 }
 ////////////////////////////Questions/////////////////////////////////////
 /**
