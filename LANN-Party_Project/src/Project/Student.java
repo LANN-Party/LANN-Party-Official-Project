@@ -266,5 +266,15 @@ import java.util.*;
 				this.savedSchools.remove(index);
 			
 		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return this.getFirstName()+","+this.getLastName()+","+this.getUserName()+","+this.getPassword()
+			+","+this.getType();
+		}
+		
 		
 	}

@@ -165,6 +165,8 @@ public class Admin {
 		}
 		
 		/**
+		 * Constructor for the Admin class
+		 * 
 		 * @param firstName
 		 * @param lastName
 		 * @param userName
@@ -183,4 +185,14 @@ public class Admin {
 			this.status = status;
 			this.logon = false;
 		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return this.getFirstName()+","+this.getLastName()+","+this.getUserName()+","+this.getPassword()
+			+","+this.getType();
+		}
+		
 }
