@@ -10,20 +10,15 @@ import java.util.ArrayList;
  */
 public class AdminUI {
 	
-	private Admin_Controler AC = new Admin_Controler();
-	private LogoutController lc = new LogoutController();
+	private Admin_Controler AC;
+	private LogoutController lc;
 	
-	private boolean u,c;
-	
-	private University svhool;
-	
-	private Object check;
-
 	/**
-	 * constructor
+	 * Constructor, creates an instance of AdminUI
 	 */
 	public AdminUI(){
-		
+		AC = new Admin_Controler();
+		lc = new LogoutController();
 	}
 	
 	/**

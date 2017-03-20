@@ -4,7 +4,7 @@ package Project;
 /**
  * Class defining the object university
  * @author ajmcintyre
- * @version 2/19/17
+ * @version 3/19/17
  * @filename: University.java
  */
 public class University {
