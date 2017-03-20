@@ -15,7 +15,7 @@ public class Search_Controler {
 	 * @param dc
 	 */
 	public Search_Controler() {
-		dc = new DatabaseController("laanp", "laanp", "csci230"); 
+		dc = new DatabaseController("lannp", "lannp", "csci230"); 
 	}
 
 	/**
