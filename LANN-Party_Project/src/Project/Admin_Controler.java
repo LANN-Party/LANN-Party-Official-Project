@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class Admin_Controler {
 
-	public Object[] schools;
 	
 	DatabaseController dc;
 	
