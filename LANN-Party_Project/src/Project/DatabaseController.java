@@ -167,6 +167,11 @@ public class DatabaseController {
 		  return null;
 	  }
 	  
+	  /**
+	   * 
+	   * @param uName username to search for
+	   * @return Admin, the admin object of the name parameter, or null if not found
+	   */
 	  public Admin getAdmin(String uName){
 		  String[][] users = uDBL.user_getUsers();
 		  for(int i =0; i<users.length; i++){
