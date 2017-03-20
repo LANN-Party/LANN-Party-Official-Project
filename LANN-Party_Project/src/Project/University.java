@@ -12,8 +12,8 @@ public class University {
 	 * 
 	 */
 	private String state, name, location, control;
-	private int numOfStudents, percentFemale, SATVerbal, SATMath, expenses, percentFinancialAid,
-	numOfApplicants, percentAdmitted, percentEnrolled, academicScale, socialScale, qualityOfLife;
+	private int numOfStudents, numOfApplicants, academicScale, socialScale, qualityOfLife;
+	private double percentFemale, SATVerbal, SATMath, expenses, percentFinancialAid, percentAdmitted, percentEnrolled;
 	private String[] emphases;
 	
 	/**
@@ -35,9 +35,9 @@ public class University {
 	 * @param qualityOfLife the quality of life rating
 	 * @param emphases the focuses of the school's academics
 	 */
-	public University(String name, String state, String location, String control, int numberOfStudents, int percentFemale, int sATVerbal,
-			int sATMath, int expenses, int percentFinancialAid, int numOfApplicants, int percentAdmitted,
-			int percentEnrolled, int academicScale, int socialScale, int qualityOfLife, String[] emphases) {
+	public University(String name, String state, String location, String control, int numberOfStudents, double percentFemale, double sATVerbal,
+			double sATMath, double expenses, double percentFinancialAid, int numOfApplicants, double percentAdmitted,
+			double percentEnrolled, int academicScale, int socialScale, int qualityOfLife) {
 		super();
 		this.state = state;
 		this.name = name;
@@ -121,7 +121,7 @@ public class University {
 	/**
 	 * @return the percentFemale
 	 */
-	public int getPercentFemale() {
+	public double getPercentFemale() {
 		return percentFemale;
 	}
 
@@ -135,7 +135,7 @@ public class University {
 	/**
 	 * @return the sATVerbal
 	 */
-	public int getSATVerbal() {
+	public double getSATVerbal() {
 		return SATVerbal;
 	}
 
@@ -149,7 +149,7 @@ public class University {
 	/**
 	 * @return the sATMath
 	 */
-	public int getSATMath() {
+	public double getSATMath() {
 		return SATMath;
 	}
 
@@ -163,7 +163,7 @@ public class University {
 	/**
 	 * @return the expenses
 	 */
-	public int getExpenses() {
+	public double getExpenses() {
 		return expenses;
 	}
 
@@ -177,7 +177,7 @@ public class University {
 	/**
 	 * @return the percentFinancialAid
 	 */
-	public int getPercentFinancialAid() {
+	public double getPercentFinancialAid() {
 		return percentFinancialAid;
 	}
 
@@ -219,7 +219,7 @@ public class University {
 	/**
 	 * @return the percentAdmitted
 	 */
-	public int getPercentAdmitted() {
+	public double getPercentAdmitted() {
 		return percentAdmitted;
 	}
 
@@ -233,7 +233,7 @@ public class University {
 	/**
 	 * @return the percentEnrolled
 	 */
-	public int getPercentEnrolled() {
+	public double getPercentEnrolled() {
 		return percentEnrolled;
 	}
 
