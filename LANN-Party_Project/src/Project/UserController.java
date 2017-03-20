@@ -85,6 +85,16 @@ package Project;
 		  }
 		  
 		  /**
+		   * Gets results for name of school
+		   * 
+		   * @param sName : String, 
+		   */
+		  public void searchSchool(String sName)
+		  {
+			  dc.getSchool(sName);
+		  }
+		  
+		  /**
 		   * sends selected school to database to be removes from their profile
 		   * 
 		   * @param uName : String, name of user
@@ -113,14 +123,25 @@ package Project;
 		  */
 		  
 		  /**
+		   * Shows the given school's information to the user
+		   * 
+		   * @param sName : String, name of school
+		   */
+		  public void displaySchool(String sName) 
+		  {
+			  dc.getSchool(sName);
+		  }
+		  
+		  
+		  /**
 		   * Adds the given object to the user's list of saved schools through DatabaseController
 		   * 
-		   * @param university; University, the university selected by the user that will be saved in the
-		   * 								user's profile
+		   * @param uName : String, name of student to save school to
+	       * @param schoolName : String, name of school to add
 		   */
-		  public void saveSchool (University university)
+		  public void saveSchool (String uName, String schoolName)
 		  {
-			dc.saveSchool(university);
+			dc.saveSchool(uName, schoolName);
 		  }
 		  
 		  /**

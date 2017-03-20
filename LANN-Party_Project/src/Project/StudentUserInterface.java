@@ -11,7 +11,7 @@ package Project;
   */
 public class StudentUserInterface {
 	
-	UserController uc = new UserController():
+	UserController uc = new UserController();
 	//Data fields
 	/**confirmation from user*/
 	boolean confirm;
@@ -34,11 +34,11 @@ public class StudentUserInterface {
 	/**
 	 * calls UserController to display the user's saved schools
 	 * 
-	 * @param none
+	 * @param uName : String, user name of student to get saved schools from
 	 */
-	public void viewSavedSchools()
+	public void viewSavedSchools(String uName)
 	{
-		uc.displaySavedSchools();
+		uc.displaySavedSchools(uName);
 	}
 	
 	/**
@@ -52,8 +52,7 @@ public class StudentUserInterface {
 	 * @param type; char, type of user (Admin or Student)
 	 * @param status; char, whether or not the user is logged (will never be changed here)
 	 */
-	public void editInfo(String uName, String fName, String lName, 
-			String pWord, char type, char status)
+	public void editInfo(String uName, String fName, String lName, String pWord, char type, char status)
 	{
 		uc.editInfo(uName, fName, lName, pWord, type, status);
 	}
@@ -65,19 +64,21 @@ public class StudentUserInterface {
 	 */
 	public void viewSchool(String sName)
 	{
-
+		uc.displaySchool(sName);
 	}
 	
 	/**
 	 * removes selected school from the Student user's profile
 	 * 
-	 * @param university: University, school to remove from saved list
+	 * @param uName : String, name of student to save school to
+	 * @param schoolName : String, name of school to add
 	 */
-	public void removeSchool(University university)
+	public void removeSchool(String uName, String sName)
 	{
-		uc.removeSchool(university);
+		uc.removeSchool(uName, sName);
 	}
 	
+	/*
 	/**
 	 * Gets confirmation from user to delete selected school
 	 * 
@@ -98,7 +99,7 @@ public class StudentUserInterface {
 	public void searchSchool(String name)
 	{
 		//TODO: access search controller and give  list of schools
-		
+		uc.searchSchool(name);
 	}
 	
 	/**
