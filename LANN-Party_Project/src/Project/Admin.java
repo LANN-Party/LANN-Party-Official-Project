@@ -136,6 +136,7 @@ public class Admin {
 		public char getStatus() {
 			return this.status;
 		}
+		
 
 		/**
 		 * sets the admin's session status

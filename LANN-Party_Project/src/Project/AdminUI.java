@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class AdminUI {
 	
 	private Admin_Controler AC = new Admin_Controler();
+	private LogoutController lc = new LogoutController();
 	
 	private boolean u,c;
 	
@@ -169,8 +170,8 @@ char type, char status){
 	/**
 	 * lets you logout from the current screen
 	 */
-	public void logout(){
-		
+	public void logout(Admin uName){
+		lc.adminLogout(uName);
 		
 	}
 	
