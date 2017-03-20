@@ -15,7 +15,10 @@ public class Admin_Controler {
 	public Object[] schools;
 	
 	DatabaseController dc;
+	
 	/**
+	 * creates a Admin_Controller
+	 * 
 	 * @param schools
 	 */
 	public Admin_Controler() {
@@ -24,8 +27,7 @@ public class Admin_Controler {
 	/**
 	 * displays the Admin's profile
 	 * 
-	 * 
-	 * 
+	 * @param myName name of admin to display their profile
 	 */
 	public void displayProfile(String myName){
 		System.out.println(dc.getUser(myName).toString());
