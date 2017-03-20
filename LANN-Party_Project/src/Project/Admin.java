@@ -195,8 +195,7 @@ public class Admin {
 		 * @param status
 		 * @param logon
 		 */
-		public Admin(String firstName, String lastName, String userName, String password, char type, char status,
-				boolean logon) {
+		public Admin(String firstName, String lastName, String userName, String password, char type, char status) {
 			super();
 			this.firstName = firstName;
 			this.lastName = lastName;
@@ -204,7 +203,7 @@ public class Admin {
 			this.password = password;
 			this.type = type;
 			this.status = status;
-			this.logon = logon;
+			this.logon = false;
 		}
 
 		/**

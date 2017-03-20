@@ -30,20 +30,54 @@ public class DatabaseController {
 	
 	
 	
-	public DatabaseController() {
-		uDBL = new UniversityDBLibrary(String lannp, String lannp, String csci230);
+	public DatabaseController(String lannp, String lannp, String csci230) {
+		uDBL = new UniversityDBLibrary(lannp, lannp, csci230);
 	}
 	  
-	  /**
-	   * Returns a 2D array list of all the Users
-	   * 
-	   * @param none
-	   */
-	  public String[][] getUsers()
+	/**
+	 * gets an arraylist of all the students in the database
+	 * 
+	 * @return ArrayList<Student> of all students in the database
+	 */
+	  public ArrayList<Student> getStudents()
 	  {
 		//TODO: return information of all users in the database in list form ordered by user name alphabetically
-		return uDBL.user_getUser();
-	    //return null;
+		String[][] users =  uDBL.user_getUsers();
+		String[][] userSchools = uDBL.user_getUsernamesWithSavedSchools();
+		ArrayList<String> schools = new ArrayList<String>();
+		ArrayList<Student> students = new ArrayList<Student>();
+		
+		for(int i = 0; i<users.length; i++){
+			schools.clear();
+			if(users[i][4].charAt(0) == 'u'){
+				for(int j = 0; j<userSchools[i].length; j++){
+					String name = userSchools[i][j];
+
+					schools.add(name);
+				}
+				Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+				students.add(s);
+			}
+		}
+	    return students;
+	  }
+	  
+	  /**
+	   * 
+	   * @return ArrayList<Admin> of all the admins in the database
+	   */
+	  public ArrayList<Admin> getAdmins(){
+		  
+		  ArrayList<Admin> admins = new ArrayList<Admin>();
+		  String[][] users =  uDBL.user_getUsers();
+		  
+		  for(int i = 0; i<users.length; i++){
+			  if(users[i][4].charAt(0) == 'a'){
+				  Admin s = new Admin(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0));
+				  admins.add(s);
+			  }
+		  }
+		  return admins;
 	  }
 	  
 	  /**

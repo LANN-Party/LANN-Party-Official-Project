@@ -36,11 +36,11 @@ import java.util.*;
 		private char status;
 		
 		//Data fields
-			/**The Student's Saved Schools (String[])
-			 * currently a String[] due to unknown variable
+			/**The Student's Saved Schools (ArrayList<String>)
+			 * currently a ArrayList<String> due to unknown variable
 			 * type as of 2/26/17
 			 * please change later */
-		private ArrayList<University> savedSchools;
+		private ArrayList<String> savedSchools;
 		
 		//Data fields
 			/**The Student's logon status (Boolean)*/
@@ -59,7 +59,7 @@ import java.util.*;
 				 * @param logon
 				 */
 		public Student(String firstName, String lastName, String userName, String password, char type, char status,
-				ArrayList<University> savedSchools) {
+				ArrayList<String> savedSchools) {
 					super();
 					this.firstName = firstName;
 					this.lastName = lastName;
@@ -193,7 +193,7 @@ import java.util.*;
 		 * 
 		 * @returns firstName
 		 */
-		public ArrayList<University> getSavedSchools()
+		public ArrayList<String> getSavedSchools()
 		{
 			return this.savedSchools;
 		}
@@ -201,9 +201,9 @@ import java.util.*;
 		/**
 		 * Sets the Student's saved schools
 		 * 
-		 * @param ArrayList<University> list of saved schools
+		 * @param ArrayList<String> list of saved schools
 		 */
-		public void setSavedSchools(ArrayList<University> schools)
+		public void setSavedSchools(ArrayList<String> schools)
 		{
 			this.savedSchools = schools;
 		}
@@ -213,7 +213,7 @@ import java.util.*;
 		 * 
 		 * @param String school to add
 		 */
-		public void addSchool(University school)
+		public void addSchool(String school)
 		{
 			this.savedSchools.add(school);
 		}
