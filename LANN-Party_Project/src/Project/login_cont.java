@@ -10,7 +10,11 @@ import java.util.*;
  *
  */
 public class login_cont {
-	DatabaseController dc = new DatabaseController("laanp", "laanp", "csci230");
+	DatabaseController dc;
+	
+	public login_cont(){
+		dc = new DatabaseController("lannp", "lannp", "csci230");
+	}
 	/**
 	 * Logs the user in
 	 * 
