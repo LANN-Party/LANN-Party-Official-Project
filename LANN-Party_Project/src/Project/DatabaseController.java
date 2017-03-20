@@ -18,8 +18,6 @@ public class DatabaseController {
 	
 	private UniversityDBLibrary uDBL;
 	
-	
-	
 	  //Data fields
 	   /**All schools in the database (ArrayList)*/
 	  //ArrayList<schools>;
@@ -30,8 +28,8 @@ public class DatabaseController {
 	
 	
 	
-	public DatabaseController(String lannp, String lannp, String csci230) {
-		uDBL = new UniversityDBLibrary(lannp, lannp, csci230);
+	public DatabaseController(String dataBase, String uName, String pWord){
+		uDBL = new UniversityDBLibrary(dataBase, uName, pWord);
 	}
 	  
 	/**
