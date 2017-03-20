@@ -93,25 +93,10 @@ char type, char status,ArrayList<University> savedSchools){
 	/**
 	 * lets you veiw one selected school from screen
 	 */
-	public void viewSchool(){
-		AC.displaySchool();
+	public void viewSchool(String uName){
+		AC.displaySchool(uName);
 	}
-	/**
-	 * saves changes made with a user
-	 * 
-	  * @param uName username of user
-	 * @param fName first name of user
-	 * @param lName last name of user
-	 * @param pWord password for user to log in 
-	 * @param type either a user is admin or student
-	 * @param status if they are signed in or not
-	 */
-	
-	public void saveChanges(String uName, String fName, String lName, String pWord, 
-			char type, char status,ArrayList<University> savedSchools){
-		
-		AC.saveChanges( uName,  fName,  lName,  pWord,  type,  status, savedSchools);
-	}
+
 	/**
 	 * lets a school to be edited
 	 * 

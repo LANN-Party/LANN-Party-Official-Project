@@ -76,7 +76,7 @@ public class Search_Controler {
 			
 		}
 		
-		return null;
+		return inRange;
 	
 	}
 	
@@ -87,7 +87,11 @@ public class Search_Controler {
 	 * 
 	 */
 	public void viewSchool(String uName){
-	System.out.println(dc.getSchool(uName));
+		ArrayList<Double> vectors = new ArrayList();
+		University selected = dc.getSchool(uName);
+		for(University x; dc.getSchools()){
+			double vector = Math.abs(
+		}
 	}
 }
 
