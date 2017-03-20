@@ -85,9 +85,10 @@ package Project;
 		  /**
 		   * sends selected school to database to be removes from their profile
 		   * 
-		   * @param university: University, chosen to be removed
+		   * @param uName : String, name of user
+		   * @param school : name of school to remove
 		   */
-		  public void removeSchool(University university)
+		  public void removeSchool(String uName, String school)
 		  {
 		    //TODO: when this button is clicked, call removeConfirmed
 			  dc.removeSavedSchool(university);
@@ -110,14 +111,14 @@ package Project;
 		  */
 		  
 		  /**
-		   * Stores selected school in the Student user's profile
+		   * Adds the given object to the user's list of saved schools through DatabaseController
 		   * 
 		   * @param university; University, the university selected by the user that will be saved in the
 		   * 								user's profile
 		   */
 		  public void saveSchool (University university)
 		  {
-		    //TODO: add the given object to the user's list of saved schools in database?
+		    //TODO: 
 			dc.saveSchool(university);
 		  }
 		  

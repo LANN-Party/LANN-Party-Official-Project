@@ -1,5 +1,9 @@
 package Project;
+
 import java.util.*;
+
+import dblibrary.project.csci230.*;
+
  /**
   * FileName: DatabaseController.java
   */
@@ -11,7 +15,9 @@ import java.util.*;
   *
   */
 public class DatabaseController {
-	  
+	
+	UniversityDBLibrary uDBL = new UniversityDBLibrary();
+	
 	  //Data fields
 	   /**All schools in the database (ArrayList)*/
 	  //ArrayList<schools>;
@@ -21,19 +27,21 @@ public class DatabaseController {
 	  //ArrayList<users>;
 	
 	
+	
 	public DatabaseController() {
 		super();
 	}
 	  
 	  /**
-	   * Displays all users in the database  
+	   * Returns a 2D array list of all the Users
 	   * 
 	   * @param none
 	   */
-	  public Student getUsers()
+	  public String[][] getUsers()
 	  {
 		//TODO: return information of all users in the database in list form ordered by user name alphabetically
-	    return null;
+		return uDBL.user_getUser();
+	    //return null;
 	  }
 	  
 	  /**
@@ -50,6 +58,7 @@ public class DatabaseController {
 	  public void addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
 		//TODO: using the information given to it, 
+		uDBL.user_addUser(fName, lName, uName, pWord, type);
 	  }
 	  
 	  /**
@@ -60,6 +69,7 @@ public class DatabaseController {
 	  public void deleteUser(String uName)
 	  {
 	    //TODO: using the user name of the User object given, delete the object from the database
+		uDBL.user_deleteUser(uName);
 	  }
 	  
 	  /**
@@ -67,29 +77,32 @@ public class DatabaseController {
 	   * 
 	   * @param university : University, the university to remove from database
 	   */
-	  public void removeSchool(University university)
+	  public void removeSchool(String name)
 	  {
-	    //TODO: using the name of the University given, delete the object from the database
+		uDBL.university_deleteUniversity(name);
 	  }
 	  
 	  /**
 	   * Removes the object from the user's saved school list
 	   * 
-	   * @param university, University, school to remove 
+	   * @param uName : String, name of the User whose saved list the school will be removed from
+	   * @param schoolName : String, name of the university 
 	   */
-	  public void removeSavedSchool(University university)
+	  public void removeSavedSchool(String uName, String schoolName)
 	  {
-		  
+		uDBL.user_removeSchool(uName, schoolName);
 	  }
 	  
 	  /**
 	   * Saves school and it's information to database   
 	   * 
-	   * @param university : University, the university to save to database
+	   * @param uName : String, name of student to save school to
+	   * @param schoolName : String, name of school to add
 	   */
-	  public void saveSchool(University university)
+	  public void saveSchool(String uName, String schoolName)
 	  {
 	    //TODO: using the University object given to it, add it to the DBL
+		uDBL.user_saveSchool(uName, schoolName);
 	  }
 	  
 	  /**
@@ -131,14 +144,16 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Gets school's information  
+	   * Gets an array list of all the schools from DBL 
 	   * 
 	   * @param university: University, university to get schools for???
 	   */
-	  public University getSchools()
+	  public String[][] getSchools()
 	  {
 		 //TODO: return whole string of University objects
-	     return null;
+		 //uDBL.university_getUniversities();
+		 return uDBL.university_getUniversities();
+	     //return null;
 	  }
 	  
 	  /**
@@ -171,13 +186,14 @@ public class DatabaseController {
 		double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	    int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
-	  {                       
-	    //TODO: use name to getSchool() from DBL?
-		//TODO: set its information??
+	  {                         
+		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
+		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		//something with emphasisess??
 	  }
 	  
 	  /**
-	   * Adds new school to the database and using all inputs, create a new University object
+	   * Adds new school to the UniversityDBLibrary and using all inputs, create a new University object
 	   * 
 	   * @param name : String, name of the University object
 	   * @param state : String, the school's state
@@ -207,6 +223,13 @@ public class DatabaseController {
 	   int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
 	  {
 		//TODO: create University object and add it to the list of Universities in DBL
+		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
+				expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		uDBL.university_addUniversityEmphasis(name, emphasis1);
+		uDBL.university_addUniversityEmphasis(name, emphasis2);
+		uDBL.university_addUniversityEmphasis(name, emphasis3);
+		uDBL.university_addUniversityEmphasis(name, emphasis4);
+		uDBL.university_addUniversityEmphasis(name, emphasis5);
 	  }
 	  
 	  /**
