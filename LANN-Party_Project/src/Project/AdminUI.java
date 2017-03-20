@@ -47,7 +47,7 @@ public class AdminUI {
 	public void editUser(String uName, String fName, String lName, String pWord, 
 char type, char status,ArrayList<University> savedSchools){
 		
-		AC.saveChanges( uName,  fName,  lName,  pWord,  type,  status, savedSchools);
+		
 
 	}
 	
