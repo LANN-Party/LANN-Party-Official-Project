@@ -13,35 +13,30 @@ public class Admin_Controler {
 
 	public Object[] schools;
 	
-	DatabaseController dc = new DatabaseController();
+	DatabaseController dc;
 	/**
 	 * @param schools
 	 */
 	public Admin_Controler() {
-		super();
+		dc = new DatabaseController("lannp","lannp","csci230");
 	}
 	/**
-	 * displays the users profile
+	 * displays the Admin's profile
 	 * 
 	 * 
 	 * 
 	 */
-	public void displayProfile(){
-		
+	public void displayProfile(String myName){
+		System.out.println(dc.getUser(myName).toString());
 	}
 	/**
 	 * displays users info
 	 * 
 	  * @param uName username of user
-	 * @param fName first name of user
-	 * @param lName last name of user
-	 * @param pWord password for user to log in 
-	 * @param type either a user is admin or student
-	 * @param status if they are signed in or not
 	 */
-	public void displayInfo(String uName, String fName, String lName, int pWord, char type, char status){
+	public void displayInfo(String uName){
 		
-		System.out.println(uName+ " " + fName + " " + lName + " "+ pWord +" " + type+ " " + status);
+		System.out.println(dc.getUser(uName).toString());
 	}
 
 	
@@ -71,11 +66,12 @@ public class Admin_Controler {
 	 * @param status if they are signed in or not
 	 */
 	public void editUser(String uName, String fName, String lName, String pWord, 
-char type, char status,ArrayList<University> savedSchools){
+char type, char status){
 		
-		dc
+		dc.editUser(uName, fName, lName, pWord, type, status);
 
 	}
+	//TODO: ? do we needs this?
 	/**
 	 * checks the users username
 	 * 
@@ -94,7 +90,7 @@ char type, char status,ArrayList<University> savedSchools){
 	 * @param uName
 	 */
 	public void deleteUser(String uName){
-		
+		dc.deleteUser(uName);
 	}
 	/**
 	 * displays a school
@@ -138,9 +134,9 @@ char type, char status,ArrayList<University> savedSchools){
 	 public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
 			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
-			   int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
+			   int qualOfLife)
 			  {
-		 		dc.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+		 		dc.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
 	/**
 	 * gets a university
@@ -151,6 +147,27 @@ char type, char status,ArrayList<University> savedSchools){
 		
 		return dc.getSchool(uName);
 	}
+	
+	/**
+	 * Adds a emphasis to the university
+	 * 
+	 * @param school, university to select
+	 * @param emph, a new emphasis
+	 */
+	public void addEmphasis(String school, String emph){
+		dc.addEmphasis(school, emph);
+	}
+	
+	/**
+	 * Adds a emphasis to the university
+	 * 
+	 * @param school, university to select
+	 * @param emph, a new emphasis
+	 */
+	public void removeEmphasis(String school, String emph){
+		dc.removeEmphasis(school, emph);
+	}
+	
 	/**
 	 * allows admin to edit a university
 	 * 
@@ -168,11 +185,13 @@ char type, char status,ArrayList<University> savedSchools){
 	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
 	 * @param emphases, emphases at the school
 	 */
+	
+	
 	public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
 	double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 	double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
-    int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5){
+    int qualOfLife){
 		
-		dc.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+		dc.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 	}
 }
