@@ -48,8 +48,9 @@ package Project;
 		  {
 		    //TODO: displays the user's information with text boxes to enter or change previous information
 			//TODO: if user selects the option to "Save Changes" call confirmSaveChanges
+			dc.editUser(uName, fName, lName, pWord, type, status);
 		  }
-		  
+		  /*
 		  /**
 		   * Saves new user info given to the specific Student's profile
 		   * 
@@ -68,6 +69,7 @@ package Project;
 			//TODO: if user clicks cancel, call cancel() in StudentUserInterface
 		  }
 		  */
+
 		  /**
 		   * Displays schools saved to the specific Student user's
 		   * profile
@@ -93,7 +95,7 @@ package Project;
 		    //TODO: when this button is clicked, call removeConfirmed
 			  dc.removeSavedSchool(university);
 		  }
-		  
+		  /*
 		  /**
 		   * Send confirmation message to Student user asking
 		   * whether they confirm their removal request
@@ -118,7 +120,6 @@ package Project;
 		   */
 		  public void saveSchool (University university)
 		  {
-		    //TODO: 
 			dc.saveSchool(university);
 		  }
 		  

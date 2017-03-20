@@ -61,11 +61,11 @@ public class StudentUserInterface {
 	/**
 	 * displays information of selected school
 	 * 
-	 * @param none
+	 * @param sName : String, school name
 	 */
-	public void viewSchool()
+	public void viewSchool(String sName)
 	{
-		///////search controller call?////////
+
 	}
 	
 	/**
