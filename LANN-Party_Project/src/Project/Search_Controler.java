@@ -24,54 +24,53 @@ public class Search_Controler {
 		
 		
 		ArrayList<University> inRange = new ArrayList();
-		String[][] schhools = dc.getSchools();
-		for(String x; schools){
-			if(.getName().contains(schoolName)){
-				inRange.add(      );
+		for(University x; dc.getSchools()){
+			if(x.getName().contains(schoolName)){
+				inRange.add(x);
 			}
-			else if(getState().contains(state)){
-				inRange.add(      );
+			else if(x.getState().contains(state)){
+				inRange.add(x);
 			}
-			else if(.getLocation.equals(location)){
-				inRange.add(      );
+			else if(x.getLocation().equals(location)){
+				inRange.add(x);
 			}
-			else if(.getControl().equals(control)){
-				inRange.add(      );
+			else if(x.getControl().equals(control)){
+				inRange.add(x);
 			}
-			else if(.getSatVerbal()<=satVerbH && .getSatVerbal()>=satVerbL){
-				inRange.add(      );
+			else if(x.getSATVerbal()<=satVerbH && x.getSATVerbal()>=satVerbL){
+				inRange.add(x);
 			}
-			else if(.getSatMath()<=satMathH && .getSatMath()>=satMathL){
-				inRange.add(      );
+			else if(x.getSATMath()<=satMathH && x.getSATMath()>=satMathL){
+				inRange.add(x);
 			}
-			else if(.getExpenses()<=expensesH && .getExpenses()>=expensesL){
-				inRange.add(      );
+			else if(x.getExpenses()<=expensesH && x.getExpenses()>=expensesL){
+				inRange.add(x);
 			}
-			else if(.getPercentFinancialAid()<=percFinacialH && .getPercentFinancialAid()<=percFinacialL){
-				inRange.add(      );
+			else if(x.getPercentFinancialAid()<=percFinacialH && x.getPercentFinancialAid()<=percFinacialL){
+				inRange.add(x);
 			}
-			else if(.getNumOfApplicants()<=numberAppsH && .getNumOfApplicants()>=numberAppsL){
-				inRange.add(      );
+			else if(x.getNumOfApplicants()<=numberAppsH && x.getNumOfApplicants()>=numberAppsL){
+				inRange.add(x);
 			}
-			else if(<=percAdmittedH && >=percAdmittedL){
-				inRange.add(      );
+			else if(x.getPercentAdmitted()<=percAdmittedH && x.getPercentAdmitted()>=percAdmittedL){
+				inRange.add(x);
 			}
-			else if(<=percEnrolledH && >=percEnrolledL){
-				inRange.add(      );
+			else if(x.getPercentEnrolled()<=percEnrolledH && x.getPercentEnrolled()>=percEnrolledL){
+				inRange.add(x);
 			}
-			else if(<=acdemScaleH && >=acdemScaleL){
-				inRange.add(      );
+			else if(x.getAcademicScale()<=acdemScaleH && x.getAcademicScale()>=acdemScaleL){
+				inRange.add(x);
 			}
-			else if(<=socialscaleH && >=socialscaleL){
-				inRange.add(      );
+			else if(x.getSocialScale()<=socialscaleH && x.getSocialScale()>=socialscaleL){
+				inRange.add(x);
 			}
-			else if(<=qualityLifeH && >=qualityLifeL){
-				inRange.add(      );
+			else if(x.getQualityOfLife()<=qualityLifeH && x.getQualityOfLife()>=qualityLifeL){
+				inRange.add(x);
 			}
 			else{
-				for(){
-					if(.equals(emph1)||.equals(emph2) || .equals(emph3) || .equals(emph4) || .equals(emph5))
-						inRange.add(      );
+				for(String s; x.getEmphases()){
+					if(s.equals(emph1)||s.equals(emph2) || s.equals(emph3) || s.equals(emph4) || s.equals(emph5))
+						inRange.add(x);
 				}
 			}
 			
