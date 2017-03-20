@@ -6,7 +6,7 @@ package Project;
  /**
   * Class dedicated to users who are Students
   * @author Noah Hynes-Marquette
-  * @version 2/25/2017
+  * @version 3/20/2017
   *
   */
 	public class UserController {
@@ -18,7 +18,7 @@ package Project;
 		
 		  
 		public UserController() {
-			dc = new DatabaseController();
+			dc = new DatabaseController("lannp", "lannp", "csci230");
 			lc = new LogoutController();
 		}
 		  
@@ -146,14 +146,15 @@ package Project;
 		  }
 		  
 		  /**
-		   * Unsets user (and saves changes??)
+		   * Unsets user
 		   * 
-		   * @param none
+		   * @param uName : String, user name of Student to log off
 		   */
-		  public void logout()
+		  public void logout(String uName)
 		  {
 			//send call to logout controller
-			lc.studentLogout();
+			
+			lc.studentLogout(dc.getUser(uName));
 		  }
 	
 	}
