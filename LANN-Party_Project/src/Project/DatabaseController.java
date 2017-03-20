@@ -16,7 +16,9 @@ import dblibrary.project.csci230.*;
   */
 public class DatabaseController {
 	
-	UniversityDBLibrary uDBL = new UniversityDBLibrary(String lannp, String lannp, String csci230);
+	private UniversityDBLibrary uDBL;
+	
+	
 	
 	  //Data fields
 	   /**All schools in the database (ArrayList)*/
@@ -29,7 +31,7 @@ public class DatabaseController {
 	
 	
 	public DatabaseController() {
-		super();
+		uDBL = new UniversityDBLibrary(String lannp, String lannp, String csci230);
 	}
 	  
 	  /**
@@ -234,16 +236,7 @@ public class DatabaseController {
 		uDBL.university_addUniversityEmphasis(name, emphasis4);
 		uDBL.university_addUniversityEmphasis(name, emphasis5);
 	  }
-	  
-	  /**
-	   * Makes final changes to the specific user's profile   
-	   * 
-	   * @param none
-	   */
-	  public void saveChangesToUser()
-	  {
-	    //what do I save? why again aren't we making the changes as they happen?
-	  }
+
 }
 ////////////////////////////Questions/////////////////////////////////////
 /**
