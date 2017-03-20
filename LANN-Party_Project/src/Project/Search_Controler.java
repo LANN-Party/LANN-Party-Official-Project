@@ -6,9 +6,7 @@ import java.util.*;
  */
 public class Search_Controler {
 
-	private University school;
-	private ArrayList<University> schools;
-	private DatabaseController dc = new DatabaseController(); 
+	private DatabaseController dc = new DatabaseController("laanp", "laanp", "csci230"); 
 	
 	/**
 	 * this method gets related schools from a user search school name
@@ -23,8 +21,8 @@ public class Search_Controler {
 								String emph1,String emph2,String emph3,String emph4,String emph5){
 		
 		
-		ArrayList<University> inRange = new ArrayList();
-		for(University x; dc.getSchools()){
+		ArrayList<University> inRange = new ArrayList<University>();
+		for(University x : dc.getSchools()){
 			if(x.getName().contains(schoolName)){
 				inRange.add(x);
 			}
@@ -68,7 +66,7 @@ public class Search_Controler {
 				inRange.add(x);
 			}
 			else{
-				for(String s; x.getEmphases()){
+				for(String s : x.getEmphases()){
 					if(s.equals(emph1)||s.equals(emph2) || s.equals(emph3) || s.equals(emph4) || s.equals(emph5))
 						inRange.add(x);
 				}
@@ -90,11 +88,11 @@ public class Search_Controler {
 		//list of all vectors and thier uni
 		HashMap<Double,University> vectors = new HashMap<>();
 		//list to hold top5 uni and to be returned
-		ArrayList<University> top5 = new ArrayList();
+		ArrayList<University> top5 = new ArrayList<University>();
 		//the uni the user has selected from search results
 		University selected = dc.getSchool(uName);
 		//the current vector being calculated
-		Double vector;
+		Double vector =0.0;
 		//a list of all the schools
 		ArrayList<University> schools = dc.getSchools();
 		//the calulation of the vector that is complete
@@ -180,14 +178,14 @@ public class Search_Controler {
 				}
 			}
 			
-			vectors.add(vector,x);
+			vectors.put(vector,x);
 			//where you now select
 			//can sort vectors and grab the top 5 from there or just find the top 5 lowest instead of sorting right away
 			
 			
 		
 			}
-		
+		return top5;
 	}
 }
 

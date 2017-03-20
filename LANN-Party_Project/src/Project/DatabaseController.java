@@ -143,6 +143,7 @@ public class DatabaseController {
 	   * Gets selected user's information   
 	   * 
 	   * @param uName : String, the user name of the user to get information on
+	   * @return Student object of student if found, null if not.
 	   */
 	  public Student getUser(String uName)
 	  {
@@ -163,6 +164,7 @@ public class DatabaseController {
 				  return s;
 			  }
 		  }
+		  return null;
 	  }
 	  
 	  /**
@@ -173,14 +175,16 @@ public class DatabaseController {
 	  public University getSchool(String name)
 	  {
 		  String[][] s = uDBL.university_getUniversities();
-		  	ArrayList<University> universities = new ArrayList<University>();
 			 
-			for(int i=0; i<s.length; i++){
-				University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
+		  for(int i=0; i<s.length; i++){
+			  if(s[i][0]==name){
+				  University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
 						 Double.parseDouble(s[i][7]), Double.parseDouble(s[i][8]), Double.parseDouble(s[i][9]), Integer.parseInt(s[i][10]), Double.parseDouble(s[i][11]),
 						 Double.parseDouble(s[i][12]), Integer.parseInt(s[i][13]), Integer.parseInt(s[i][14]), Integer.parseInt(s[i][15]));
-				return u;
-			}
+				  return u;
+			  }
+		  }
+		  return null;
 	  }
 	  
 	  /**
