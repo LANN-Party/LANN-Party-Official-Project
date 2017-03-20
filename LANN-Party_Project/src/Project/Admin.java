@@ -162,6 +162,60 @@ public class Admin {
 		 */
 		public void setLogon(boolean logon) {
 			this.logon = logon;
+		}
+		/**
+		 * Edits a user based on information given
+		 * 
+		 * @param String uName, fName, lName, pWord
+		 * @param char Type, Stat
+		 */
+		public void editUser(String uName, String fName, 
+				String lName, String pWord, char type, char status)
+		{
+			
+		}
+		
+		/**
+		 * asks the Admin whether they want to confirm the
+		 * changes they made
+		 * 
+		 * @returns boolean
+		 */
+		public void confirmChanges() {
+			
+		}
+		
+		/**
+		 * @param firstName
+		 * @param lastName
+		 * @param userName
+		 * @param password
+		 * @param type
+		 * @param status
+		 * @param logon
+		 */
+		public Admin(String firstName, String lastName, String userName, String password, char type, char status,
+				boolean logon) {
+			super();
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.userName = userName;
+			this.password = password;
+			this.type = type;
+			this.status = status;
+			this.logon = logon;
+		}
+
+		/**
+		 * Saves changes to a user
+		 * 
+		 * @param String uName, fName, lName, pWord
+		 * @param char Type, Stat
+		 */
+		public void saveChanges(String uName, String fName, 
+				String lName, String pWord, char type, char status)
+		{
+			
 		}	
 	
 }
