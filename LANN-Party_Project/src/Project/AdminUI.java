@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * @author njfloeder
  *
- *
+ * @version 3/20/2017
  *
  */
 public class AdminUI {
@@ -29,11 +29,11 @@ public class AdminUI {
 	/**
 	 * views all users
 	 */
-	public void viewusers(){
-		
-		AC.displayProfile();
-		
+	public void viewusers()
+	{	
+		AC.viewUsers();
 	}
+	
 	/**
 	 * allows admin to edit a user from their information
 	 * 
@@ -45,9 +45,9 @@ public class AdminUI {
 	 * @param status if they are signed in or not
 	 */
 	public void editUser(String uName, String fName, String lName, String pWord, 
-char type, char status,ArrayList<University> savedSchools){
+char type, char status){
 		
-		
+		AC.editUser(uName, fName, lName, pWord, type, status);
 
 	}
 	
@@ -86,9 +86,11 @@ char type, char status,ArrayList<University> savedSchools){
 	
 	/**
 	 * lets you veiw a selected user from screen 
+	 * 
+	 * @param uName : String, user name of user profile to view
 	 */
-	public void veiwUser(){
-		AC.displayProfile();
+	public void veiwUser(String uName){
+		AC.displayProfile(uName);
 	}
 	/**
 	 * lets you veiw one selected school from screen
@@ -117,9 +119,9 @@ char type, char status,ArrayList<University> savedSchools){
 	public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
 			double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 			double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
-		    int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5){
+		    int qualOfLife){
 				
-				AC.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+				AC.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			}
 	/**
 	 * confirms the changes were made 
@@ -150,17 +152,20 @@ char type, char status,ArrayList<University> savedSchools){
 	 public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
 			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
-			   int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
+			   int qualOfLife)
 			  {
-		 		AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
+		 		AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
+	 /*IGNORE for phase 2
 	/**
 	 * cancle an action in progress
 	 */
+	 /*
 	public void cancel(){
 	
 		
 	}
+	*/
 	/**
 	 * lets you logout from the current screen
 	 */

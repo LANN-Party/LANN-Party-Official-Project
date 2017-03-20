@@ -30,6 +30,10 @@ public class Admin_Controler {
 	public void displayProfile(String myName){
 		System.out.println(dc.getUser(myName).toString());
 	}
+	
+	public void viewUsers(){
+		System.out.println(dc.getStudents().toString());
+	}
 	/**
 	 * displays users info
 	 * 
