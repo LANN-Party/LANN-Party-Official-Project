@@ -16,7 +16,7 @@ import dblibrary.project.csci230.*;
   */
 public class DatabaseController {
 	
-	UniversityDBLibrary uDBL = new UniversityDBLibrary();
+	UniversityDBLibrary uDBL = new UniversityDBLibrary(lannp, lannp, csci230);
 	
 	  //Data fields
 	   /**All schools in the database (ArrayList)*/
@@ -113,6 +113,7 @@ public class DatabaseController {
 	  public Student getUser(String uName)
 	  {
 		//TODO: search DatabaseLibrary(DBL) to find if User object exists
+		uDBL.user_getUser();
 		//TODO: if the User is found, return the User object
 		//TODO: if the User is not found, return null
 	    return null;
@@ -128,6 +129,7 @@ public class DatabaseController {
 		//TODO: search DatabaseLibrary(DBL) to find if University object exists
 		//TODO: if the University is found, return the University object
 	    //TODO: if the University is not found, return null
+		uDBL.university_getUniversities();
 	    return null;
 	  }
 	  
