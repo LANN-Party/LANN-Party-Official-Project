@@ -6,8 +6,17 @@ import java.util.*;
  */
 public class Search_Controler {
 
-	private DatabaseController dc = new DatabaseController("laanp", "laanp", "csci230"); 
+	private DatabaseController dc;
 	
+	
+	
+	/**
+	 * @param dc
+	 */
+	public Search_Controler() {
+		dc = new DatabaseController("laanp", "laanp", "csci230"); 
+	}
+
 	/**
 	 * this method gets related schools from a user search school name
 	 * @param name, name of user
@@ -86,7 +95,7 @@ public class Search_Controler {
 	 */
 	public ArrayList<University> viewSchool(String uName){
 		//list of all vectors and thier uni
-		HashMap<Double,University> vectors = new HashMap<>();
+		TreeMap<Double,University> vectors = new TreeMap<>();
 		//list to hold top5 uni and to be returned
 		ArrayList<University> top5 = new ArrayList<University>();
 		//the uni the user has selected from search results
@@ -185,6 +194,9 @@ public class Search_Controler {
 			
 		
 			}
+		for(int i=0; i<5; i++){
+			top5.add(vectors.get(vectors.pollFirstEntry()));
+		}
 		return top5;
 	}
 }
