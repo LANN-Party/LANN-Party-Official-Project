@@ -167,6 +167,17 @@ public class DatabaseController {
 		  return null;
 	  }
 	  
+	  public Admin getAdmin(String uName){
+		  String[][] users = uDBL.user_getUsers();
+		  for(int i =0; i<users.length; i++){
+			  if(users[i][0] == uName){
+				  Admin a = new Admin(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0));
+				  return a;
+			  }
+		  }
+		  return null;
+	  }
+	  
 	  /**
 	   * Gets selected schools' information  
 	   * 
@@ -243,7 +254,7 @@ public class DatabaseController {
 	  public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
 		double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
-	    int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
+	    int qualOfLife)
 	  {                         
 		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
 		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);

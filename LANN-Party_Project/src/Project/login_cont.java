@@ -11,7 +11,7 @@ import java.util.*;
  *
  */
 public class login_cont {
-	DatabaseController dc = new DatabaseController();
+	DatabaseController dc = new DatabaseController("laanp", "laanp", "csci230");
 	/**
 	 * Logs the user in
 	 * 
@@ -22,7 +22,7 @@ public class login_cont {
 	public void logon(String username, String password, boolean steal)
 	{
 			Student s = dc.getUser(username);
-			Admin a = dc.getAdmin(username)
+			Admin a = dc.getAdmin(username);
 			if(s != null){
 				if(password == s.getPassword()){
 					if(!s.isLoggedOn()){
