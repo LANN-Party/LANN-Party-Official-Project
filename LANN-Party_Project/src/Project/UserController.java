@@ -48,8 +48,9 @@ package Project;
 		  {
 		    //TODO: displays the user's information with text boxes to enter or change previous information
 			//TODO: if user selects the option to "Save Changes" call confirmSaveChanges
+			dc.editUser(uName, fName, lName, pWord, type, status);
 		  }
-		  
+		  /*
 		  /**
 		   * Saves new user info given to the specific Student's profile
 		   * 
@@ -68,6 +69,7 @@ package Project;
 			//TODO: if user clicks cancel, call cancel() in StudentUserInterface
 		  }
 		  */
+
 		  /**
 		   * Displays schools saved to the specific Student user's
 		   * profile
@@ -83,6 +85,16 @@ package Project;
 		  }
 		  
 		  /**
+		   * Gets results for name of school
+		   * 
+		   * @param sName : String, 
+		   */
+		  public void searchSchool(String sName)
+		  {
+			  dc.getSchool(sName);
+		  }
+		  
+		  /**
 		   * sends selected school to database to be removes from their profile
 		   * 
 		   * @param uName : String, name of user
@@ -93,7 +105,7 @@ package Project;
 		    //TODO: when this button is clicked, call removeConfirmed
 			  dc.removeSavedSchool(uName, school);
 		  }
-		  
+		  /*
 		  /**
 		   * Send confirmation message to Student user asking
 		   * whether they confirm their removal request
@@ -111,15 +123,25 @@ package Project;
 		  */
 		  
 		  /**
+		   * Shows the given school's information to the user
+		   * 
+		   * @param sName : String, name of school
+		   */
+		  public void displaySchool(String sName) 
+		  {
+			  dc.getSchool(sName);
+		  }
+		  
+		  
+		  /**
 		   * Adds the given object to the user's list of saved schools through DatabaseController
 		   * 
-		   * @param university; University, the university selected by the user that will be saved in the
-		   * 								user's profile
+		   * @param uName : String, name of student to save school to
+	       * @param schoolName : String, name of school to add
 		   */
-		  public void saveSchool (University university)
+		  public void saveSchool (String uName, String schoolName)
 		  {
-		    //TODO: 
-			dc.saveSchool(university);
+			dc.saveSchool(uName, schoolName);
 		  }
 		  
 		  /**

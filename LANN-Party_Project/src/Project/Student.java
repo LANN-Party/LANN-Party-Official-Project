@@ -261,10 +261,10 @@ import java.util.*;
 		 */
 		public void removeSchool(University school)
 		{
-			this.savedSchools.remove(this.savedSchools.lastIndexOf(school));
+			int index = this.savedSchools.lastIndexOf(school);
+			if (index > -1)
+				this.savedSchools.remove(index);
+			
 		}
-		
-		
-		
 		
 	}

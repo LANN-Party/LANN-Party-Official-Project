@@ -166,6 +166,7 @@ public class DatabaseController {
 		//TODO: if the University is found, return the University object
 	    //TODO: if the University is not found, return null
 		uDBL.university_getUniversities();
+		
 	    return null;
 	  }
 	  

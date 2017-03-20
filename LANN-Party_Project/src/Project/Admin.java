@@ -80,7 +80,7 @@ public class Admin {
 		 * @return the userName
 		 */
 		public String getUserName() {
-			return userName;
+			return this.userName;
 		}
 
 		/**
@@ -98,7 +98,7 @@ public class Admin {
 		 * @return the password
 		 */
 		public String getPassword() {
-			return password;
+			return this.password;
 		}
 
 		/**
@@ -116,7 +116,7 @@ public class Admin {
 		 * @return the type
 		 */
 		public char getType() {
-			return type;
+			return this.type;
 		}
 
 		/**
@@ -134,7 +134,7 @@ public class Admin {
 		 * @return the status
 		 */
 		public char getStatus() {
-			return status;
+			return this.status;
 		}
 
 		/**
@@ -152,7 +152,7 @@ public class Admin {
 		 * @return the logon
 		 */
 		public boolean isLogon() {
-			return logon;
+			return this.logon;
 		}
 
 		/**
@@ -162,28 +162,6 @@ public class Admin {
 		 */
 		public void setLogon(boolean logon) {
 			this.logon = logon;
-		}
-		
-		/**
-		 * Edits a user based on information given
-		 * 
-		 * @param String uName, fName, lName, pWord
-		 * @param char Type, Stat
-		 */
-		public void editUser(String uName, String fName, 
-				String lName, String pWord, char type, char status)
-		{
-			
-		}
-		
-		/**
-		 * asks the Admin whether they want to confirm the
-		 * changes they made
-		 * 
-		 * @returns boolean
-		 */
-		public void confirmChanges() {
-			
 		}
 		
 		/**
@@ -205,21 +183,4 @@ public class Admin {
 			this.status = status;
 			this.logon = false;
 		}
-
-		/**
-		 * Saves changes to a user
-		 * 
-		 * @param String uName, fName, lName, pWord
-		 * @param char Type, Stat
-		 */
-		public void saveChanges(String uName, String fName, 
-				String lName, String pWord, char type, char status)
-		{
-			
-		}
-		
-		
-
-		
-	
 }
