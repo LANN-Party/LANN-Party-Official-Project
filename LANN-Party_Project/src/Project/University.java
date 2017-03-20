@@ -1,5 +1,6 @@
 package Project;
 
+
 /**
  * @author ajmcintyre
  * @version 2/27/17
@@ -11,7 +12,7 @@ public class University {
 	 * 
 	 */
 	private String state, name, location, control;
-	private int percentFemale, SATVerbal, SATMath, expenses, percentFinancialAid,
+	private int numOfStudents, percentFemale, SATVerbal, SATMath, expenses, percentFinancialAid,
 	numOfApplicants, percentAdmitted, percentEnrolled, academicScale, socialScale, qualityOfLife;
 	private String[] emphases;
 	
@@ -20,6 +21,7 @@ public class University {
 	 * @param name the name of the university
 	 * @param location the town of the university
 	 * @param control state or private university
+	 * @param number of students attending university
 	 * @param percentFemale	the female percentage of the population
 	 * @param sATVerbal the average SAT Verbal score
 	 * @param sATMath the average SAT Math score
@@ -33,7 +35,7 @@ public class University {
 	 * @param qualityOfLife the quality of life rating
 	 * @param emphases the focuses of the school's academics
 	 */
-	public University(String state, String name, String location, String control, int percentFemale, int sATVerbal,
+	public University(String name, String state, String location, String control, int numberOfStudents, int percentFemale, int sATVerbal,
 			int sATMath, int expenses, int percentFinancialAid, int numOfApplicants, int percentAdmitted,
 			int percentEnrolled, int academicScale, int socialScale, int qualityOfLife, String[] emphases) {
 		super();
@@ -41,6 +43,7 @@ public class University {
 		this.name = name;
 		this.location = location;
 		this.control = control;
+		this.numOfStudents = numberOfStudents;
 		this.percentFemale = percentFemale;
 		SATVerbal = sATVerbal;
 		SATMath = sATMath;
@@ -105,7 +108,7 @@ public class University {
 	 * @return the control
 	 */
 	public String getControl() {
-		return control;
+		return this.control;
 	}
 
 	/**
@@ -198,6 +201,20 @@ public class University {
 	public void setNumOfApplicants(int numOfApplicants) {
 		this.numOfApplicants = numOfApplicants;
 	}
+	
+	/**
+	 * @return the numOfStudents
+	 */
+	public int getNumOfStudents() {
+		return numOfStudents;
+	}
+
+	/**
+	 * @param numOfStudents the numOfStudents to set
+	 */
+	public void setNumOfStudents(int numOfStudents) {
+		this.numOfStudents = numOfStudents;
+	}
 
 	/**
 	 * @return the percentAdmitted
@@ -282,5 +299,20 @@ public class University {
 	public void setEmphases(String[] emphases) {
 		this.emphases = emphases;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return this.getName()+","+this.getState()+","+this.getLocation()+","+this.getControl()+","
+				+this.getNumOfStudents()+","+this.getPercentFemale()+","+this.getSATVerbal()+","
+				+this.getSATMath()+","+this.getExpenses()+","+this.getPercentFinancialAid()+","
+				+this.getNumOfApplicants()+","+this.getPercentAdmitted()+","+this.getPercentEnrolled()+","
+				+this.getAcademicScale()+","+this.getSocialScale()+","+this.getQualityOfLife();
+
+	}
+	
+	
 
 }
