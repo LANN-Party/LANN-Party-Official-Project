@@ -163,27 +163,6 @@ public class Admin {
 		public void setLogon(boolean logon) {
 			this.logon = logon;
 		}
-		/**
-		 * Edits a user based on information given
-		 * 
-		 * @param String uName, fName, lName, pWord
-		 * @param char Type, Stat
-		 */
-		public void editUser(String uName, String fName, 
-				String lName, String pWord, char type, char status)
-		{
-			
-		}
-		
-		/**
-		 * asks the Admin whether they want to confirm the
-		 * changes they made
-		 * 
-		 * @returns boolean
-		 */
-		public void confirmChanges() {
-			
-		}
 		
 		/**
 		 * @param firstName
@@ -205,17 +184,4 @@ public class Admin {
 			this.status = status;
 			this.logon = logon;
 		}
-
-		/**
-		 * Saves changes to a user
-		 * 
-		 * @param String uName, fName, lName, pWord
-		 * @param char Type, Stat
-		 */
-		public void saveChanges(String uName, String fName, 
-				String lName, String pWord, char type, char status)
-		{
-			
-		}	
-	
 }
