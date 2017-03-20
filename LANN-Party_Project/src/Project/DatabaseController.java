@@ -147,10 +147,22 @@ public class DatabaseController {
 	  public Student getUser(String uName)
 	  {
 		//TODO: search DatabaseLibrary(DBL) to find if User object exists
-		uDBL.user_getUser();
-		//TODO: if the User is found, return the User object
-		//TODO: if the User is not found, return null
-	    return null;
+		  String[][] users =  uDBL.user_getUsers();
+		  String[][] userSchools = uDBL.user_getUsernamesWithSavedSchools();
+		  ArrayList<String> schools = new ArrayList<String>();
+			
+		  for(int i = 0; i<users.length; i++){
+			  schools.clear();
+			  if(users[i][0] == uName){
+				  for(int j = 0; j<userSchools[i].length; j++){
+					  String name = userSchools[i][j];
+
+					  schools.add(name);
+				  }
+				  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+				  return s;
+			  }
+		  }
 	  }
 	  
 	  /**
@@ -185,12 +197,18 @@ public class DatabaseController {
 	   * 
 	   * @param university: University, university to get schools for???
 	   */
-	  public String[][] getSchools()
+	  public ArrayList<University> getSchools()
 	  {
-		 //TODO: return whole string of University objects
-		 //uDBL.university_getUniversities();
-		 return uDBL.university_getUniversities();
-	     //return null;
+		 String[][] s = uDBL.university_getUniversities();
+		 ArrayList<University> universities = new ArrayList<University>();
+		 
+		 for(int i=0; i<s.length; i++){
+			 University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
+					 Double.parseDouble(s[i][7]), Double.parseDouble(s[i][8]), Double.parseDouble(s[i][9]), Integer.parseInt(s[i][10]), Double.parseDouble(s[i][11]),
+					 Double.parseDouble(s[i][12]), Integer.parseInt(s[i][13]), Integer.parseInt(s[i][14]), Integer.parseInt(s[i][15]));
+			 universities.add(u);
+		 }
+		 return universities;
 	  }
 	  
 	  /**
