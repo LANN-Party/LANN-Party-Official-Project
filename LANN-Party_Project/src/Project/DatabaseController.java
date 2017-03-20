@@ -16,7 +16,7 @@ import dblibrary.project.csci230.*;
   */
 public class DatabaseController {
 	
-	UniversityDBLibrary uDBL = new UniversityDBLibrary(lannp, lannp, csci230);
+	UniversityDBLibrary uDBL = new UniversityDBLibrary(String lannp, String lannp, String csci230);
 	
 	  //Data fields
 	   /**All schools in the database (ArrayList)*/
