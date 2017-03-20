@@ -43,21 +43,7 @@ public class Admin_Controler {
 		
 		System.out.println(uName+ " " + fName + " " + lName + " "+ pWord +" " + type+ " " + status);
 	}
-	/**
-	 * save changes to a user
-	 * 
-	  * @param uName username of user
-	 * @param fName first name of user
-	 * @param lName last name of user
-	 * @param pWord password for user to log in 
-	 * @param type either a user is admin or student
-	 * @param status if they are signed in or not
-	 */
-	public void saveChanges(String uName, String fName, String lName, String pWord, char type, char status,ArrayList<University> savedSchools){
-		 
-		Student temp = new Student(uName, fName, lName, pWord, type, status, savedSchools);
-		dc.saveChangesToUser();
-	}
+
 	
 	/**
 	 * add a user into database
