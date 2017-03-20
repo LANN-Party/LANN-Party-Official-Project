@@ -238,11 +238,7 @@ public class DatabaseController {
 	   * @param academScale : int, average rating of this school academically from 1(poor)-5(excellent)
 	   * @param socialScale : int, average rating of this school socially from 1(poor)-5(excellent)
 	   * @param qualOfLife : int, average rating of this school's quality of life from 1(poor)-5(excellent)
-	   * @param emphasis1 : String, the number 1 major supported at this school
-	   * @param emphasis2 : String, the number 2 major supported at this school
-	   * @param emphasis3 : String, the number 3 major supported at this school
-	   * @param emphasis4 : String, the number 4 major supported at this school
-	   * @param emphasis5 : String, the number 5 major supported at this school
+
 	   */
 	  public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
 		double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
@@ -251,7 +247,6 @@ public class DatabaseController {
 	  {                         
 		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
 		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
-		//something with emphasisess??
 	  }
 	  
 	  /**
@@ -273,26 +268,57 @@ public class DatabaseController {
 	   * @param academScale : int, average rating of this school academically from 1(poor)-5(excellent)
 	   * @param socialScale : int, average rating of this school socially from 1(poor)-5(excellent)
 	   * @param qualOfLife : int, average rating of this school's quality of life from 1(poor)-5(excellent)
-	   * @param emphasis1 : String, the number 1 major supported at this school
-	   * @param emphasis2 : String, the number 2 major supported at this school
-	   * @param emphasis3 : String, the number 3 major supported at this school
-	   * @param emphasis4 : String, the number 4 major supported at this school
-	   * @param emphasis5 : String, the number 5 major supported at this school
+
 	   */
 	  public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
 	   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 	   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
-	   int qualOfLife, String emphasis1, String emphasis2, String emphasis3, String emphasis4, String emphasis5)
+	   int qualOfLife)
 	  {
 		//TODO: create University object and add it to the list of Universities in DBL
 		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
 				expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
-		uDBL.university_addUniversityEmphasis(name, emphasis1);
-		uDBL.university_addUniversityEmphasis(name, emphasis2);
-		uDBL.university_addUniversityEmphasis(name, emphasis3);
-		uDBL.university_addUniversityEmphasis(name, emphasis4);
-		uDBL.university_addUniversityEmphasis(name, emphasis5);
+		
 	  }
+	  
+	  /**
+	   * 
+	   * 
+	   * @param sName : String, name of the school to add emphasis to
+	   * @param emphasis1 : String, the number 1 major supported at this school
+	   */
+	  public void addEmphasis(String sName, String emphasis1)
+	  {
+	    uDBL.university_addUniversityEmphasis(sName, emphasis1);
+	  }
+	  
+	  /**
+	   * 
+	   * 
+	   * @param sName : String, name of the school to remove emphasis from
+	   * @param emphasis1 : String, one emphasis to remove
+
+	   */
+	  public void removeEmphasis(String sName, String emphasis1)
+	  {
+	    uDBL.university_removeUniversityEmphasis(sName, emphasis1);
+	  }
+	  
+	  /**
+	   * Changes the given information in for the student in the DBL
+	   * 
+	   * @param uName : String, user name of user to edit
+	   * @param fName : String, first name of user
+	   * @param lName : String, last name of user
+	   * @param pWord : String, password of user
+	   * @param type : String, user type (Admin or Student)
+	   * @param status : String, whether or not the user is logged (will never be changed here)
+	   */
+	  public void editUser(String uName, String fName, String lName, String pWord, char type, char status)
+	  {
+	    uDBL.user_editUser(uName, fName, lName, pWord, type, status);
+	  }
+	
 
 }
 ////////////////////////////Questions/////////////////////////////////////

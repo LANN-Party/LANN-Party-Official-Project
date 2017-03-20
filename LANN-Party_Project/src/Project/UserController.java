@@ -13,16 +13,17 @@ package Project;
 		
 		public Object[] schools;
 		
-		DatabaseController dc = new DatabaseController();
-		LogoutController lc = new LogoutController();
+		DatabaseController dc;
+		LogoutController lc;
 		
 		  
 		public UserController() {
-			super();
+			dc = new DatabaseController();
+			lc = new LogoutController();
 		}
 		  
 		  /**
-		   * Displays profile information to Student user   
+		   * Displays Student's profile information to Student user   
 		   * 
 		   * @param uName; String, user name of the user
 		   */
@@ -30,7 +31,7 @@ package Project;
 		  {
 		    //TODO: use name given to get the user's information from DB
 			//TODO: use information received and display it to the user
-			System.out.println(dc.getUser(uName));
+			System.out.println(dc.getUser(uName).toString());
 		  }
 
 		  /**
@@ -74,20 +75,20 @@ package Project;
 		   * Displays schools saved to the specific Student user's
 		   * profile
 		   * 
-		   * @param none
+		   * @param uName : String, name of student to get saved schools for
 		   */
-		  public void displaySavedSchools()
+		  public void displaySavedSchools(String uName)
 		  {
 		    //TODO: get list of saved schools from DB
 			//dc.getSchools();
 			//TODO: display list of saved schools
-			System.out.println(dc.getSchools());
+			System.out.println(dc.getSchools().toString());
 		  }
 		  
 		  /**
 		   * Gets results for name of school
 		   * 
-		   * @param sName : String, 
+		   * @param sName : String, school name
 		   */
 		  public void searchSchool(String sName)
 		  {

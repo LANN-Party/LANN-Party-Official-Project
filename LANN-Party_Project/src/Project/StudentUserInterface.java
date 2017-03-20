@@ -105,12 +105,14 @@ public class StudentUserInterface {
 	/**
 	 * Adds selected school to Students saved schools
 	 * 
-	 * @param university; University, the school chosen to be saved to the student's profile
+	 * @param uName : String, user name of student
+	 * @param sName : String, name of school to save
+	 * 
 	 */
-	public void saveSchool(University university)
+	public void saveSchool(String uName, String sName)
 	{
 		//sending University object to be sorted in the UserController
-		uc.saveSchool(university);
+		uc.saveSchool(uName, sName);
 	}
 	
 	/**
