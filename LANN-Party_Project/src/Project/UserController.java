@@ -93,7 +93,7 @@ package Project;
 		  public void removeSchool(String uName, String school)
 		  {
 		    //TODO: when this button is clicked, call removeConfirmed
-			  dc.removeSavedSchool(university);
+			  dc.removeSavedSchool(uName, school);
 		  }
 		  /*
 		  /**

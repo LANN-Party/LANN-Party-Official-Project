@@ -187,6 +187,27 @@ public class Admin {
 		}
 		
 		/**
+		 * @param firstName
+		 * @param lastName
+		 * @param userName
+		 * @param password
+		 * @param type
+		 * @param status
+		 * @param logon
+		 */
+		public Admin(String firstName, String lastName, String userName, String password, char type, char status,
+				boolean logon) {
+			super();
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.userName = userName;
+			this.password = password;
+			this.type = type;
+			this.status = status;
+			this.logon = logon;
+		}
+
+		/**
 		 * Saves changes to a user
 		 * 
 		 * @param String uName, fName, lName, pWord
