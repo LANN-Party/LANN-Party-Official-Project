@@ -11,7 +11,7 @@ import dblibrary.project.csci230.*;
  /**
   * Class dedicated to all information in the system
   * @author Noah Hynes-Marquette
-  * @version 3/20/2017
+  * @version 3/19/2017
   *
   */
 public class DatabaseController {

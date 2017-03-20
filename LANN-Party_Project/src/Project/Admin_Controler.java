@@ -6,9 +6,9 @@ package Project;
 import java.util.ArrayList;
 
 /**
- * 
+ * controller for object admin
  * @author njfloeder
- * @version 3/20/17
+ * @version 3/19/17
  */
 public class Admin_Controler {
 

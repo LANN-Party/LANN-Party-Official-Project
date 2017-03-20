@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 //github.com/LANN-Party/LANN-Party-Official-Project.git
 /**
+ * Interface for users who are Admins
  * @author njfloeder
- *
- * @version 3/20/2017
- *
+ * @version 3/19/2017
  */
 public class AdminUI {
 	

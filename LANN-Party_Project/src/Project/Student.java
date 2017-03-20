@@ -7,7 +7,7 @@ import java.util.*;
 	/**
 	 * Class dedicated to users who are Students
 	 * @author Logan Dahlquist
-	 * @version 2/27/2017
+	 * @version 3/19/2017
 	 *
 	 */
 	public class Student {

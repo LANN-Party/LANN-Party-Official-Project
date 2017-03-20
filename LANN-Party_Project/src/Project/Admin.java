@@ -4,8 +4,9 @@ package Project;
  */
 
 /**
+ * Class defining the object Admin
  * @author Logan Dahlquist
- * @version 2/26/17
+ * @version 3/19/17
  *
  */
 public class Admin {

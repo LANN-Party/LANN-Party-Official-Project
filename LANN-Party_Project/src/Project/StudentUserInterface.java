@@ -4,9 +4,9 @@ package Project;
   */
  
  /**
-  * Class dedicated to users who are Students
+  * interface dedicated to users who are Students
   * @author Noah Hynes-Marquette
-  * @version 3/20/2017
+  * @version 3/19/2017
   *
   */
 public class StudentUserInterface {
