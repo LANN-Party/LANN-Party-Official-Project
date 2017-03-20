@@ -172,12 +172,15 @@ public class DatabaseController {
 	   */
 	  public University getSchool(String name)
 	  {
-		//TODO: search DatabaseLibrary(DBL) to find if University object exists
-		//TODO: if the University is found, return the University object
-	    //TODO: if the University is not found, return null
-		uDBL.university_getUniversities();
-		
-	    return null;
+		  String[][] s = uDBL.university_getUniversities();
+		  	ArrayList<University> universities = new ArrayList<University>();
+			 
+			for(int i=0; i<s.length; i++){
+				University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
+						 Double.parseDouble(s[i][7]), Double.parseDouble(s[i][8]), Double.parseDouble(s[i][9]), Integer.parseInt(s[i][10]), Double.parseDouble(s[i][11]),
+						 Double.parseDouble(s[i][12]), Integer.parseInt(s[i][13]), Integer.parseInt(s[i][14]), Integer.parseInt(s[i][15]));
+				return u;
+			}
 	  }
 	  
 	  /**
