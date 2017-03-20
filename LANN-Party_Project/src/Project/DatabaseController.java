@@ -17,6 +17,7 @@ import dblibrary.project.csci230.*;
 public class DatabaseController {
 	
 	private UniversityDBLibrary uDBL;
+	private Search_Controler search; 
 	
 	  //Data fields
 	   /**All schools in the database (ArrayList)*/
@@ -30,6 +31,7 @@ public class DatabaseController {
 	
 	public DatabaseController(String dataBase, String uName, String pWord){
 		uDBL = new UniversityDBLibrary(dataBase, uName, pWord);
+		search = new Search_Controler();
 	}
 	  
 	/**
@@ -208,11 +210,9 @@ public class DatabaseController {
 	   * 
 	   * @param university: University, university to get related school for
 	   */
-	  public University getRelatedSchool(University university)
+	  public ArrayList<University> getRelatedSchools(University university)
 	  {
-		//TODO: search database University objects to find ones with similar attributes based on an algorithm
-		//TODO: return related schools
-	    return null;
+		  return search.viewSchool(university.getName());
 	  }
 	  
 	  /**
