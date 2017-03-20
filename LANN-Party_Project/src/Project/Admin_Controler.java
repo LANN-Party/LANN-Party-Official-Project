@@ -58,12 +58,7 @@ public class Admin_Controler {
 		Student temp = new Student(uName, fName, lName, pWord, type, status, savedSchools);
 		dc.saveChangesToUser();
 	}
-	/**
-	 * save a school object
-	 */
-	public void saveSchool(University university){
-		dc.saveSchool(university);
-	}
+	
 	/**
 	 * add a user into database
 	 * 
@@ -102,8 +97,8 @@ public class Admin_Controler {
 	/**
 	 * displays a school
 	 */
-	public void displaySchool(){
-		System.out.println();
+	public void displaySchool(String uName){
+		System.out.println(dc.getSchool(uName));
 	}
 	/**
 	 * displays the schools
