@@ -12,8 +12,8 @@ package Project;
 		
 		public Object[] schools;
 		
-		DatabaseController dc;
-		LogoutController lc;
+		private DatabaseController dc;
+		private LogoutController lc;
 		
 		  
 		public UserController() {
