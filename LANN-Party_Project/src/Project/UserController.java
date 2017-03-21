@@ -44,11 +44,11 @@ package Project;
 		   * @param type; char, type of user (Admin or Student)
 		   * @param status; char, whether or not the user is logged (will never be changed here)
 		   */
-		  public void editInfo(String uName, String fName, String lName, String pWord, char type, char status)
+		  public boolean editInfo(String uName, String fName, String lName, String pWord, char type, char status)
 		  {
 		    //TODO: displays the user's information with text boxes to enter or change previous information
 			//TODO: if user selects the option to "Save Changes" call confirmSaveChanges
-			dc.editUser(uName, fName, lName, pWord, type, status);
+			return dc.editUser(uName, fName, lName, pWord, type, status);
 		  }
 		  /*
 		  /**
@@ -89,9 +89,9 @@ package Project;
 		   * 
 		   * @param sName : String, school name
 		   */
-		  public void searchSchool(String sName)
+		  public University searchSchool(String sName)
 		  {
-			  dc.getSchool(sName);
+			  return dc.getSchool(sName);
 		  }
 		  
 		  /**
@@ -100,10 +100,10 @@ package Project;
 		   * @param uName : String, name of user
 		   * @param school : name of school to remove
 		   */
-		  public void removeSchool(String uName, String school)
+		  public boolean removeSchool(String uName, String school)
 		  {
 		    //TODO: when this button is clicked, call removeConfirmed
-			  dc.removeSavedSchool(uName, school);
+			  return dc.removeSavedSchool(uName, school);
 		  }
 		  /*
 		  /**
@@ -127,9 +127,9 @@ package Project;
 		   * 
 		   * @param sName : String, name of school
 		   */
-		  public void displaySchool(String sName) 
+		  public University displaySchool(String sName) 
 		  {
-			  dc.getSchool(sName);
+			  return dc.getSchool(sName);
 		  }
 		  
 		  
@@ -139,9 +139,9 @@ package Project;
 		   * @param uName : String, name of student to save school to
 	       * @param schoolName : String, name of school to add
 		   */
-		  public void saveSchool (String uName, String schoolName)
+		  public boolean saveSchool (String uName, String schoolName)
 		  {
-			dc.saveSchool(uName, schoolName);
+			  return dc.saveSchool(uName, schoolName);
 		  }
 		  
 		  /**

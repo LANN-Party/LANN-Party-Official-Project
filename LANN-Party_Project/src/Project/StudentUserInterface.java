@@ -52,9 +52,9 @@ public class StudentUserInterface {
 	 * @param type; char, type of user (Admin or Student)
 	 * @param status; char, whether or not the user is logged (will never be changed here)
 	 */
-	public void editInfo(String uName, String fName, String lName, String pWord, char type, char status)
+	public boolean editInfo(String uName, String fName, String lName, String pWord, char type, char status)
 	{
-		uc.editInfo(uName, fName, lName, pWord, type, status);
+		return uc.editInfo(uName, fName, lName, pWord, type, status);
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class StudentUserInterface {
 	 */
 	public void viewSchool(String sName)
 	{
-		uc.displaySchool(sName);
+		System.out.println(uc.displaySchool(sName).toString());
 	}
 	
 	/**
@@ -73,9 +73,9 @@ public class StudentUserInterface {
 	 * @param uName : String, name of student to save school to
 	 * @param schoolName : String, name of school to add
 	 */
-	public void removeSchool(String uName, String sName)
+	public boolean removeSchool(String uName, String sName)
 	{
-		uc.removeSchool(uName, sName);
+		return uc.removeSchool(uName, sName);
 	}
 	
 	/*
@@ -99,7 +99,7 @@ public class StudentUserInterface {
 	public void searchSchool(String name)
 	{
 		//TODO: access search controller and give  list of schools
-		uc.searchSchool(name);
+		System.out.println(uc.searchSchool(name).toString());
 	}
 	
 	/**
@@ -109,10 +109,10 @@ public class StudentUserInterface {
 	 * @param sName : String, name of school to save
 	 * 
 	 */
-	public void saveSchool(String uName, String sName)
+	public boolean saveSchool(String uName, String sName)
 	{
 		//sending University object to be sorted in the UserController
-		uc.saveSchool(uName, sName);
+		return uc.saveSchool(uName, sName);
 	}
 	
 	/**

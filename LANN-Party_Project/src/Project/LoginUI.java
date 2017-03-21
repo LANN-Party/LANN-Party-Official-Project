@@ -48,6 +48,12 @@ public class LoginUI {
 		this.logout.adminLogout(a);
 	}
 	
+	public boolean registerStudent(String fName, String lName, String uName, String pWord, char type, char status){
+		return login.registerStudent(fName, lName, uName, pWord, type, status);
+	}
 	
+	public boolean registerAdmin(String fName, String lName, String uName, String pWord, char type, char status){
+		return login.registerAdmin(fName, lName, uName, pWord, type, status);
+	}
 	
 }
