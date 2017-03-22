@@ -13,31 +13,31 @@ public class Admin {
 	
 	//Data fields
 		/**The Admin's first name (String)*/
-	String firstName;
+	private String firstName;
 	
 	//Data fields
 		/**The Admin's Last name (String)*/
-	String lastName;
+	private String lastName;
 	
 	//Data fields
 		/**The Admin's username (String)*/
-	String userName;
+	private String userName;
 	
 	//Data fields
 		/**The Admin's password (String)*/
-	String password;
+	private String password;
 	
 	//Data fields
 		/**The user's type to confirm they are an admin (char)*/
-	char type;
+	private char type;
 	
 	//Data fields
 		/**The Admin's current status (for stealing sessions) (char)*/
-	char status;
+	private char status;
 	
 	//Data fields
 		/**to determine if the Admin has logged in (boolean)*/
-	boolean logon;
+	private boolean logon;
 
 		/**
 		 * Returns the Admin's first name

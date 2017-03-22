@@ -91,10 +91,13 @@ public class DatabaseController {
 	   * @param type  : char, shows whether a user is an Admin or Student
 	   * @param status : char, shows whether or not the user is currently logged in
 	   */
-	  public void addUser(String uName, String fName, String lName, String pWord, char type, char status)
+	  public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
 		//TODO: using the information given to it, 
-		uDBL.user_addUser(fName, lName, uName, pWord, type);
+		if(uDBL.user_addUser(fName, lName, uName, pWord, type)>-1)
+			return true;
+		else
+			return false;
 	  }
 	  
 	  /**
@@ -102,10 +105,13 @@ public class DatabaseController {
 	   * 
 	   * @param uName : String, user name of the user to delete
 	   */
-	  public void deleteUser(String uName)
+	  public boolean deleteUser(String uName)
 	  {
 	    //TODO: using the user name of the User object given, delete the object from the database
-		uDBL.user_deleteUser(uName);
+		if(uDBL.user_deleteUser(uName)>-1)
+			return true;
+		else
+			return false;
 	  }
 	  
 	  /**
@@ -113,9 +119,12 @@ public class DatabaseController {
 	   * 
 	   * @param university : University, the university to remove from database
 	   */
-	  public void removeSchool(String name)
+	  public boolean removeSchool(String name)
 	  {
-		uDBL.university_deleteUniversity(name);
+		if(uDBL.university_deleteUniversity(name)>-1)
+			return true;
+		else
+			return false;
 	  }
 	  
 	  /**
@@ -124,9 +133,12 @@ public class DatabaseController {
 	   * @param uName : String, name of the User whose saved list the school will be removed from
 	   * @param schoolName : String, name of the university 
 	   */
-	  public void removeSavedSchool(String uName, String schoolName)
+	  public boolean removeSavedSchool(String uName, String schoolName)
 	  {
-		uDBL.user_removeSchool(uName, schoolName);
+		if(uDBL.user_removeSchool(uName, schoolName)>-1)
+			return true;
+		else
+			return false;
 	  }
 	  
 	  /**
@@ -135,10 +147,13 @@ public class DatabaseController {
 	   * @param uName : String, name of student to save school to
 	   * @param schoolName : String, name of school to add
 	   */
-	  public void saveSchool(String uName, String schoolName)
+	  public boolean saveSchool(String uName, String schoolName)
 	  {
 	    //TODO: using the University object given to it, add it to the DBL
-		uDBL.user_saveSchool(uName, schoolName);
+		if(uDBL.user_saveSchool(uName, schoolName)>-1)
+			return true;
+		else
+			return false;
 	  }
 	  
 	  /**
@@ -256,13 +271,16 @@ public class DatabaseController {
 	   * @param qualOfLife : int, average rating of this school's quality of life from 1(poor)-5(excellent)
 
 	   */
-	  public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
+	  public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
 		double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	    int qualOfLife)
 	  {                         
-		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
-		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		if(uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
+		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife)>-1)
+			return true;
+		else
+			return false;
 	  }
 	  
 	  /**
@@ -286,14 +304,17 @@ public class DatabaseController {
 	   * @param qualOfLife : int, average rating of this school's quality of life from 1(poor)-5(excellent)
 
 	   */
-	  public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
+	  public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
 	   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 	   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	   int qualOfLife)
 	  {
 		//TODO: create University object and add it to the list of Universities in DBL
-		uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
-				expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		if(uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
+				expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife)>-1)
+			return true;
+		else
+			return false;
 		
 	  }
 	  
@@ -303,9 +324,12 @@ public class DatabaseController {
 	   * @param sName : String, name of the school to add emphasis to
 	   * @param emphasis1 : String, the number 1 major supported at this school
 	   */
-	  public void addEmphasis(String sName, String emphasis1)
+	  public boolean addEmphasis(String sName, String emphasis1)
 	  {
-	    uDBL.university_addUniversityEmphasis(sName, emphasis1);
+	    if(uDBL.university_addUniversityEmphasis(sName, emphasis1)>-1)
+	    	return true;
+	    else
+	    	return false;
 	  }
 	  
 	  /**
@@ -315,9 +339,12 @@ public class DatabaseController {
 	   * @param emphasis1 : String, one emphasis to remove
 
 	   */
-	  public void removeEmphasis(String sName, String emphasis1)
+	  public boolean removeEmphasis(String sName, String emphasis1)
 	  {
-	    uDBL.university_removeUniversityEmphasis(sName, emphasis1);
+	    if(uDBL.university_removeUniversityEmphasis(sName, emphasis1)>-1)
+	    	return true;
+	    else
+	    	return false;
 	  }
 	  
 	  /**
@@ -330,9 +357,12 @@ public class DatabaseController {
 	   * @param type : String, user type (Admin or Student)
 	   * @param status : String, whether or not the user is logged (will never be changed here)
 	   */
-	  public void editUser(String uName, String fName, String lName, String pWord, char type, char status)
+	  public boolean editUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
-	    uDBL.user_editUser(uName, fName, lName, pWord, type, status);
+	    if(uDBL.user_editUser(uName, fName, lName, pWord, type, status)>-1)
+	    	return true;
+	    else
+	    	return false;
 	  }
 	
 

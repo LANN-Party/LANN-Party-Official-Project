@@ -3,7 +3,6 @@
  */
 package Project;
 
-import java.util.ArrayList;
 
 /**
  * controller for object admin
@@ -57,9 +56,9 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void addUser(String uName, String fName, String lName, String pWord, char type, char status){
+	public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status){
 		
-		dc.addUser(uName, fName, lName, pWord, type, status);
+		return dc.addUser(uName, fName, lName, pWord, type, status);
 	}
 	/**
 	 * allows admin to edit a user from their information
@@ -71,10 +70,10 @@ public class Admin_Controler {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void editUser(String uName, String fName, String lName, String pWord, 
+	public boolean editUser(String uName, String fName, String lName, String pWord, 
 char type, char status){
 		
-		dc.editUser(uName, fName, lName, pWord, type, status);
+		return dc.editUser(uName, fName, lName, pWord, type, status);
 
 	}
 	//TODO: ? do we needs this?
@@ -86,17 +85,18 @@ char type, char status){
 	 */
 	public boolean checkUserName(String uName){
 		
-			if(dc.getUser(uName)!=null)
-				return true;
-		return false;
+		if(dc.getUser(uName)!=null)
+			return true;
+		else
+			return false;
 	}
 	/**
 	 * delete a user
 	 * 
 	 * @param uName
 	 */
-	public void deleteUser(String uName){
-		dc.deleteUser(uName);
+	public boolean deleteUser(String uName){
+		return dc.deleteUser(uName);
 	}
 	/**
 	 * displays a school
@@ -109,7 +109,7 @@ char type, char status){
 	 */
 	public void displaySchools(){
 		for(University x: dc.getSchools()){
-		System.out.println(x);
+		System.out.println(x.toString());
 		}
 	}
 	/**
@@ -137,12 +137,12 @@ char type, char status){
 	   * @param emphasis4 : String, the number 4 major supported at this school
 	   * @param emphasis5 : String, the number 5 major supported at this school
 	   */
-	 public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
+	 public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
 			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 			   int qualOfLife)
 			  {
-		 		dc.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		 		return dc.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
 	/**
 	 * gets a university
@@ -160,8 +160,8 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public void addEmphasis(String school, String emph){
-		dc.addEmphasis(school, emph);
+	public boolean addEmphasis(String school, String emph){
+		return dc.addEmphasis(school, emph);
 	}
 	
 	/**
@@ -170,8 +170,8 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public void removeEmphasis(String school, String emph){
-		dc.removeEmphasis(school, emph);
+	public boolean removeEmphasis(String school, String emph){
+		return dc.removeEmphasis(school, emph);
 	}
 	
 	/**
@@ -193,11 +193,11 @@ char type, char status){
 	 */
 	
 	
-	public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
+	public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
 	double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 	double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
     int qualOfLife){
 		
-		dc.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		return dc.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 	}
 }

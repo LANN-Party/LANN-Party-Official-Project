@@ -39,10 +39,10 @@ public class AdminUI {
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void editUser(String uName, String fName, String lName, String pWord, 
+	public boolean editUser(String uName, String fName, String lName, String pWord, 
 char type, char status){
 		
-		AC.editUser(uName, fName, lName, pWord, type, status);
+		return AC.editUser(uName, fName, lName, pWord, type, status);
 
 	}
 	
@@ -51,8 +51,8 @@ char type, char status){
 	 * 
 	 * @param uName username for user
 	 */
-	public void deactivateUser(String uName){
-		AC.deleteUser(uName);
+	public boolean deactivateUser(String uName){
+		return AC.deleteUser(uName);
 	}
 	
 	/**
@@ -65,10 +65,10 @@ char type, char status){
 	 * @param type either a user is admin or student
 	 * @param status if they are signed in or not
 	 */
-	public void addUser(String uName, String fName, String lName, String pWord, 
+	public boolean addUser(String uName, String fName, String lName, String pWord, 
 			char type, char status){
 		
-		AC.addUser( uName,  fName,  lName,  pWord, type,  status);
+		return AC.addUser( uName,  fName,  lName,  pWord, type,  status);
 	}
 	
 	
@@ -111,12 +111,12 @@ char type, char status){
 	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
 	 * @param emphases, emphases at the school
 	 */   
-	public void editSchool(String name, String state, String location, String control, int numberOfStudents, 
+	public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
 			double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 			double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 		    int qualOfLife){
 				
-				AC.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+				return AC.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			}
 	/**
 	 * confirms the changes were made 
@@ -144,12 +144,12 @@ char type, char status){
 	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
 	 * @param emphases, emphases at the school
 	 */
-	 public void addSchool(String name, String state, String location, String control, int numberOfStudents, 
+	 public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
 			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 			   int qualOfLife)
 			  {
-		 		AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+		 		return AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
 	 /*IGNORE for phase 2
 	/**
