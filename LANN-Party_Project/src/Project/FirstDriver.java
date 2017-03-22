@@ -35,8 +35,11 @@ public class FirstDriver {
 		studentUI.viewProfile("ajmac");
 		studentUI.editInfo("ajmac", "Bob", "McIntyre", "password", 'u', 'n');
 		studentUI.viewProfile("ajmac");
+		studentUI.editInfo("ajmac", "Andrew", "McIntyre", "password", 'u', 'n');
 		
-		
+		studentUI.searchSchool("AUGSBURG");	
+		studentUI.saveSchool("ajmac", "AUGSBURG");
+		studentUI.viewSavedSchools("ajmac");
 		
 	}
 	

@@ -81,7 +81,8 @@ package Project;
 		    //TODO: get list of saved schools from DB
 			//dc.getSchools();
 			//TODO: display list of saved schools
-			System.out.println(dc.getSchools().toString());
+			Student s = dc.getUser(uName);
+			System.out.println(s.getSavedSchools().toString());
 		  }
 		  
 		  /**

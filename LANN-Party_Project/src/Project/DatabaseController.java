@@ -178,7 +178,10 @@ public class DatabaseController {
 						  String name = userSchools[i][j];
 
 						  schools.add(name);
+						  
 					  }
+					  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+					  return s;
 				  }
 				  else{
 					  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
@@ -215,7 +218,8 @@ public class DatabaseController {
 		  String[][] s = uDBL.university_getUniversities();
 			 
 		  for(int i=0; i<s.length; i++){
-			  if(s[i][0]==name){
+			  String n = s[i][0];
+			  if(s[i][0].equals(name)){
 				  University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
 						 Double.parseDouble(s[i][7]), Double.parseDouble(s[i][8]), Double.parseDouble(s[i][9]), Integer.parseInt(s[i][10]), Double.parseDouble(s[i][11]),
 						 Double.parseDouble(s[i][12]), Integer.parseInt(s[i][13]), Integer.parseInt(s[i][14]), Integer.parseInt(s[i][15]));
