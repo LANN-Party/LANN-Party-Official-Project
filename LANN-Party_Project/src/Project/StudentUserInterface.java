@@ -25,10 +25,10 @@ public class StudentUserInterface {
 	 * 
 	 * @param uName; String, user name of student to get information on
 	 */
-	public void viewProfile(String uName)
+	public void viewProfile(String fName)
 	{
 		//telling UserController to show information on the given student
-		uc.displayProfile(uName);
+		uc.displayProfile(fName);
 	}
 	
 	/**

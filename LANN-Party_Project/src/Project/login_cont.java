@@ -27,9 +27,10 @@ public class login_cont {
 			Student s = dc.getUser(username);
 			Admin a = dc.getAdmin(username);
 			if(s != null){
-				if(password == s.getPassword()){
+				if(password.equals(s.getPassword())){
 					if(!s.isLoggedOn()){
 						s.setLogon(true);
+						System.out.println("Logged on");
 					}
 					else{
 						Scanner scan = new Scanner(System.in);

@@ -26,11 +26,11 @@ package Project;
 		   * 
 		   * @param uName; String, user name of the user
 		   */
-		  public void displayProfile(String uName)
+		  public void displayProfile(String fName)
 		  {
 		    //TODO: use name given to get the user's information from DB
 			//TODO: use information received and display it to the user
-			System.out.println(dc.getUser(uName).toString());
+			System.out.println(dc.getUser(fName).toString());
 		  }
 
 		  /**

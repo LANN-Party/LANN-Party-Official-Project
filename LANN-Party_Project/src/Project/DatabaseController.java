@@ -31,7 +31,6 @@ public class DatabaseController {
 	
 	public DatabaseController(String dataBase, String uName, String pWord){
 		uDBL = new UniversityDBLibrary(dataBase, uName, pWord);
-		search = new Search_Controler();
 	}
 	  
 	/**
@@ -94,7 +93,8 @@ public class DatabaseController {
 	  public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
 		//TODO: using the information given to it, 
-		if(uDBL.user_addUser(fName, lName, uName, pWord, type)>-1)
+		int i = uDBL.user_addUser(fName, lName, uName, pWord, type);
+		if(i>-1)
 			return true;
 		else
 			return false;
@@ -162,7 +162,7 @@ public class DatabaseController {
 	   * @param uName : String, the user name of the user to get information on
 	   * @return Student object of student if found, null if not.
 	   */
-	  public Student getUser(String uName)
+	  public Student getUser(String fName)
 	  {
 		//TODO: search DatabaseLibrary(DBL) to find if User object exists
 		  String[][] users =  uDBL.user_getUsers();
@@ -171,14 +171,19 @@ public class DatabaseController {
 			
 		  for(int i = 0; i<users.length; i++){
 			  schools.clear();
-			  if(users[i][0] == uName){
-				  for(int j = 0; j<userSchools[i].length; j++){
-					  String name = userSchools[i][j];
+			  String check = users[i][2];
+			  if(users[i][2].equals(fName) && users[i][4].charAt(0)=='u'){
+				  if(userSchools!=null){
+					  for(int j = 0; j<userSchools[i].length; j++){
+						  String name = userSchools[i][j];
 
-					  schools.add(name);
+						  schools.add(name);
+					  }
 				  }
-				  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
-				  return s;
+				  else{
+					  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+					  return s;
+				  }
 			  }
 		  }
 		  return null;
