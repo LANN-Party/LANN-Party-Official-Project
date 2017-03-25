@@ -164,7 +164,7 @@ char type, char status){
 	/**
 	 * lets you logout from the current screen
 	 */
-	public void logout(Admin uName){
+	public void logout(String uName){
 		lc.adminLogout(uName);
 		
 	}

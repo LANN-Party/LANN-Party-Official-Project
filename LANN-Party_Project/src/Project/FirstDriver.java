@@ -41,6 +41,10 @@ public class FirstDriver {
 		studentUI.saveSchool("ajmac", "AUGSBURG");
 		studentUI.viewSavedSchools("ajmac");
 		
+		login.studentLogout("ajmac");
+		
+		login.logon("nadmin", "admin", true);
+		
 	}
 	
 	

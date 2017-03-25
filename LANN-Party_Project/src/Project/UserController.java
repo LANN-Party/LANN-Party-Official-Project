@@ -154,7 +154,7 @@ package Project;
 		  {
 			//send call to logout controller
 			
-			lc.studentLogout(dc.getUser(uName));
+			lc.studentLogout(uName);
 		  }
 	
 	}
