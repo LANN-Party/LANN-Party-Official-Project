@@ -45,17 +45,27 @@ public class DatabaseController {
 		String[][] userSchools = uDBL.user_getUsernamesWithSavedSchools();
 		ArrayList<String> schools = new ArrayList<String>();
 		ArrayList<Student> students = new ArrayList<Student>();
+		int u = 0;
 		
 		for(int i = 0; i<users.length; i++){
 			schools.clear();
 			if(users[i][4].charAt(0) == 'u'){
-				for(int j = 0; j<userSchools[i].length; j++){
-					String name = userSchools[i][j];
+				if(u < userSchools.length){
+					if(users[i][2].equals(userSchools[u])){
+						for(int j = 0; j<userSchools[u].length; j++){
+							String name = userSchools[u][j];
 
-					schools.add(name);
+							schools.add(name);
+							u++;
+						}
+						Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+						students.add(s);
+						}
+					}
+					else{
+						Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+						students.add(s);
 				}
-				Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
-				students.add(s);
 			}
 		}
 	    return students;
@@ -162,7 +172,7 @@ public class DatabaseController {
 	   * @param uName : String, the user name of the user to get information on
 	   * @return Student object of student if found, null if not.
 	   */
-	  public Student getUser(String fName)
+	  public Student getUser(String uName)
 	  {
 		//TODO: search DatabaseLibrary(DBL) to find if User object exists
 		  String[][] users =  uDBL.user_getUsers();
@@ -172,13 +182,18 @@ public class DatabaseController {
 		  for(int i = 0; i<users.length; i++){
 			  schools.clear();
 			  String check = users[i][2];
-			  if(users[i][2].equals(fName) && users[i][4].charAt(0)=='u'){
+			  if(users[i][2].equals(uName) && users[i][4].charAt(0)=='u'){
 				  if(userSchools!=null){
-					  for(int j = 0; j<userSchools[i].length; j++){
-						  String name = userSchools[i][j];
+					  for(int u=0; u<userSchools.length; u++){
+						  if(userSchools[u][0].equals(uName)){
+							  for(int j = 0; j<userSchools[u].length; j++){
+								  j++;
+								  String name = userSchools[u][j];
 
-						  schools.add(name);
+								  schools.add(name);
 						  
+							  }
+						  }
 					  }
 					  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
 					  return s;
@@ -200,7 +215,7 @@ public class DatabaseController {
 	  public Admin getAdmin(String uName){
 		  String[][] users = uDBL.user_getUsers();
 		  for(int i =0; i<users.length; i++){
-			  if(users[i][0] == uName){
+			  if(users[i][2].equals(uName)){
 				  Admin a = new Admin(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0));
 				  return a;
 			  }

@@ -2,6 +2,7 @@
  * 
  */
 package Project;
+import java.util.*;
 
 
 /**
@@ -33,7 +34,10 @@ public class Admin_Controler {
 	}
 	
 	public void viewUsers(){
-		System.out.println(dc.getStudents().toString());
+		ArrayList<Student> s = dc.getStudents();
+		for(Student e : s){
+			System.out.println(e.toString());
+		}
 	}
 	/**
 	 * displays users info

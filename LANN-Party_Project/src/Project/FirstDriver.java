@@ -39,11 +39,14 @@ public class FirstDriver {
 		
 		studentUI.searchSchool("AUGSBURG");	
 		studentUI.saveSchool("ajmac", "AUGSBURG");
+		studentUI.saveSchool("ajmac", "ADELPHI");
 		studentUI.viewSavedSchools("ajmac");
 		
 		login.studentLogout("ajmac");
 		
 		login.logon("nadmin", "admin", true);
+		//FIX getUsers() in dbcontroller based on getUser()
+		adminUI.viewusers();
 		
 	}
 	
