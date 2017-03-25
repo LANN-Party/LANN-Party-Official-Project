@@ -151,6 +151,26 @@ char type, char status){
 			  {
 		 		return AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
+	 
+	 /**
+       * Adds a emphasis to the university
+	   * 
+	   * @param school, university to select
+	   * @param emph, a new emphasis
+	   */
+	public boolean addEmphasis(String school, String emph){
+		return AC.addEmphasis(school, emph);
+		}
+	 
+	/**
+	 * Adds a emphasis to the university
+	 * 
+	 * @param school, university to select
+	 * @param emph, a new emphasis
+	 */
+	public boolean removeEmphasis(String school, String emph){
+		return AC.removeEmphasis(school, emph);
+		}
 	 /*IGNORE for phase 2
 	/**
 	 * cancle an action in progress
