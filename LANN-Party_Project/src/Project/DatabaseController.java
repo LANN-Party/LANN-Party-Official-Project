@@ -31,7 +31,6 @@ public class DatabaseController {
 	
 	public DatabaseController(String dataBase, String uName, String pWord){
 		uDBL = new UniversityDBLibrary(dataBase, uName, pWord);
-		search = new Search_Controler();
 	}
 	  
 	/**
@@ -46,17 +45,27 @@ public class DatabaseController {
 		String[][] userSchools = uDBL.user_getUsernamesWithSavedSchools();
 		ArrayList<String> schools = new ArrayList<String>();
 		ArrayList<Student> students = new ArrayList<Student>();
+		int u = 0;
 		
 		for(int i = 0; i<users.length; i++){
 			schools.clear();
 			if(users[i][4].charAt(0) == 'u'){
-				for(int j = 0; j<userSchools[i].length; j++){
-					String name = userSchools[i][j];
+				if(u < userSchools.length){
+					if(users[i][2].equals(userSchools[u])){
+						for(int j = 0; j<userSchools[u].length; j++){
+							String name = userSchools[u][j];
 
-					schools.add(name);
+							schools.add(name);
+							u++;
+						}
+						Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+						students.add(s);
+						}
+					}
+					else{
+						Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+						students.add(s);
 				}
-				Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
-				students.add(s);
 			}
 		}
 	    return students;
@@ -94,7 +103,8 @@ public class DatabaseController {
 	  public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
 		//TODO: using the information given to it, 
-		if(uDBL.user_addUser(fName, lName, uName, pWord, type)>-1)
+		int i = uDBL.user_addUser(fName, lName, uName, pWord, type);
+		if(i>-1)
 			return true;
 		else
 			return false;
@@ -171,14 +181,27 @@ public class DatabaseController {
 			
 		  for(int i = 0; i<users.length; i++){
 			  schools.clear();
-			  if(users[i][0] == uName){
-				  for(int j = 0; j<userSchools[i].length; j++){
-					  String name = userSchools[i][j];
+			  String check = users[i][2];
+			  if(users[i][2].equals(uName) && users[i][4].charAt(0)=='u'){
+				  if(userSchools!=null){
+					  for(int u=0; u<userSchools.length; u++){
+						  if(userSchools[u][0].equals(uName)){
+							  for(int j = 0; j<userSchools[u].length; j++){
+								  j++;
+								  String name = userSchools[u][j];
 
-					  schools.add(name);
+								  schools.add(name);
+						  
+							  }
+						  }
+					  }
+					  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+					  return s;
 				  }
-				  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
-				  return s;
+				  else{
+					  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+					  return s;
+				  }
 			  }
 		  }
 		  return null;
@@ -192,7 +215,7 @@ public class DatabaseController {
 	  public Admin getAdmin(String uName){
 		  String[][] users = uDBL.user_getUsers();
 		  for(int i =0; i<users.length; i++){
-			  if(users[i][0] == uName){
+			  if(users[i][2].equals(uName)){
 				  Admin a = new Admin(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0));
 				  return a;
 			  }
@@ -210,7 +233,8 @@ public class DatabaseController {
 		  String[][] s = uDBL.university_getUniversities();
 			 
 		  for(int i=0; i<s.length; i++){
-			  if(s[i][0]==name){
+			  String n = s[i][0];
+			  if(s[i][0].equals(name)){
 				  University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
 						 Double.parseDouble(s[i][7]), Double.parseDouble(s[i][8]), Double.parseDouble(s[i][9]), Integer.parseInt(s[i][10]), Double.parseDouble(s[i][11]),
 						 Double.parseDouble(s[i][12]), Integer.parseInt(s[i][13]), Integer.parseInt(s[i][14]), Integer.parseInt(s[i][15]));
@@ -272,7 +296,7 @@ public class DatabaseController {
 
 	   */
 	  public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
-		double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+		double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	    int qualOfLife)
 	  {                         
@@ -305,7 +329,7 @@ public class DatabaseController {
 
 	   */
 	  public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
-	   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+	   double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 	   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	   int qualOfLife)
 	  {
@@ -324,12 +348,13 @@ public class DatabaseController {
 	   * @param sName : String, name of the school to add emphasis to
 	   * @param emphasis1 : String, the number 1 major supported at this school
 	   */
-	  public boolean addEmphasis(String sName, String emphasis1)
+	  public void addEmphasis(String sName, String emphasis1)
 	  {
-	    if(uDBL.university_addUniversityEmphasis(sName, emphasis1)>-1)
-	    	return true;
-	    else
-	    	return false;
+		uDBL.university_addUniversityEmphasis(sName, emphasis1);
+	    //if(uDBL.university_addUniversityEmphasis(sName, emphasis1)>-1)
+	    	//return true;
+	    //else
+	    	//return false;
 	  }
 	  
 	  /**
@@ -339,12 +364,13 @@ public class DatabaseController {
 	   * @param emphasis1 : String, one emphasis to remove
 
 	   */
-	  public boolean removeEmphasis(String sName, String emphasis1)
+	  public void removeEmphasis(String sName, String emphasis1)
 	  {
-	    if(uDBL.university_removeUniversityEmphasis(sName, emphasis1)>-1)
-	    	return true;
-	    else
-	    	return false;
+		uDBL.university_removeUniversityEmphasis(sName, emphasis1);
+	   // if(uDBL.university_removeUniversityEmphasis(sName, emphasis1)>-1)
+	    //	return true;
+	    //else
+	    	//return false;
 	  }
 	  
 	  /**
@@ -367,10 +393,3 @@ public class DatabaseController {
 	
 
 }
-////////////////////////////Questions/////////////////////////////////////
-/**
- * Q1: it seems like we have a lot happening with the confirms and set method things, can we combine some?
- * A1: ignore GUIs right now
- * Q2: what, again, is all contained in database that is not contained in classes like Student, University, or Admin?
- * A1: all crap is stored in DB 
- */

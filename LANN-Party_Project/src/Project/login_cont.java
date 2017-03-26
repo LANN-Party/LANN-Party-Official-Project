@@ -27,9 +27,10 @@ public class login_cont {
 			Student s = dc.getUser(username);
 			Admin a = dc.getAdmin(username);
 			if(s != null){
-				if(password == s.getPassword()){
+				if(password.equals(s.getPassword())){
 					if(!s.isLoggedOn()){
 						s.setLogon(true);
+						System.out.println("Logged on");
 					}
 					else{
 						Scanner scan = new Scanner(System.in);
@@ -50,9 +51,10 @@ public class login_cont {
 				}
 			}
 			else if(a != null){
-				if(password == s.getPassword()){
-					if(!s.isLoggedOn()){
-						s.setLogon(true);
+				if(password.equals(a.getPassword())){
+					if(!a.isLogon()){
+						a.setLogon(true);
+						System.out.println("Logged on");
 					}
 					else{
 						Scanner scan = new Scanner(System.in);
@@ -61,7 +63,7 @@ public class login_cont {
 						String input=scan.nextLine();
 						scan.close();
 						if (input.equals("Yes") || input.equals("yes")){
-	/*Change? Redundant*/			s.setLogon(true);
+	/*Change? Redundant*/			a.setLogon(true);
 						}
 						else{
 							loginFail();

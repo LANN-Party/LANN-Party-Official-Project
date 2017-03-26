@@ -1,5 +1,6 @@
 package Project;
 
+import java.util.Arrays;
 
 /**
  * Class defining the object university
@@ -306,13 +307,17 @@ public class University {
 	 */
 	@Override
 	public String toString() {
-		return this.getName()+","+this.getState()+","+this.getLocation()+","+this.getControl()+","
-				+this.getNumOfStudents()+","+this.getPercentFemale()+","+this.getSATVerbal()+","
-				+this.getSATMath()+","+this.getExpenses()+","+this.getPercentFinancialAid()+","
-				+this.getNumOfApplicants()+","+this.getPercentAdmitted()+","+this.getPercentEnrolled()+","
-				+this.getAcademicScale()+","+this.getSocialScale()+","+this.getQualityOfLife();
-
+		return "University [state=" + state + ", name=" + name + ", location=" + location + ", control=" + control
+				+ ", numOfStudents=" + numOfStudents + ", numOfApplicants=" + numOfApplicants + ", \nacademicScale="
+				+ academicScale + ", socialScale=" + socialScale + ", qualityOfLife=" + qualityOfLife
+				+ ", percentFemale=" + percentFemale + ", SATVerbal=" + SATVerbal + ", SATMath=" + SATMath
+				+ ", expenses=" + expenses + ", \npercentFinancialAid=" + percentFinancialAid + ", percentAdmitted="
+				+ percentAdmitted + ", percentEnrolled=" + percentEnrolled + ", emphases=" + Arrays.toString(emphases)
+				+ "]";
 	}
+	
+	
+	
 	
 	
 

@@ -2,6 +2,7 @@
  * 
  */
 package Project;
+import java.util.*;
 
 
 /**
@@ -32,7 +33,10 @@ public class Admin_Controler {
 	}
 	
 	public void viewUsers(){
-		System.out.println(dc.getStudents().toString());
+		ArrayList<Student> s = dc.getStudents();
+		for(Student e : s){
+			System.out.println(e.toString());
+		}
 	}
 	/**
 	 * displays users info
@@ -138,7 +142,7 @@ char type, char status){
 	   * @param emphasis5 : String, the number 5 major supported at this school
 	   */
 	 public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
-			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			   double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 			   int qualOfLife)
 			  {
@@ -160,8 +164,9 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public boolean addEmphasis(String school, String emph){
-		return dc.addEmphasis(school, emph);
+	public void addEmphasis(String school, String emph){
+		//return dc.addEmphasis(school, emph);
+		dc.addEmphasis(school, emph);
 	}
 	
 	/**
@@ -170,8 +175,9 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public boolean removeEmphasis(String school, String emph){
-		return dc.removeEmphasis(school, emph);
+	public void removeEmphasis(String school, String emph){
+		//return dc.removeEmphasis(school, emph);
+		dc.removeEmphasis(school, emph);
 	}
 	
 	/**
@@ -194,7 +200,7 @@ char type, char status){
 	
 	
 	public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
-	double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+	double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 	double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
     int qualOfLife){
 		

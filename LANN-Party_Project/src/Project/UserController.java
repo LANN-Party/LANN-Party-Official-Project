@@ -26,11 +26,11 @@ package Project;
 		   * 
 		   * @param uName; String, user name of the user
 		   */
-		  public void displayProfile(String uName)
+		  public void displayProfile(String fName)
 		  {
 		    //TODO: use name given to get the user's information from DB
 			//TODO: use information received and display it to the user
-			System.out.println(dc.getUser(uName).toString());
+			System.out.println(dc.getUser(fName).toString());
 		  }
 
 		  /**
@@ -81,7 +81,8 @@ package Project;
 		    //TODO: get list of saved schools from DB
 			//dc.getSchools();
 			//TODO: display list of saved schools
-			System.out.println(dc.getSchools().toString());
+			Student s = dc.getUser(uName);
+			System.out.println(s.getSavedSchools().toString());
 		  }
 		  
 		  /**
@@ -153,7 +154,7 @@ package Project;
 		  {
 			//send call to logout controller
 			
-			lc.studentLogout(dc.getUser(uName));
+			lc.studentLogout(uName);
 		  }
 	
 	}

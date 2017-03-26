@@ -112,7 +112,7 @@ char type, char status){
 	 * @param emphases, emphases at the school
 	 */   
 	public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
-			double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 			double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 		    int qualOfLife){
 				
@@ -145,12 +145,32 @@ char type, char status){
 	 * @param emphases, emphases at the school
 	 */
 	 public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
-			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			   double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 			   int qualOfLife)
 			  {
 		 		return AC.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
+	 
+	 /**
+       * Adds a emphasis to the university
+	   * 
+	   * @param school, university to select
+	   * @param emph, a new emphasis
+	   */
+	public void addEmphasis(String school, String emph){
+		AC.addEmphasis(school, emph);
+		}
+	 
+	/**
+	 * Adds a emphasis to the university
+	 * 
+	 * @param school, university to select
+	 * @param emph, a new emphasis
+	 */
+	public void removeEmphasis(String school, String emph){
+		AC.removeEmphasis(school, emph);
+		}
 	 /*IGNORE for phase 2
 	/**
 	 * cancle an action in progress
@@ -164,7 +184,7 @@ char type, char status){
 	/**
 	 * lets you logout from the current screen
 	 */
-	public void logout(Admin uName){
+	public void logout(String uName){
 		lc.adminLogout(uName);
 		
 	}

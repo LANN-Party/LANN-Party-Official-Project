@@ -36,16 +36,16 @@ public class LoginUI {
 	 * logs out student
 	 * @param s, student
 	 */
-	public void studentLogout(Student s){
-		this.logout.studentLogout(s);
+	public void studentLogout(String uName){
+		this.logout.studentLogout(uName);
 	}
 	
 	/**
 	 * logs out Admin
 	 * @param s, Admin
 	 */
-	public void adminLogout(Admin a){
-		this.logout.adminLogout(a);
+	public void adminLogout(String uName){
+		this.logout.adminLogout(uName);
 	}
 	
 	public boolean registerStudent(String fName, String lName, String uName, String pWord, char type, char status){
