@@ -19,11 +19,6 @@ package Project;
  * U13 edit user
  * U14 deactivate user
  * U15 view universities
- * U16 add university
- * U17 view university
- * U18 edit university
- * U20 add emphasis
- * U21 remove emphasis
  */
 
 public class FirstDriver {

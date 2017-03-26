@@ -165,8 +165,9 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public boolean addEmphasis(String school, String emph){
-		return dc.addEmphasis(school, emph);
+	public void addEmphasis(String school, String emph){
+		//return dc.addEmphasis(school, emph);
+		dc.addEmphasis(school, emph);
 	}
 	
 	/**
@@ -175,8 +176,9 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public boolean removeEmphasis(String school, String emph){
-		return dc.removeEmphasis(school, emph);
+	public void removeEmphasis(String school, String emph){
+		//return dc.removeEmphasis(school, emph);
+		dc.removeEmphasis(school, emph);
 	}
 	
 	/**

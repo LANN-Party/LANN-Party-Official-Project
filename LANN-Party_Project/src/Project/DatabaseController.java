@@ -348,12 +348,13 @@ public class DatabaseController {
 	   * @param sName : String, name of the school to add emphasis to
 	   * @param emphasis1 : String, the number 1 major supported at this school
 	   */
-	  public boolean addEmphasis(String sName, String emphasis1)
+	  public void addEmphasis(String sName, String emphasis1)
 	  {
-	    if(uDBL.university_addUniversityEmphasis(sName, emphasis1)>-1)
-	    	return true;
-	    else
-	    	return false;
+		uDBL.university_addUniversityEmphasis(sName, emphasis1);
+	    //if(uDBL.university_addUniversityEmphasis(sName, emphasis1)>-1)
+	    	//return true;
+	    //else
+	    	//return false;
 	  }
 	  
 	  /**
@@ -363,12 +364,13 @@ public class DatabaseController {
 	   * @param emphasis1 : String, one emphasis to remove
 
 	   */
-	  public boolean removeEmphasis(String sName, String emphasis1)
+	  public void removeEmphasis(String sName, String emphasis1)
 	  {
-	    if(uDBL.university_removeUniversityEmphasis(sName, emphasis1)>-1)
-	    	return true;
-	    else
-	    	return false;
+		uDBL.university_removeUniversityEmphasis(sName, emphasis1);
+	   // if(uDBL.university_removeUniversityEmphasis(sName, emphasis1)>-1)
+	    //	return true;
+	    //else
+	    	//return false;
 	  }
 	  
 	  /**
@@ -391,10 +393,3 @@ public class DatabaseController {
 	
 
 }
-////////////////////////////Questions/////////////////////////////////////
-/**
- * Q1: it seems like we have a lot happening with the confirms and set method things, can we combine some?
- * A1: ignore GUIs right now
- * Q2: what, again, is all contained in database that is not contained in classes like Student, University, or Admin?
- * A1: all crap is stored in DB 
- */

@@ -158,8 +158,8 @@ char type, char status){
 	   * @param school, university to select
 	   * @param emph, a new emphasis
 	   */
-	public boolean addEmphasis(String school, String emph){
-		return AC.addEmphasis(school, emph);
+	public void addEmphasis(String school, String emph){
+		AC.addEmphasis(school, emph);
 		}
 	 
 	/**
@@ -168,8 +168,8 @@ char type, char status){
 	 * @param school, university to select
 	 * @param emph, a new emphasis
 	 */
-	public boolean removeEmphasis(String school, String emph){
-		return AC.removeEmphasis(school, emph);
+	public void removeEmphasis(String school, String emph){
+		AC.removeEmphasis(school, emph);
 		}
 	 /*IGNORE for phase 2
 	/**
