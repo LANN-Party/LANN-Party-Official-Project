@@ -13,8 +13,6 @@ package Project;
 /**
  * U7 search results
  * U9 view recommended schools
- * U10 view users
- * U11 view user
  * U12 add user
  * U13 edit user
  * U14 deactivate user
@@ -73,9 +71,15 @@ public class FirstDriver {
   //U19 logout
   login.studentLogout("ajmac");
   
+  System.out.println();
+  
   login.logon("nadmin", "admin", true);
+  
+  System.out.println();
   //FIX getUsers() in dbcontroller based on getUser()
   adminUI.viewusers();
+  
+  System.out.println();
   
   //U16 add university
   adminUI.addSchool("Saint Johns University", "Minnesota", "Collegeville", "Private", 2000, 0.0, 
@@ -84,6 +88,7 @@ public class FirstDriver {
   //U17 view university
   adminUI.viewSchool("Saint Johns University");
   
+  System.out.println();
   //U18 edit university
   adminUI.editSchool("Saint Johns University", "Minnesota", "Collegeville", "Private", 2000, 0.0, 
                     550, 500, 60000, 0.20, 500, 0.9, 0.7, 2, 4, 3);
@@ -92,8 +97,14 @@ public class FirstDriver {
   //U20 add emphasis
   adminUI.addEmphasis("Saint Johns University", "Biology");
   adminUI.addEmphasis("Saint Johns University", "Accounting");
+  System.out.println();
+  adminUI.getEmphases("Saint Johns University");
+  
+  System.out.println();
+  
   adminUI.viewSchool("Saint Johns University");
   
+  System.out.println();
   //U21 remove emphasis
   adminUI.removeEmphasis("Saint Johns University", "Biology");
   adminUI.viewSchool("Saint Johns University");

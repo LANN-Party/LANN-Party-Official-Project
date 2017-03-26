@@ -35,8 +35,12 @@ public class Admin_Controler {
 	
 	public void viewUsers(){
 		ArrayList<Student> s = dc.getStudents();
+		ArrayList<Admin> a = dc.getAdmins();
 		for(Student e : s){
 			System.out.println(e.toString());
+		}
+		for(Admin ea : a){
+			System.out.println(ea.toString());
 		}
 	}
 	/**
@@ -206,5 +210,9 @@ char type, char status){
     int qualOfLife){
 		
 		return dc.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
+	}
+	
+	public void getEmphases(String school){
+		System.out.println("Emphases for " + school + ":" + " " +dc.getEmphases(school).toString());
 	}
 }

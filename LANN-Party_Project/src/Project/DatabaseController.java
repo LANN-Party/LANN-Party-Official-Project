@@ -45,27 +45,27 @@ public class DatabaseController {
 		String[][] userSchools = uDBL.user_getUsernamesWithSavedSchools();
 		ArrayList<String> schools = new ArrayList<String>();
 		ArrayList<Student> students = new ArrayList<Student>();
-		int u = 0;
 		
 		for(int i = 0; i<users.length; i++){
 			schools.clear();
 			if(users[i][4].charAt(0) == 'u'){
-				if(u < userSchools.length){
-					if(users[i][2].equals(userSchools[u])){
+				if(userSchools!=null){
+					for(int u=0; u<userSchools.length; u++){
 						for(int j = 0; j<userSchools[u].length; j++){
-							String name = userSchools[u][j];
+							j++;
+							  String name = userSchools[u][j];
 
-							schools.add(name);
-							u++;
-						}
-						Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
-						students.add(s);
-						}
-					}
-					else{
-						Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
-						students.add(s);
-				}
+							  schools.add(name);
+					  
+						  }
+					  }
+					Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+					students.add(s);
+			  }
+			  else{
+				  Student s = new Student(users[i][0], users[i][1], users[i][2], users[i][3], users[i][4].charAt(0), users[i][5].charAt(0), schools);
+				  students.add(s);
+			  }
 			}
 		}
 	    return students;
@@ -238,6 +238,7 @@ public class DatabaseController {
 				  University u = new University(s[i][0], s[i][1], s[i][2], s[i][3], Integer.parseInt(s[i][4]), Double.parseDouble(s[i][5]), Double.parseDouble(s[i][6]),
 						 Double.parseDouble(s[i][7]), Double.parseDouble(s[i][8]), Double.parseDouble(s[i][9]), Integer.parseInt(s[i][10]), Double.parseDouble(s[i][11]),
 						 Double.parseDouble(s[i][12]), Integer.parseInt(s[i][13]), Integer.parseInt(s[i][14]), Integer.parseInt(s[i][15]));
+				  u.setEmphases(getEmphases(s[i][0]));
 				  return u;
 			  }
 		  }
@@ -300,7 +301,7 @@ public class DatabaseController {
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	    int qualOfLife)
 	  {                         
-		if(uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
+		if(uDBL.university_editUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
 		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife)>-1)
 			return true;
 		else
@@ -391,5 +392,19 @@ public class DatabaseController {
 	    	return false;
 	  }
 	
+	  public ArrayList<String> getEmphases(String school){
+		  String[][] schoolEmph = uDBL.university_getNamesWithEmphases();
+		  ArrayList<String> s= new ArrayList<String>();
+		  for(int i = 0; i<schoolEmph.length; i++){
+			  if(schoolEmph[i][0].equals(school)){
+				  for(int u =0; u<schoolEmph[i].length; u++){
+					  u++;
+					  s.add(schoolEmph[i][u]);
+				  }
+			  }
+		  }
+		  System.out.println("Emphases for " + school + ":" + " " +s.toString());
+		  return s;
+	  }
 
 }
