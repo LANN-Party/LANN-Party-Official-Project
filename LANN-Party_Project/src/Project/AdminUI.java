@@ -112,7 +112,7 @@ char type, char status){
 	 * @param emphases, emphases at the school
 	 */   
 	public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
-			double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 			double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 		    int qualOfLife){
 				
@@ -145,7 +145,7 @@ char type, char status){
 	 * @param emphases, emphases at the school
 	 */
 	 public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
-			   double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+			   double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 			   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 			   int qualOfLife)
 			  {
