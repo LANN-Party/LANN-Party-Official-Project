@@ -84,14 +84,18 @@ public class FirstDriver {
   
   //U16 add university
   adminUI.addSchool("Saint Johns University", "Minnesota", "Collegeville", "Private", 2000, 0.0, 
-                    0, 0, 50000, 0.20, 400, 0.9, 4, 4, 3);
+                    0, 0, 50000, 0.20, 400, 0.9, 0.7, 4, 4, 3);
   
   //U17 view university
+  //(String name, String state, String location, String control, int numberOfStudents, 
+  //double percentFemales, int satVerbal, int satMath, double expenses, double percentFinAid, int applicants,
+  //double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
+  //int qualOfLife)
   adminUI.viewSchool("Saint Johns University");
   
   //U18 edit university
   adminUI.editSchool("Saint Johns University", "Minnesota", "Collegeville", "Private", 2000, 0.0, 
-                    550, 500, 60000, 0.20, 500, 0.9, 2, 4, 3);
+                    550, 500, 60000, 0.20, 500, 0.9, 0.7, 2, 4, 3);
   adminUI.viewSchool("Saint Johns University");
   
   //U20 add emphasis
