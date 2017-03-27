@@ -127,7 +127,6 @@ public class Search_Controler {
 			numEmphs++;
 		if(emph5!="")
 			numEmphs++;
-		System.out.println(numEmphs);
 		
 		
 		for (University x : dc.getSchools()) {

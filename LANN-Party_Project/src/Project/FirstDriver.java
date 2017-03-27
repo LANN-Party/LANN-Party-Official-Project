@@ -46,9 +46,11 @@ public class FirstDriver {
   studentUI.editInfo("ajmac", "Andrew", "McIntyre", "password", 'u', 'n');
   
   //U6 search schools
+  System.out.println();
+  System.out.println("Search Results:");
   studentUI.searchSchool(null, "CALIFORNIA", null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
   System.out.println();
-  
+  System.out.println("Recommended Schools:");
   studentUI.viewRecSchools("AUGSBURG");
   
   //U8 save school
@@ -56,13 +58,18 @@ public class FirstDriver {
   studentUI.saveSchool("ajmac", "ADELPHI");
   
   //U4 view saved schools
+  System.out.println();
+  System.out.println("Saved Schools:");
   studentUI.viewSavedSchools("ajmac");
   
   //U5 remove school
   studentUI.removeSchool("ajmac", "AUGSBURG");
+  System.out.println();
+  System.out.println("Saved Schools after remove:");
   studentUI.viewSavedSchools("ajmac");
   
   //U19 logout
+  System.out.println();
   login.studentLogout("ajmac");
   
   System.out.println();
@@ -101,14 +108,19 @@ public class FirstDriver {
   System.out.println();
   //U21 remove emphasis
   adminUI.removeEmphasis("Saint Johns University", "Biology");
+  adminUI.removeEmphasis("Saint Johns University", "Accounting");
   adminUI.viewSchool("Saint Johns University");
+  
+  
+  System.out.println();
+  if(adminUI.removeSchool("Saint Johns University"))
+	  System.out.println("School is removed");
   
   System.out.println();
   
   adminUI.viewSchools();
   
-  if(adminUI.removeSchool("Saint Johns University"))
-	  System.out.println("School is removed");
+  
   
   
   
