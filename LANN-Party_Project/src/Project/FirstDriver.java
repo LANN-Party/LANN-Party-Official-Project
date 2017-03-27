@@ -123,22 +123,25 @@ public class FirstDriver {
   
   
   
-  
+  System.out.println();
   if(adminUI.deactivateUser("ajmac"))
-	  System.out.println("user deactivated");
+	  System.out.println("User deactivated");
   adminUI.veiwUser("ajmac");
   
   System.out.println();
-  
+  System.out.println("Added User:");
   adminUI.addUser("nhynes", "Noah", "Hynes-Marquette", "loser", 'u', 'y');
   adminUI.veiwUser("nhynes");
-  
-  adminUI.editUser("nhynes", "Noah", "Dahlquist", "loser", 'u', 'y');
   System.out.println();
-  adminUI.veiwUser("nhynes");
-  if(adminUI.deleteUser("nhynes"))
-	  System.out.println("user deleted");
   
+  System.out.println("User edited:");
+  adminUI.editUser("nhynes", "Noah", "Dahlquist", "loser", 'u', 'y');
+  adminUI.veiwUser("nhynes");
+  System.out.println();
+  if(adminUI.deleteUser("nhynes"))
+	  System.out.println("User deleted");
+  
+  System.out.println();
   login.adminLogout("nadmin");
  }
  
