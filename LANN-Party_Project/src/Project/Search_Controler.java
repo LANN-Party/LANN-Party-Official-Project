@@ -132,7 +132,7 @@ public class Search_Controler {
 																	&& x.getSocialScale() >= socialscalel)
 																if (x.getQualityOfLife() <= qualityLifeh
 																		&& x.getQualityOfLife() >= qualityLifel) {
-																	int c =0
+																	int c =0;
 																	for (String s : x.getEmphases()) {
 																		if (s.equals(emph1) || s.equals(emph2)
 																				|| s.equals(emph3) || s.equals(emph4)
