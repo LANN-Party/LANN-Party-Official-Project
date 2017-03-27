@@ -1,6 +1,6 @@
 package Project;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Class defining the object university
@@ -16,7 +16,7 @@ public class University {
 	private String state, name, location, control;
 	private int numOfStudents, numOfApplicants, academicScale, socialScale, qualityOfLife;
 	private double percentFemale, SATVerbal, SATMath, expenses, percentFinancialAid, percentAdmitted, percentEnrolled;
-	private String[] emphases;
+	private ArrayList<String> emphases;
 	
 	/**
 	 * @param state the state the university is in
@@ -291,14 +291,14 @@ public class University {
 	/**
 	 * @return the emphases
 	 */
-	public String[] getEmphases() {
+	public ArrayList<String> getEmphases() {
 		return emphases;
 	}
 
 	/**
 	 * @param emphases the emphases to set
 	 */
-	public void setEmphases(String[] emphases) {
+	public void setEmphases(ArrayList<String> emphases) {
 		this.emphases = emphases;
 	}
 
@@ -312,7 +312,7 @@ public class University {
 				+ academicScale + ", socialScale=" + socialScale + ", qualityOfLife=" + qualityOfLife
 				+ ", percentFemale=" + percentFemale + ", SATVerbal=" + SATVerbal + ", SATMath=" + SATMath
 				+ ", expenses=" + expenses + ", \npercentFinancialAid=" + percentFinancialAid + ", percentAdmitted="
-				+ percentAdmitted + ", percentEnrolled=" + percentEnrolled + ", emphases=" + Arrays.toString(emphases)
+				+ percentAdmitted + ", percentEnrolled=" + percentEnrolled + ", emphases=" + emphases.toString()
 				+ "]";
 	}
 	

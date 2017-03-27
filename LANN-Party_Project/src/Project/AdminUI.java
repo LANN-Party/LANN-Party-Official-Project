@@ -189,5 +189,9 @@ char type, char status){
 		
 	}
 	
+	public void getEmphases(String school){
+		AC.getEmphases(school);
+	}
+	
 
 }
