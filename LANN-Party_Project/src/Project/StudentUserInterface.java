@@ -1,4 +1,5 @@
 package Project;
+import java.util.*;
  /**
   * FileName: StudentUserInterface.java
   */
@@ -6,12 +7,13 @@ package Project;
  /**
   * interface dedicated to users who are Students
   * @author Noah Hynes-Marquette
-  * @version 3/19/2017
+  * @version 3/27/2017
   *
   */
 public class StudentUserInterface {
 	
 	UserController uc = new UserController();
+	Search_Controler sc = new Search_Controler();
 	//Data fields
 	/**confirmation from user*/
 	boolean confirm;
@@ -100,6 +102,10 @@ public class StudentUserInterface {
 	{
 		//TODO: access search controller and give  list of schools
 		System.out.println(uc.searchSchool(name).toString());
+		ArrayList<University> univ = sc.viewSchool(name);
+		for(University u : univ){
+			System.out.println(u.getName());
+		}
 	}
 	
 	/**

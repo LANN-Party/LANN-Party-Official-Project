@@ -7,7 +7,7 @@ import java.util.*;
 	/**
 	 * Class dedicated to users who are Students
 	 * @author Logan Dahlquist
-	 * @version 3/19/2017
+	 * @version 3/27/2017
 	 *
 	 */
 	public class Student {
@@ -274,6 +274,11 @@ import java.util.*;
 		public String toString() {
 			return this.getFirstName()+","+this.getLastName()+","+this.getUserName()+","+this.getPassword()
 			+","+this.getType();
+		}
+		
+		public String toStringAdmin(){
+			return this.getFirstName()+","+this.getLastName()+","+this.getUserName()+","+this.getPassword()
+			+","+this.getType() + "," + this.getStatus();
 		}
 		
 		

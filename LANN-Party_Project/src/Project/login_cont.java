@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * A controller to login the users, admin or student
  * @author lrdahlquist
- * @version 3/19/17
+ * @version 3/27/17
  *
  */
 public class login_cont {

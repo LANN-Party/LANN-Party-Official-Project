@@ -3,7 +3,7 @@ package Project;
 /**
  * controller for the login and logout of a user
  * @author ajmcintyre
- * @version 3/19/17
+ * @version 3/27/17
  * @filename: LogoutController.java
  */
 public class LogoutController {

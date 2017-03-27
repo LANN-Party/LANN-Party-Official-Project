@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * controller for all searches made by the user
  * @author njfloeder
- * @version 3/19/2017
+ * @version 3/27/2017
  */
 public class Search_Controler {
 
@@ -103,72 +103,100 @@ public class Search_Controler {
 		University selected = dc.getSchool(uName);
 		//the current vector being calculated
 		Double vector =0.0;
+		int ctr = 0;
 		//a list of all the schools
 		ArrayList<University> schools = dc.getSchools();
 		//the calulation of the vector that is complete
 		for(University x:schools){
+			ctr++;
+			
+			if(selected.equals(x))
+				vector+=0;
 			if(selected.getSATMath()>x.getSATMath()){
 				vector+=Math.abs((selected.getSATMath()-x.getSATMath())/(Math.abs(selected.getSATMath()-x.getSATMath())));
 			}
+			else if(selected.getSATMath()==x.getSATMath())
+				vector+=0;
 			else{
 				vector+=Math.abs(((selected.getSATMath()-x.getSATMath())/(x.getSATMath()-selected.getSATMath())));
 			}
 			if(selected.getSATVerbal()>x.getSATVerbal()){
 				vector += Math.abs((selected.getSATVerbal()-x.getSATVerbal())/(selected.getSATVerbal()-x.getSATVerbal()));
 			}
+			else if(selected.getSATVerbal()==x.getSATVerbal())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getSATVerbal()-x.getSATVerbal())/(x.getSATVerbal()-selected.getSATVerbal()));
 			}
 			if(selected.getSocialScale()>x.getSocialScale()){
 				vector +=Math.abs((selected.getSocialScale()-x.getSocialScale())+(selected.getSocialScale()-x.getSocialScale()));
 			}
+			else if(selected.getSocialScale()==x.getSocialScale())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getSocialScale()-x.getSocialScale())+(x.getSocialScale()-selected.getSocialScale()));
 			}
 			if(selected.getAcademicScale()>x.getAcademicScale()){
 				vector += Math.abs((selected.getAcademicScale()-x.getAcademicScale())/(selected.getAcademicScale()-x.getAcademicScale()));
 			}
+			else if(selected.getAcademicScale() == x.getAcademicScale())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getAcademicScale()-x.getAcademicScale())/(x.getAcademicScale()-selected.getAcademicScale()));
 			}
 			if(selected.getPercentAdmitted()>x.getPercentAdmitted()){
 				vector += Math.abs((selected.getPercentAdmitted()-x.getPercentAdmitted())/(selected.getPercentAdmitted()-x.getPercentAdmitted()));
 			}
+			else if(selected.getPercentAdmitted() == x.getPercentAdmitted())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getPercentAdmitted()-x.getPercentAdmitted())/(x.getPercentAdmitted()-selected.getPercentAdmitted()));
 			}
 			if(selected.getPercentEnrolled()>x.getPercentEnrolled()){
 				vector += Math.abs((selected.getPercentEnrolled()-x.getPercentEnrolled())/(selected.getPercentEnrolled()-x.getPercentEnrolled()));
 			}
+			else if(selected.getPercentEnrolled()== x.getPercentEnrolled())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getPercentEnrolled()-x.getPercentEnrolled())/(x.getPercentEnrolled()-selected.getPercentEnrolled()));
 			}
 			if(selected.getPercentFemale()>x.getPercentFemale()){
 				vector += Math.abs((selected.getPercentFemale()-x.getPercentFemale())/(selected.getPercentFemale()-x.getPercentFemale()));
 			}
+			else if(selected.getPercentFemale() == x.getPercentFemale())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getPercentFemale()-x.getPercentFemale())/(x.getPercentFemale()-selected.getPercentFemale()));
 			}
 			if(selected.getPercentFinancialAid()>x.getPercentFinancialAid()){
 				vector += Math.abs((selected.getPercentFinancialAid()-x.getPercentFinancialAid())/(selected.getPercentFinancialAid()-x.getPercentFinancialAid()));
 			}
+			else if(selected.getPercentFinancialAid()==x.getPercentFinancialAid())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getPercentFinancialAid()-x.getPercentFinancialAid())/(x.getPercentFinancialAid()-selected.getPercentFinancialAid()));
 			}
 			if(selected.getQualityOfLife()>x.getQualityOfLife()){
 				vector += Math.abs((selected.getQualityOfLife()-x.getQualityOfLife())/(selected.getQualityOfLife()-x.getQualityOfLife()));
 			}
+			else if(selected.getQualityOfLife() == x.getQualityOfLife())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getQualityOfLife()-x.getQualityOfLife())/(x.getQualityOfLife()-selected.getQualityOfLife()));
 			}
 			if(selected.getExpenses()>x.getExpenses()){
 				vector += Math.abs((selected.getExpenses()-x.getExpenses())/(selected.getExpenses()-x.getExpenses()));
 			}
+			else if(selected.getExpenses() == x.getExpenses())
+				vector +=0;
 			else{
 				vector += Math.abs((selected.getExpenses()-x.getExpenses())/(x.getExpenses()-selected.getExpenses()));
 			}
 			if(selected.getNumOfApplicants()>x.getNumOfApplicants()){
 				vector += Math.abs((selected.getNumOfApplicants()-x.getNumOfApplicants())/(selected.getNumOfApplicants()-x.getNumOfApplicants()));
+			}
+			else if(selected.getNumOfApplicants() == x.getNumOfApplicants()){
+				vector += 0;
 			}
 			else{
 				vector += Math.abs((selected.getNumOfApplicants()-x.getNumOfApplicants())/(x.getNumOfApplicants()-selected.getNumOfApplicants()));
@@ -179,24 +207,26 @@ public class Search_Controler {
 				vector +=1;
 			if(!selected.getControl().equals(x.getControl()))
 				vector +=1;
-			String[] emphS = selected.getEmphases();
-			String[] emphX = x.getEmphases();
-			for(int a =0;a<selected.getEmphases().length;a++){
-				for(int s = 0;s<selected.getEmphases().length;s++){
-					if(!emphS[a].equals(emphX[s]))
-						vector +=1;
+			ArrayList<String> emphS = selected.getEmphases();
+			ArrayList<String> emphX = x.getEmphases();
+			if(emphS != null && emphX != null){
+				for(String s : emphS){
+					for(String r : emphX){
+						if(!s.equals(r))
+							vector +=1;
+					}
 				}
 			}
-			
-			vectors.put(vector,x);
+			if(!(selected.getName().equals(x.getName())))
+				vectors.put(vector,x);
+			double v = vector;
 			//where you now select
 			//can sort vectors and grab the top 5 from there or just find the top 5 lowest instead of sorting right away
-			
-			
-		
+			vector = 0.0;
 			}
+		System.out.println(vectors.size());
 		for(int i=0; i<5; i++){
-			top5.add(vectors.get(vectors.pollFirstEntry()));
+			top5.add(vectors.pollFirstEntry().getValue());
 		}
 		return top5;
 	}

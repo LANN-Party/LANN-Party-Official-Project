@@ -6,7 +6,7 @@ package Project;
 /**
  * interface for logging in Admin's and Students
  * @author lrdahlquist
- * @version 3/19/17
+ * @version 3/27/17
  */
 
 public class LoginUI {

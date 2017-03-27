@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Class defining the object university
  * @author ajmcintyre
- * @version 3/19/17
+ * @version 3/27/17
  * @filename: University.java
  */
 public class University {
