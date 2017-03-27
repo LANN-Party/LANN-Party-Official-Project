@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * controller for all searches made by the user
  * @author njfloeder
- * @version 3/19/2017
+ * @version 3/27/2017
  */
 public class Search_Controler {
 

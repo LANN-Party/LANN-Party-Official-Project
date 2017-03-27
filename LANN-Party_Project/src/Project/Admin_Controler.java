@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * controller for object admin
  * @author njfloeder
- * @version 3/19/17
+ * @version 3/27/17
  */
 public class Admin_Controler {
 
@@ -17,22 +17,27 @@ public class Admin_Controler {
 	DatabaseController dc;
 	
 	/**
-	 * creates a Admin_Controller
+	 * creates an Admin_Controller and 
+	 * initializes the DatabaseController instance variable
 	 * 
-	 * @param schools
 	 */
 	public Admin_Controler() {
 		dc = new DatabaseController("lannp","lannp","csci230");
 	}
+	
 	/**
-	 * displays the Admin's profile
+	 * When called, this method displays the information attached to the 
+	 * admin user
 	 * 
-	 * @param myName name of admin to display their profile
+	 * @param myName : name of admin whose profile will be displayed
 	 */
 	public void displayProfile(String myName){
 		System.out.println(dc.getUser(myName).toStringAdmin());
 	}
 	
+	/**
+	 * When called, this method produces an array of all admin and student users
+	 */
 	public void viewUsers(){
 		ArrayList<Student> s = dc.getStudents();
 		ArrayList<Admin> a = dc.getAdmins();
@@ -44,9 +49,9 @@ public class Admin_Controler {
 		}
 	}
 	/**
-	 * displays users info
+	 * When called, this method diplays the information attached to a given user
 	 * 
-	  * @param uName username of user
+	  * @param uName : username of user
 	 */
 	public void displayInfo(String uName){
 		
@@ -55,29 +60,32 @@ public class Admin_Controler {
 
 	
 	/**
-	 * add a user into database
+	 * When called, this method calls DatabaseController to create a new 
+	 * admin or student user depending on their type
 	 * 
-	 * @param schools
-	 * @param uName username of user
-	 * @param fName first name of user
-	 * @param lName last name of user
-	 * @param pWord password for user to log in 
-	 * @param type either a user is admin or student
-	 * @param status if they are signed in or not
+	 * @param uName : username of user
+	 * @param fName : first name of user
+	 * @param lName : last name of user
+	 * @param pWord : password for user to log in 
+	 * @param type : either a user is admin or student
+	 * @param status : if they are signed in or not
 	 */
 	public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status){
 		
 		return dc.addUser(uName, fName, lName, pWord, type, status);
 	}
+	
 	/**
-	 * allows admin to edit a user from their information
+	 * When called, this method calls DatabaseController to make changes
+	 * to the information of a given user
 	 * 
-	 * @param uName username of user
-	 * @param fName first name of user
-	 * @param lName last name of user
-	 * @param pWord password for user to log in 
-	 * @param type either a user is admin or student
-	 * @param status if they are signed in or not
+	 * 
+	 * @param uName : username of user
+	 * @param fName : first name of user
+	 * @param lName : last name of user
+	 * @param pWord : password for user to log in 
+	 * @param type : either a user is admin or student
+	 * @param status : if they are signed in or not
 	 */
 	public boolean editUser(String uName, String fName, String lName, String pWord, 
 char type, char status){
@@ -99,18 +107,21 @@ char type, char status){
 		else
 			return false;
 	}
+	
 	/**
-	 * delete a user
+	 * When called, this method makes a call to DatabaseController to
+	 * delete a given user
 	 * 
-	 * @param uName
+	 * @param uName : name of the user to delete
 	 */
 	public boolean deleteUser(String uName){
 		return dc.deleteUser(uName);
 	}
 	
 	/**
+	 * When called, this method calls DatabaseController to deactivate a given user
 	 * 
-	 * @param uName username of user to be deactivated
+	 * @param uName : username of user to be deactivated
 	 * @return true if user is deactivated, false otherwise
 	 */
 	public boolean deactivateUser(String uName){
@@ -125,20 +136,25 @@ char type, char status){
 		else
 			return false;
 	}
+	
 	/**
-	 * displays a school
+	 * When called, this method displays the information of a given school
+	 * 
+	 * @param sName : name of the school to show information for
 	 */
-	public void displaySchool(String uName){
-		System.out.println(dc.getSchool(uName));
+	public void displaySchool(String sName){
+		System.out.println(dc.getSchool(sName));
 	}
+	
 	/**
-	 * displays the schools
+	 * When called, this method displays a list of all schools
 	 */
 	public void displaySchools(){
 		for(University x: dc.getSchools()){
 		System.out.println(x.getName());
 		}
 	}
+	
 	/**
 	   * Adds new school to the database and using all inputs, create a new University object
 	   * 
@@ -171,21 +187,23 @@ char type, char status){
 			  {
 		 		return dc.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
+	 
 	/**
-	 * gets a university
+	 * When called, this method returns a university object
 	 * 
+	 * @param sName : name of the school to return
 	 * @return University university
 	 */
-	public University getSchool(String uName){
+	public University getSchool(String sName){
 		
-		return dc.getSchool(uName);
+		return dc.getSchool(sName);
 	}
 	
 	/**
-	 * Adds a emphasis to the university
+	 * When called, this method adds an emphasis to a given school
 	 * 
-	 * @param school, university to select
-	 * @param emph, a new emphasis
+	 * @param school : name of the school to add the emphasis to
+	 * @param emph : the new emphasis to add
 	 */
 	public void addEmphasis(String school, String emph){
 		//return dc.addEmphasis(school, emph);
@@ -193,10 +211,10 @@ char type, char status){
 	}
 	
 	/**
-	 * Adds a emphasis to the university
+	 * When called, this method removes an emphasis from a given school
 	 * 
-	 * @param school, university to select
-	 * @param emph, a new emphasis
+	 * @param school : name of the school to remove the emphasis from
+	 * @param emph : the emphasis to remove
 	 */
 	public void removeEmphasis(String school, String emph){
 		//return dc.removeEmphasis(school, emph);
@@ -204,21 +222,24 @@ char type, char status){
 	}
 	
 	/**
-	 * allows admin to edit a university
+	 * When called, this method allows the admin user to edit information
+	 * of a given university
 	 * 
-	 * @param state where the university is located
-	 * @param name, Name of the school
-	 * @param location where the school is 
-	 * @param control type of school(private vs public)
-	 * @param percentF percent of female students 
-	 * @param SATVerbal, sat score for virbal section 
-	 * @param SATMath, sat score for the math catagory
-	 * @param expenses the expensive for the school
-	 * @param numberOfApp, number of applicants to the school
-	 * @param percentAdmitted, percent admitted to the schol
-	 * @param academicScale, the level they would give the school for academics
-	 * @param qualityOfLiffe, csale from 1-10 of how a user would rate the quality of life
-	 * @param emphases, emphases at the school
+	 * @param state : where the university is located
+	 * @param name : Name of the school
+	 * @param location : city the school is located in 
+	 * @param control : type of school(private vs public)
+	 * @param percentF : percent of female students 
+	 * @param SATVerbal : accepted SAT verbal score of the school
+	 * @param SATMath : accepted SAT math score of the school
+	 * @param expenses : expenses of attending the school
+	 * @param numberOfApp : average number of people who apply to the school
+	 * @param percentAdmitted : average percent of applicants admitted
+	 * @param percentEnrolled : average number of admitted applicants that enroll in the school
+	 * @param academicScale : average number given for academic quality on a scale of 1-10
+	 * @param socialScale : average number given for social quality on a scale of 1-10
+	 * @param qualityOfLife : average number given for quality of life on a scale of 1-10
+	 * 
 	 */
 	
 	
@@ -230,7 +251,14 @@ char type, char status){
 		return dc.editSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 	}
 	
-	public void getEmphases(String school){
+	
+	/**
+	 * When called, this method prints out a list of emphases for a given school
+	 * 
+	 * @param school : name of school to get emphases
+	 */
+	public void getEmphases(String school)
+	{
 		System.out.println("Emphases for " + school + ":" + " " +dc.getEmphases(school).toString());
 	}
 }

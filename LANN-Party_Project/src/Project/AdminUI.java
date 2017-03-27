@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Interface for users who are Admins
  * @author njfloeder
- * @version 3/19/2017
+ * @version 3/27/2017
  */
 public class AdminUI {
 	

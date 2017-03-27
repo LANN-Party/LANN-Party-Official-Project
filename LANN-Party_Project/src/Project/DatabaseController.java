@@ -11,7 +11,7 @@ import dblibrary.project.csci230.*;
  /**
   * Class dedicated to all information in the system
   * @author Noah Hynes-Marquette
-  * @version 3/19/2017
+  * @version 3/27/2017
   *
   */
 public class DatabaseController {
@@ -19,22 +19,20 @@ public class DatabaseController {
 	private UniversityDBLibrary uDBL;
 	private Search_Controler search; 
 	
-	  //Data fields
-	   /**All schools in the database (ArrayList)*/
-	  //ArrayList<schools>;
-	  
-	  //Data fields
-	  /**All users, admin or student, in the database (ArrayList)*/
-	  //ArrayList<users>;
-	
-	
-	
-	public DatabaseController(String dataBase, String uName, String pWord){
+	/**
+	 * This method initializes uDBL
+	 * 
+	 * @param dataBase : name of database to access information from
+	 * @param uName : name of group (LANN-Party)
+	 * @param pWord : the group's password
+	 */
+	public DatabaseController(String dataBase, String uName, String pWord)
+	{
 		uDBL = new UniversityDBLibrary(dataBase, uName, pWord);
 	}
 	  
 	/**
-	 * gets an arraylist of all the students in the database
+	 * When called, this method returns an arraylist of all the students in the database
 	 * 
 	 * @return ArrayList<Student> of all students in the database
 	 */
@@ -72,6 +70,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
+	   * When called, this method returns an arraylist of all admin users
 	   * 
 	   * @return ArrayList<Admin> of all the admins in the database
 	   */
@@ -91,7 +90,7 @@ public class DatabaseController {
 	  
 	  /**
 	   * Once given the information needed for a new user,
-	   * it creates a new Student or Admin user
+	   * this method creates a new Student or Admin user
 	   * 
 	   * @param uName  : String, user's user name
 	   * @param fName : String, user's first name
@@ -102,7 +101,7 @@ public class DatabaseController {
 	   */
 	  public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
-		//TODO: using the information given to it, 
+		 
 		int i = uDBL.user_addUser(fName, lName, uName, pWord, type);
 		if(i>-1)
 			return true;
@@ -111,13 +110,13 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Deletes selected user from the database   
+	   * When called, this method deletes a selected user from the database   
 	   * 
 	   * @param uName : String, user name of the user to delete
 	   */
 	  public boolean deleteUser(String uName)
 	  {
-	    //TODO: using the user name of the User object given, delete the object from the database
+	    
 		if(uDBL.user_deleteUser(uName)>-1)
 			return true;
 		else
@@ -125,7 +124,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Removes selected school from database 
+	   * When called, this method removes a selected school from database 
 	   * 
 	   * @param university : University, the university to remove from database
 	   */
@@ -138,7 +137,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Removes the object from the user's saved school list
+	   * When called, this method removes the selected saved school from the user's saved school list
 	   * 
 	   * @param uName : String, name of the User whose saved list the school will be removed from
 	   * @param schoolName : String, name of the university 
@@ -152,7 +151,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Saves school and it's information to database   
+	   * When called, this method saves a school and it's information to the sudent's list of saved schools 
 	   * 
 	   * @param uName : String, name of student to save school to
 	   * @param schoolName : String, name of school to add
@@ -167,7 +166,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Gets selected user's information   
+	   * When called, this method returns a student object 
 	   * 
 	   * @param uName : String, the user name of the user to get information on
 	   * @return Student object of student if found, null if not.
@@ -208,6 +207,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
+	   * When called, this method returns an admin object
 	   * 
 	   * @param uName username to search for
 	   * @return Admin, the admin object of the name parameter, or null if not found
@@ -224,7 +224,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Gets selected schools' information  
+	   * When called, this method returns a university object
 	   * 
 	   * @param name: String, name of university to get information on
 	   */
@@ -246,9 +246,9 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Uses information to search the database for related schools
+	   * When called, this method returns an arraylist of universities similar to the one given
 	   * 
-	   * @param university: University, university to get related school for
+	   * @param university: University, university to get related schools for
 	   */
 	  public ArrayList<University> getRelatedSchools(University university)
 	  {
@@ -256,9 +256,8 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Gets an array list of all the schools from DBL 
+	   * When called, this method returns an array list of all the schools from DBL 
 	   * 
-	   * @param university: University, university to get schools for???
 	   */
 	  public ArrayList<University> getSchools()
 	  {
@@ -275,8 +274,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * receives entries for possible changes in the specific
-	   * school's information
+	   * When called, this method uses the given information to change the given schools information
 	   * 
 	   * @param name : String, name of the University object to change (can't be changed here)
 	   * @param state : String, the school's state
@@ -294,7 +292,6 @@ public class DatabaseController {
 	   * @param academScale : int, average rating of this school academically from 1(poor)-5(excellent)
 	   * @param socialScale : int, average rating of this school socially from 1(poor)-5(excellent)
 	   * @param qualOfLife : int, average rating of this school's quality of life from 1(poor)-5(excellent)
-
 	   */
 	  public boolean editSchool(String name, String state, String location, String control, int numberOfStudents, 
 		double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
@@ -309,7 +306,8 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Adds new school to the UniversityDBLibrary and using all inputs, create a new University object
+	   * When called, this method adds a new school to the UniversityDBLibrary 
+	   * and using all inputs, create a new University object
 	   * 
 	   * @param name : String, name of the University object
 	   * @param state : String, the school's state
@@ -327,7 +325,6 @@ public class DatabaseController {
 	   * @param academScale : int, average rating of this school academically from 1(poor)-5(excellent)
 	   * @param socialScale : int, average rating of this school socially from 1(poor)-5(excellent)
 	   * @param qualOfLife : int, average rating of this school's quality of life from 1(poor)-5(excellent)
-
 	   */
 	  public boolean addSchool(String name, String state, String location, String control, int numberOfStudents, 
 	   double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
@@ -344,7 +341,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * 
+	   * When called, this method adds an emphasis to the given school
 	   * 
 	   * @param sName : String, name of the school to add emphasis to
 	   * @param emphasis1 : String, the number 1 major supported at this school
@@ -359,11 +356,10 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * 
+	   * When called, this method removes the given emphasis from the given school
 	   * 
 	   * @param sName : String, name of the school to remove emphasis from
 	   * @param emphasis1 : String, one emphasis to remove
-
 	   */
 	  public void removeEmphasis(String sName, String emphasis1)
 	  {
@@ -375,7 +371,7 @@ public class DatabaseController {
 	  }
 	  
 	  /**
-	   * Changes the given information in for the student in the DBL
+	   * When called, this method changes the given information for the student in the DBL
 	   * 
 	   * @param uName : String, user name of user to edit
 	   * @param fName : String, first name of user
@@ -392,6 +388,12 @@ public class DatabaseController {
 	    	return false;
 	  }
 	
+	  /**
+	   * When called, this method returns an arraylist of the given schools' emphases
+	   * 
+	   * @param school : name of school to get emphases for
+	   * @return ArrayList of the schools' emphases
+	   */
 	  public ArrayList<String> getEmphases(String school){
 		  String[][] schoolEmph = uDBL.university_getNamesWithEmphases();
 		  ArrayList<String> s= new ArrayList<String>();
