@@ -57,38 +57,56 @@ public class Search_Controler {
 		int qualityLifel = qualityLifeL;
 		int numEmphs=0;
 		
+		if(schoolName==null)
+			schoolName="";
+		if(state==null)
+			state="";
+		if(location==null)
+			location="";
+		if(control==null)
+			control="";
+		if(emph1==null)
+			emph1="";
+		if(emph2==null)
+			emph2="";
+		if(emph3==null)
+			emph3="";
+		if(emph4==null)
+			emph4="";
+		if(emph5==null)
+			emph5="";
 		if (numStuh == 0)
 			numStuh = Integer.MAX_VALUE;
 		if (satVerbh == 0)
-			satVerbh = Integer.MAX_VALUE;
+			satVerbh = Double.MAX_VALUE;
 		if (satVerbl == 0)
-			satVerbl = Integer.MIN_VALUE;
+			satVerbl = Double.MIN_VALUE;
 		if (satMathh == 0)
-			satMathh = Integer.MAX_VALUE;
+			satMathh = Double.MAX_VALUE;
 		if (satMathl == 0)
-			satMathl = Integer.MIN_VALUE;
+			satMathl = Double.MIN_VALUE;
 		if (acdemScaleh == 0)
 			acdemScaleh = Integer.MAX_VALUE;
 		if (expensesh == 0)
-			expensesh = Integer.MAX_VALUE;
+			expensesh = Double.MAX_VALUE;
 		if (expensesl == 0)
-			expensesl = Integer.MIN_VALUE;
+			expensesl = Double.MIN_VALUE;
 		if (percFinacialh == 0)
-			percFinacialh = Integer.MAX_VALUE;
+			percFinacialh = Double.MAX_VALUE;
 		if (percFinaciall == 0)
-			percFinaciall = Integer.MIN_VALUE;
+			percFinaciall = Double.MIN_VALUE;
 		if (numberAppsh == 0)
 			numberAppsh = Integer.MAX_VALUE;
 		if (numberAppsl == 0)
 			numberAppsl = Integer.MIN_VALUE;
 		if (percAdmittedh == 0)
-			percAdmittedh = Integer.MAX_VALUE;
+			percAdmittedh = Double.MAX_VALUE;
 		if (percAdmittedl == 0)
-			percAdmittedl = Integer.MIN_VALUE;
+			percAdmittedl = Double.MIN_VALUE;
 		if (percEnrolledh == 0)
-			percEnrolledh = Integer.MAX_VALUE;
+			percEnrolledh = Double.MAX_VALUE;
 		if (percEnrolledl == 0)
-			percEnrolledl = Integer.MIN_VALUE;
+			percEnrolledl = Double.MIN_VALUE;
 		if (acdemScalel == 0)
 			acdemScalel = Integer.MIN_VALUE;
 		if (socialscaleh == 0)
@@ -99,27 +117,29 @@ public class Search_Controler {
 			qualityLifeh = Integer.MAX_VALUE;
 		if (qualityLifel == 0)
 			qualityLifel = Integer.MIN_VALUE;
-		if(emph1==null)
+		if(emph1!="")
 			numEmphs++;
-		if(emph2==null)
+		if(emph2!="")
 			numEmphs++;
-		if(emph3==null)
+		if(emph3!="")
 			numEmphs++;
-		if(emph4==null)
+		if(emph4!="")
 			numEmphs++;
-		if(emph5==null)
+		if(emph5!="")
 			numEmphs++;
-
+		System.out.println(numEmphs);
+		
+		
 		for (University x : dc.getSchools()) {
-			if (x.getName().contains(schoolName)) {
-				if (x.getState().contains(state))
-					if (x.getLocation().equals(location))
-						if (x.getControl().equals(control))
+			if (x.getName().contains(schoolName) || schoolName.equals("")) {
+				if (x.getState().contains(state) || state.equals(""))
+					if (x.getLocation().equals(location) || location.equals(""))
+						if (x.getControl().equals(control) || control.equals(""))
 							if (x.getSATVerbal() <= satVerbh && x.getSATVerbal() >= satVerbl)
-								if (x.getSATMath() <= satMathH && x.getSATMath() >= satMathL)
+								if (x.getSATMath() <= satMathh && x.getSATMath() >= satMathl)
 									if (x.getExpenses() <= expensesh && x.getExpenses() >= expensesl)
 										if (x.getPercentFinancialAid() <= percFinacialh
-												&& x.getPercentFinancialAid() <= percFinaciall)
+												&& x.getPercentFinancialAid() >= percFinaciall)
 											if (x.getNumOfApplicants() <= numberAppsh
 													&& x.getNumOfApplicants() >= numberAppsl)
 												if (x.getPercentAdmitted() <= percAdmittedh
@@ -132,14 +152,16 @@ public class Search_Controler {
 																	&& x.getSocialScale() >= socialscalel)
 																if (x.getQualityOfLife() <= qualityLifeh
 																		&& x.getQualityOfLife() >= qualityLifel) {
-																	int c =0;
+																	int c =numEmphs;
+																	if(x.getEmphases() !=null){
 																	for (String s : x.getEmphases()) {
 																		if (s.equals(emph1) || s.equals(emph2)
 																				|| s.equals(emph3) || s.equals(emph4)
 																				|| s.equals(emph5))
-																			c++;
+																			c--;
 																	}
-																	if(c==numEmphs){
+																	}
+																	if(c==0){
 																		inRange.add(x);	
 																	}
 																	}
@@ -297,7 +319,6 @@ public class Search_Controler {
 			// top 5 lowest instead of sorting right away
 			vector = 0.0;
 		}
-		System.out.println(vectors.size());
 		for (int i = 0; i < 5; i++) {
 			top5.add(vectors.pollFirstEntry().getValue());
 		}

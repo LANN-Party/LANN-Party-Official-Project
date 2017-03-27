@@ -98,11 +98,30 @@ public class StudentUserInterface {
 	 * 
 	 * @param name; String, name of school
 	 */
-	public void searchSchool(String name)
+	public void searchSchool(String schoolName, String state, String location, String control,
+			int numStuH, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
+			double expensesL, double percFinacialH, double percFinacialL, int numberAppsH, int numberAppsL,
+			double percAdmittedH, double percAdmittedL, double percEnrolledH, double percEnrolledL, int acdemScaleH,
+			int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
+			String emph2, String emph3, String emph4, String emph5)
 	{
 		//TODO: access search controller and give  list of schools
-		System.out.println(uc.searchSchool(name).toString());
-		ArrayList<University> univ = sc.viewSchool(name);
+		ArrayList<University> univ = uc.searchSchool(schoolName, state, location, control, numStuH, 
+				satVerbH, satVerbL, satMathH, satMathL, expensesH, expensesL, percFinacialH, percFinacialL,
+				numberAppsH, numberAppsL, percAdmittedH, percAdmittedL, percEnrolledH, percEnrolledL, acdemScaleH,
+				acdemScaleL, socialscaleH, socialscaleL, qualityLifeH, qualityLifeL, emph1, emph2, emph3, emph4, emph5);
+		
+		for(University u : univ){
+			System.out.println(u.getName());
+		}
+	}
+	
+	/**
+	 * Displays the top 5 recommended schools based on name of school given
+	 * @param uName name of school to compare for top 5 similar schools
+	 */
+	public void viewRecSchools(String uName){
+		ArrayList<University> univ = uc.viewRecSchools(uName);
 		for(University u : univ){
 			System.out.println(u.getName());
 		}

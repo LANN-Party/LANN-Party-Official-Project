@@ -162,6 +162,16 @@ char type, char status){
 			  }
 	 
 	 /**
+	  * Calls admin controller to remove a school from the database
+	  * @param name name of school to be removed
+	  * @return true if school is removed, false otherwise
+	  */
+	 public boolean removeSchool(String name){
+		 if(AC.removeSchool(name))
+			 return true;
+		 return false;
+	 }
+	 /**
        * Adds a emphasis to the university
 	   * 
 	   * @param school, university to select
@@ -169,7 +179,7 @@ char type, char status){
 	   */
 	public void addEmphasis(String school, String emph){
 		AC.addEmphasis(school, emph);
-		}
+	}
 	 
 	/**
 	 * Adds a emphasis to the university

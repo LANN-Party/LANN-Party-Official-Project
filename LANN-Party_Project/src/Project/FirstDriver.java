@@ -3,16 +3,12 @@
  * 
  * LANN-Party
  * 
- * description: The first driver for the project
- * version: 3/20/2017
+ * @author LANN-Party
+ * @version: 3/20/2017
  */
 
 package Project;
 
-//////Use cases needed//////
-/**
- * U7 search results
- */
 
 public class FirstDriver {
 
@@ -50,7 +46,10 @@ public class FirstDriver {
   studentUI.editInfo("ajmac", "Andrew", "McIntyre", "password", 'u', 'n');
   
   //U6 search schools
-  studentUI.searchSchool("AUGSBURG");
+  studentUI.searchSchool(null, "CALIFORNIA", null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+  System.out.println();
+  
+  studentUI.viewRecSchools("AUGSBURG");
   
   //U8 save school
   studentUI.saveSchool("ajmac", "AUGSBURG");
@@ -107,6 +106,9 @@ public class FirstDriver {
   System.out.println();
   
   adminUI.viewSchools();
+  
+  if(adminUI.removeSchool("Saint Johns University"))
+	  System.out.println("School is removed");
   
   
   

@@ -1,5 +1,8 @@
 package Project;
- /**
+
+import java.util.ArrayList;
+
+/**
   * FileName: userController.java
   */
  
@@ -14,9 +17,10 @@ package Project;
 		
 		private DatabaseController dc;
 		private LogoutController lc;
-		
+		private Search_Controler sc;
 		  
 		public UserController() {
+			sc = new Search_Controler();
 			dc = new DatabaseController("lannp", "lannp", "csci230");
 			lc = new LogoutController();
 		}
@@ -90,9 +94,25 @@ package Project;
 		   * 
 		   * @param sName : String, school name
 		   */
-		  public University searchSchool(String sName)
+		  public ArrayList<University> searchSchool(String schoolName, String state, String location, String control,
+					int numStuH, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
+					double expensesL, double percFinacialH, double percFinacialL, int numberAppsH, int numberAppsL,
+					double percAdmittedH, double percAdmittedL, double percEnrolledH, double percEnrolledL, int acdemScaleH,
+					int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
+					String emph2, String emph3, String emph4, String emph5)
 		  {
-			  return dc.getSchool(sName);
+			  return sc.displaySearchResults(schoolName, state, location, control, numStuH, satVerbH, satVerbL, satMathH, 
+					  satMathL, expensesH, expensesL, percFinacialH, percFinacialL, numberAppsH, numberAppsL, percAdmittedH, 
+					  percAdmittedL, percEnrolledH, percEnrolledL, acdemScaleH, acdemScaleL, socialscaleH, socialscaleL, qualityLifeH, 
+					  qualityLifeL, emph1, emph2, emph3, emph4, emph5);
+		}
+		  
+		  /**
+			 * Displays the top 5 recommended schools based on name of school given
+			 * @param uName name of school to compare for top 5 similar schools
+			*/
+		  public ArrayList<University> viewRecSchools(String uName){
+			  return sc.viewSchool(uName);
 		  }
 		  
 		  /**

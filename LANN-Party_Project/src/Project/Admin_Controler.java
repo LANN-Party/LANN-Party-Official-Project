@@ -187,6 +187,17 @@ char type, char status){
 		 		return dc.addSchool(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath, expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife);
 			  }
 	 
+	 /**
+	  * Calls dbcontroller to remove a school from the database
+	  * @param name name of school to remove
+	  * @return true if school is removed successfully, false otherwise
+	  */
+	 public boolean removeSchool(String name){
+		 if(dc.removeSchool(name))
+			 return true;
+		 return false;
+	 }
+	 
 	/**
 	 * When called, this method returns a university object
 	 * 
