@@ -47,12 +47,21 @@ char type, char status){
 	}
 	
 	/**
-	 * lets on deactivate a user from their username
+	 * lets on delete a user from their username
 	 * 
 	 * @param uName username for user
 	 */
-	public boolean deactivateUser(String uName){
+	public boolean deleteUser(String uName){
 		return AC.deleteUser(uName);
+	}
+	
+	/**
+	 * 
+	 * @param uName suername of user to be deactivated
+	 * @return true if user is deactivated, false otherwise
+	 */
+	public boolean deactivateUser(String uName){
+		return AC.deactivateUser(uName);
 	}
 	
 	/**

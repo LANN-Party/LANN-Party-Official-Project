@@ -276,5 +276,10 @@ import java.util.*;
 			+","+this.getType();
 		}
 		
+		public String toStringAdmin(){
+			return this.getFirstName()+","+this.getLastName()+","+this.getUserName()+","+this.getPassword()
+			+","+this.getType() + "," + this.getStatus();
+		}
+		
 		
 	}

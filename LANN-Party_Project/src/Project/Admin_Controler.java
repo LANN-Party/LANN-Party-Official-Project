@@ -30,7 +30,7 @@ public class Admin_Controler {
 	 * @param myName name of admin to display their profile
 	 */
 	public void displayProfile(String myName){
-		System.out.println(dc.getUser(myName).toString());
+		System.out.println(dc.getUser(myName).toStringAdmin());
 	}
 	
 	public void viewUsers(){
@@ -107,6 +107,24 @@ char type, char status){
 	public boolean deleteUser(String uName){
 		return dc.deleteUser(uName);
 	}
+	
+	/**
+	 * 
+	 * @param uName username of user to be deactivated
+	 * @return true if user is deactivated, false otherwise
+	 */
+	public boolean deactivateUser(String uName){
+		if(dc.getUser(uName) != null){
+			dc.getUser(uName).setStatus('n');
+			return true;
+		}
+		else if(dc.getAdmin(uName) != null){
+			dc.getAdmin(uName).setStatus('n');
+			return true;
+		}
+		else
+			return false;
+	}
 	/**
 	 * displays a school
 	 */
@@ -118,7 +136,7 @@ char type, char status){
 	 */
 	public void displaySchools(){
 		for(University x: dc.getSchools()){
-		System.out.println(x.toString());
+		System.out.println(x.getName());
 		}
 	}
 	/**

@@ -12,11 +12,6 @@ package Project;
 //////Use cases needed//////
 /**
  * U7 search results
- * U9 view recommended schools
- * U12 add user
- * U13 edit user
- * U14 deactivate user
- * U15 view universities
  */
 
 public class FirstDriver {
@@ -109,6 +104,28 @@ public class FirstDriver {
   adminUI.removeEmphasis("Saint Johns University", "Biology");
   adminUI.viewSchool("Saint Johns University");
   
+  System.out.println();
+  
+  adminUI.viewSchools();
+  
+  
+  
+  if(adminUI.deactivateUser("ajmac"))
+	  System.out.println("user deactivated");
+  adminUI.veiwUser("ajmac");
+  
+  System.out.println();
+  
+  adminUI.addUser("nhynes", "Noah", "Hynes-Marquette", "loser", 'u', 'y');
+  adminUI.veiwUser("nhynes");
+  
+  adminUI.editUser("nhynes", "Noah", "Dahlquist", "loser", 'u', 'y');
+  System.out.println();
+  adminUI.veiwUser("nhynes");
+  if(adminUI.deleteUser("nhynes"))
+	  System.out.println("user deleted");
+  
+  login.adminLogout("nadmin");
  }
  
  

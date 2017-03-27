@@ -1,4 +1,5 @@
 package Project;
+import java.util.*;
  /**
   * FileName: StudentUserInterface.java
   */
@@ -12,6 +13,7 @@ package Project;
 public class StudentUserInterface {
 	
 	UserController uc = new UserController();
+	Search_Controler sc = new Search_Controler();
 	//Data fields
 	/**confirmation from user*/
 	boolean confirm;
@@ -100,6 +102,10 @@ public class StudentUserInterface {
 	{
 		//TODO: access search controller and give  list of schools
 		System.out.println(uc.searchSchool(name).toString());
+		ArrayList<University> univ = sc.viewSchool(name);
+		for(University u : univ){
+			System.out.println(u.getName());
+		}
 	}
 	
 	/**

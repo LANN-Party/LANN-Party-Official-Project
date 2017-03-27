@@ -403,7 +403,6 @@ public class DatabaseController {
 				  }
 			  }
 		  }
-		  System.out.println("Emphases for " + school + ":" + " " +s.toString());
 		  return s;
 	  }
 
