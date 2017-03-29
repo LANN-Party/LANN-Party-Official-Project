@@ -11,7 +11,11 @@ import java.util.*;
 public class Search_Controler {
 
 	private DatabaseController dc;
-
+	
+	private int maxNumberOfStudents =0, minNumberOfStudents=-1, maxNumOfApplicants=0, minNumOfApplicants=-1, maxAcademicScale=0, minAcademicScale=-1, maxSocialScale=0, 
+		minSocialScale=-1, maxQualityOfLife=0, minQualityOfLife=-1;
+	private double maxPercentFemale=0.0, minPercentFemale=-1.0, maxSATVerbal=0.0, minSATVerbal=-1.0, maxSATMath=0.0, minSATMath=-1.0, maxExpenses=0.0, minExpenses=-1.0,
+		maxPercentFinancialAid=0.0, minPercentFinancialAid=-1.0, maxPercentAdmitted=0.0, minPercentAdmitted=-1.0, maxPercentEnrolled=0.0, minPercentEnrolled=-1.0;
 	/**
 	 * @param dc
 	 */
@@ -189,117 +193,88 @@ public class Search_Controler {
 		int ctr = 0;
 		// a list of all the schools
 		ArrayList<University> schools = dc.getSchools();
+		
+		
+		for(University un : schools){
+			if(un.getAcademicScale()>this.maxAcademicScale)
+				this.maxAcademicScale = un.getAcademicScale();
+			if(un.getAcademicScale()<minAcademicScale && this.minAcademicScale != -1)
+				this.minAcademicScale = un.getAcademicScale();
+			if(un.getSocialScale()>this.maxSocialScale)
+				this.maxSocialScale = un.getSocialScale();
+			if(un.getSocialScale()<this.minSocialScale && this.minSocialScale != -1)
+				this.minSocialScale = un.getSocialScale();
+			if(un.getQualityOfLife()>this.maxQualityOfLife)
+				this.maxQualityOfLife = un.getQualityOfLife();
+			if(un.getQualityOfLife()<this.minQualityOfLife && this.minQualityOfLife != -1)
+				this.minQualityOfLife = un.getQualityOfLife();
+			if(un.getNumOfStudents()>this.maxNumberOfStudents)
+				this.maxNumberOfStudents = un.getNumOfStudents();
+			if(un.getNumOfStudents()<this.minNumberOfStudents && this.minNumberOfStudents != -1)
+				this.minNumberOfStudents = un.getNumOfStudents();
+			if(un.getNumOfApplicants()>this.maxNumOfApplicants)
+				this.maxNumOfApplicants = un.getNumOfApplicants();
+			if(un.getNumOfApplicants()<this.minNumOfApplicants && this.minNumOfApplicants != -1)
+				this.minNumOfApplicants = un.getNumOfApplicants();
+			if(un.getPercentFemale()>this.maxPercentFemale)
+				this.maxPercentFemale = un.getPercentFemale();
+			if(un.getPercentFemale()<this.minPercentFemale && this.minPercentFemale != -1.0)
+				this.minPercentFemale = un.getPercentFemale();
+			if(un.getSATVerbal()>this.maxSATVerbal)
+				this.maxSATVerbal = un.getSATVerbal();
+			if(un.getSATVerbal()<this.minSATVerbal && this.minSATVerbal != -1.0)
+				this.minSATVerbal = un.getSATVerbal();	
+			if(un.getSATMath()>this.maxSATMath)
+				this.maxSATMath = un.getSATMath();
+			if(un.getSATMath()<this.minSATMath && this.minSATMath != -1.0)
+				this.minSATMath = un.getSATMath();
+			if(un.getExpenses()>this.maxExpenses)
+				this.maxExpenses = un.getExpenses();
+			if(un.getExpenses()<this.minExpenses && this.minExpenses != -1.0)
+				this.minExpenses = un.getExpenses();
+			if(un.getPercentFinancialAid()>this.maxPercentFinancialAid)
+				this.maxPercentFinancialAid = un.getPercentFinancialAid();
+			if(un.getPercentFinancialAid()<this.minPercentFinancialAid && this.minPercentFinancialAid != -1.0)
+				this.minPercentFinancialAid = un.getPercentFinancialAid();
+			if(un.getPercentFemale()>this.maxPercentFemale)
+				this.maxPercentFemale = un.getPercentFemale();
+			if(un.getPercentFemale()<this.minPercentFemale && this.minPercentFemale != -1.0)
+				this.minPercentFemale = un.getPercentFemale();
+			if(un.getPercentAdmitted()>this.maxPercentAdmitted)
+				this.maxPercentAdmitted = un.getPercentAdmitted();
+			if(un.getPercentAdmitted()<this.minPercentAdmitted && this.minPercentAdmitted != -1.0)
+				this.minPercentAdmitted = un.getPercentAdmitted();
+			if(un.getPercentEnrolled()>this.maxPercentEnrolled)
+				this.maxPercentEnrolled = un.getPercentEnrolled();
+			if(un.getPercentEnrolled()<this.minPercentEnrolled && this.minPercentEnrolled != -1.0)
+				this.minPercentEnrolled = un.getPercentEnrolled();
+		}
+		
+		
+		
 		// the calulation of the vector that is complete
 		for (University x : schools) {
 			ctr++;
 
 			if (selected.equals(x))
-				vector += 0;
-			if (selected.getSATMath() > x.getSATMath()) {
-				vector += Math.abs(
-						(selected.getSATMath() - x.getSATMath()) / (Math.abs(selected.getSATMath() - x.getSATMath())));
-			} else if (selected.getSATMath() == x.getSATMath())
-				vector += 0;
-			else {
-				vector += Math
-						.abs(((selected.getSATMath() - x.getSATMath()) / (x.getSATMath() - selected.getSATMath())));
-			}
-			if (selected.getSATVerbal() > x.getSATVerbal()) {
-				vector += Math.abs(
-						(selected.getSATVerbal() - x.getSATVerbal()) / (selected.getSATVerbal() - x.getSATVerbal()));
-			} else if (selected.getSATVerbal() == x.getSATVerbal())
-				vector += 0;
-			else {
-				vector += Math.abs(
-						(selected.getSATVerbal() - x.getSATVerbal()) / (x.getSATVerbal() - selected.getSATVerbal()));
-			}
-			if (selected.getSocialScale() > x.getSocialScale()) {
-				vector += Math.abs((selected.getSocialScale() - x.getSocialScale())
-						+ (selected.getSocialScale() - x.getSocialScale()));
-			} else if (selected.getSocialScale() == x.getSocialScale())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getSocialScale() - x.getSocialScale())
-						+ (x.getSocialScale() - selected.getSocialScale()));
-			}
-			if (selected.getAcademicScale() > x.getAcademicScale()) {
-				vector += Math.abs((selected.getAcademicScale() - x.getAcademicScale())
-						/ (selected.getAcademicScale() - x.getAcademicScale()));
-			} else if (selected.getAcademicScale() == x.getAcademicScale())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getAcademicScale() - x.getAcademicScale())
-						/ (x.getAcademicScale() - selected.getAcademicScale()));
-			}
-			if (selected.getPercentAdmitted() > x.getPercentAdmitted()) {
-				vector += Math.abs((selected.getPercentAdmitted() - x.getPercentAdmitted())
-						/ (selected.getPercentAdmitted() - x.getPercentAdmitted()));
-			} else if (selected.getPercentAdmitted() == x.getPercentAdmitted())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getPercentAdmitted() - x.getPercentAdmitted())
-						/ (x.getPercentAdmitted() - selected.getPercentAdmitted()));
-			}
-			if (selected.getPercentEnrolled() > x.getPercentEnrolled()) {
-				vector += Math.abs((selected.getPercentEnrolled() - x.getPercentEnrolled())
-						/ (selected.getPercentEnrolled() - x.getPercentEnrolled()));
-			} else if (selected.getPercentEnrolled() == x.getPercentEnrolled())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getPercentEnrolled() - x.getPercentEnrolled())
-						/ (x.getPercentEnrolled() - selected.getPercentEnrolled()));
-			}
-			if (selected.getPercentFemale() > x.getPercentFemale()) {
-				vector += Math.abs((selected.getPercentFemale() - x.getPercentFemale())
-						/ (selected.getPercentFemale() - x.getPercentFemale()));
-			} else if (selected.getPercentFemale() == x.getPercentFemale())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getPercentFemale() - x.getPercentFemale())
-						/ (x.getPercentFemale() - selected.getPercentFemale()));
-			}
-			if (selected.getPercentFinancialAid() > x.getPercentFinancialAid()) {
-				vector += Math.abs((selected.getPercentFinancialAid() - x.getPercentFinancialAid())
-						/ (selected.getPercentFinancialAid() - x.getPercentFinancialAid()));
-			} else if (selected.getPercentFinancialAid() == x.getPercentFinancialAid())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getPercentFinancialAid() - x.getPercentFinancialAid())
-						/ (x.getPercentFinancialAid() - selected.getPercentFinancialAid()));
-			}
-			if (selected.getQualityOfLife() > x.getQualityOfLife()) {
-				vector += Math.abs((selected.getQualityOfLife() - x.getQualityOfLife())
-						/ (selected.getQualityOfLife() - x.getQualityOfLife()));
-			} else if (selected.getQualityOfLife() == x.getQualityOfLife())
-				vector += 0;
-			else {
-				vector += Math.abs((selected.getQualityOfLife() - x.getQualityOfLife())
-						/ (x.getQualityOfLife() - selected.getQualityOfLife()));
-			}
-			if (selected.getExpenses() > x.getExpenses()) {
-				vector += Math
-						.abs((selected.getExpenses() - x.getExpenses()) / (selected.getExpenses() - x.getExpenses()));
-			} else if (selected.getExpenses() == x.getExpenses())
-				vector += 0;
-			else {
-				vector += Math
-						.abs((selected.getExpenses() - x.getExpenses()) / (x.getExpenses() - selected.getExpenses()));
-			}
-			if (selected.getNumOfApplicants() > x.getNumOfApplicants()) {
-				vector += Math.abs((selected.getNumOfApplicants() - x.getNumOfApplicants())
-						/ (selected.getNumOfApplicants() - x.getNumOfApplicants()));
-			} else if (selected.getNumOfApplicants() == x.getNumOfApplicants()) {
-				vector += 0;
-			} else {
-				vector += Math.abs((selected.getNumOfApplicants() - x.getNumOfApplicants())
-						/ (x.getNumOfApplicants() - selected.getNumOfApplicants()));
-			}
+				vector += 0.0;
+			vector += Math.abs((selected.getSATMath() - x.getSATMath())) / (this.maxSATMath - this.minSATMath);
+			vector += Math.abs((selected.getSATVerbal() - x.getSATVerbal())) / (this.maxSATVerbal - this.minSATVerbal);
+			vector += Math.abs((selected.getSocialScale() - x.getSocialScale())) / (this.maxSocialScale - this.minSocialScale);
+			vector += Math.abs((selected.getAcademicScale() - x.getAcademicScale())) / (this.maxAcademicScale - this.minAcademicScale);
+			vector += Math.abs((selected.getPercentAdmitted() - x.getPercentAdmitted())) / (this.maxPercentAdmitted - this.minPercentAdmitted);
+			vector += Math.abs((selected.getPercentEnrolled() - x.getPercentEnrolled())) / (this.maxPercentEnrolled - this.minPercentEnrolled);
+			vector += Math.abs((selected.getPercentFemale() - x.getPercentFemale())) / (this.maxPercentFemale - this.minPercentFemale);
+			vector += Math.abs((selected.getPercentFinancialAid() - x.getPercentFinancialAid())) / (this.maxPercentFinancialAid - this.minPercentFinancialAid);
+			vector += Math.abs((selected.getQualityOfLife() - x.getQualityOfLife())) / (this.maxQualityOfLife - this.minQualityOfLife);
+			vector += Math.abs((selected.getExpenses() - x.getExpenses())) / (this.maxExpenses - this.minExpenses);
+			vector += Math.abs((selected.getNumOfApplicants() - x.getNumOfApplicants())) / (this.maxNumOfApplicants - this.minNumOfApplicants);
 			if (!selected.getState().equals(x.getState()))
-				vector += 1;
+				vector += 0.0;
 			if (!selected.getLocation().equals(x.getLocation()))
-				vector += 1;
+				vector += 0.0;
 			if (!selected.getControl().equals(x.getControl()))
-				vector += 1;
+				vector += 0.0;
 			ArrayList<String> emphS = selected.getEmphases();
 			ArrayList<String> emphX = x.getEmphases();
 			if (emphS != null && emphX != null) {
@@ -312,7 +287,6 @@ public class Search_Controler {
 			}
 			if (!(selected.getName().equals(x.getName())))
 				vectors.put(vector, x);
-			double v = vector;
 			// where you now select
 			// can sort vectors and grab the top 5 from there or just find the
 			// top 5 lowest instead of sorting right away

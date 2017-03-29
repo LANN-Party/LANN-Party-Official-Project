@@ -44,7 +44,13 @@ public class FirstDriver {
   studentUI.editInfo("ajmac", "Bob", "McIntyre", "password", 'u', 'n');
   studentUI.viewProfile("ajmac");
   studentUI.editInfo("ajmac", "Andrew", "McIntyre", "password", 'u', 'n');
-  
+  adminUI.addSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 200, .9, 600, 600, 100, .9, 5, 1, 1, 10, 10, 10);
+  adminUI.addSchool("Weird2", "Alaska", "Nome", "PRIVATE", 400, .85, 580, 570, 800, .85, 7, 1, 1, 10, 10, 10);
+  adminUI.addSchool("Weird3", "Wyoming", "Sheridan", "PUBLIC", 700, .7, 400, 570, 2000, .85, 6, .9, .9, 8, 8, 8);
+  studentUI.viewRecSchools("Weird1");
+  adminUI.removeSchool("Weird1");
+  adminUI.removeSchool("Weird2");
+  adminUI.removeSchool("Weird3");
   //U6 search schools
   System.out.println();
   System.out.println("Search Results:");
@@ -53,6 +59,7 @@ public class FirstDriver {
   System.out.println("Recommended Schools:");
   studentUI.viewRecSchools("AUGSBURG");
   
+  /*
   //U8 save school
   studentUI.saveSchool("ajmac", "AUGSBURG");
   studentUI.saveSchool("ajmac", "ADELPHI");
@@ -143,6 +150,7 @@ public class FirstDriver {
   
   System.out.println();
   login.adminLogout("nadmin");
+  */
  }
  
  
