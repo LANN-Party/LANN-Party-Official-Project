@@ -14,7 +14,7 @@ public class DatabaseControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-	  dbc = new DatabaseController();
+	  dbc = new DatabaseController("database", "LANN-Party", "somethingwewontforget");
 	}
 	
 	@Test 
