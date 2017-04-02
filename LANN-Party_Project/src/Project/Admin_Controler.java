@@ -31,7 +31,7 @@ public class Admin_Controler {
 	 * @param myName : name of admin whose profile will be displayed
 	 */
 	public void displayProfile(String myName){
-		System.out.println(dc.getUser(myName).toStringAdmin());
+		System.out.println(dc.getAdmin(myName).toString());
 	}
 	
 	/**
@@ -92,20 +92,7 @@ char type, char status){
 		return dc.editUser(uName, fName, lName, pWord, type, status);
 
 	}
-	//TODO: ? do we needs this?
-	/**
-	 * checks the users username
-	 * 
-	 * @param uName
-	 * @return boolean true or false 
-	 */
-	public boolean checkUserName(String uName){
-		
-		if(dc.getUser(uName)!=null)
-			return true;
-		else
-			return false;
-	}
+
 	
 	/**
 	 * When called, this method makes a call to DatabaseController to
@@ -142,7 +129,7 @@ char type, char status){
 	 * @param sName : name of the school to show information for
 	 */
 	public void displaySchool(String sName){
-		System.out.println(dc.getSchool(sName));
+		System.out.println(dc.getSchool(sName).toString());
 	}
 	
 	/**

@@ -4,106 +4,151 @@
 package Project;
 
 import static org.junit.Assert.*;
+import java.util.*;
+import org.junit.After;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.*;
 /**
  * @author nmhynesmarquette
  *
  */
 public class Admin_ControlerTest {
 	private Admin_Controler ac;
+	private Admin ad;
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
 	@Before
 	public void setup() throws Exception{
 		ac = new Admin_Controler();
+		ad = new Admin("Noreen", "Admin", "nadmin", "admin", 'a', 'Y');
+	}
+	
+	@Before
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
+	}
+
+	@After
+	public void cleanUpStreams() {
+	    System.setOut(null);
+	    System.setErr(null);
+	    ac.deleteUser("jcena");
+	    ac.addUser("juser", "John", "User", "user", 'u', 'Y');
+	    ac.removeSchool("St. Thomas");
 	}
 	
 	
 	@Test
 	public void testdisplayProfile() {
-		fail("Not yet implemented");
+		String sa = ad.toString();
+		ac.displayProfile("nadmin");
+		String s = outContent.toString().trim();
+		assertEquals(sa, s);
 	}
 	
 	@Test
 	public void testviewUsers() {
-		fail("Not yet implemented");
+		ac.viewUsers();
+		assertTrue(outContent.toString() != null);
 	}
 	
 	@Test
 	public void testdisplayInfo() {
-		fail("Not yet implemented");
+		ArrayList<String> schools = new ArrayList<String>();
+		Student s = new Student("John", "User", "juser", "user", 'u', 'Y', schools);
+		ac.displayInfo("juser");
+		assertEquals(s.toString(), outContent.toString().trim());
 	}
 	
 	@Test
 	public void testaddUser() {
-		fail("Not yet implemented");
+		assertTrue(ac.addUser("jcena", "John", "Cena", "ucantseeme", 'u', 'Y'));
 	}
 	
 	@Test
 	public void testeditUser() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testcheckUserName() {
-		fail("Not yet implemented");
+		assertTrue(ac.editUser("ajmac", "Jimmy", "McIntyre", "password", 'u', 'Y'));
+		ac.editUser("ajmac", "Andrew", "McIntyre", "password", 'u', 'Y');
 	}
 	
 	@Test
 	public void testdeleteUser() {
-		fail("Not yet implemented");
+		assertTrue(ac.deleteUser("juser"));
 	}
 	
 	@Test
 	public void testdeactivateUser() {
-		fail("Not yet implemented");
+		assertTrue(ac.deactivateUser("juser"));
 	}
 	
 	@Test
 	public void testdisplaySchool() {
-		fail("Not yet implemented");
+		String s = ac.getSchool("AUGSBURG").toString();
+		ac.displaySchool("AUGSBURG");
+		String oC = outContent.toString().trim();
+		assertEquals(s, oC);
 	}
 	
 	@Test
 	public void testdisplaySchools() {
-		fail("Not yet implemented");
+		ac.displaySchools();
+		assertTrue(outContent.toString() != null);
 	}
 	
 	@Test
 	public void testaddSchool() {
-		fail("Not yet implemented");
+		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
 	}
 	
 	@Test
 	public void testremoveSchool() {
-		fail("Not yet implemented");
+		ac.addSchool("Bethel", "Minnesota", "St. Paul", "PRIVATE", 2000, 60, 300, 300, 40000, 70, 2000, 80, 60, 2, 2, 2);
+		assertTrue(ac.removeSchool("Bethel"));
 	}
 	
 	@Test
 	public void testgetSchool() {
-		fail("Not yet implemented");
+		assertTrue(ac.getSchool("AUGSBURG") != null);
 	}
 	
 	@Test
 	public void testaddEmphasis() {
-		fail("Not yet implemented");
+		ac.addSchool("Bethel", "Minnesota", "St. Paul", "PRIVATE", 2000, 60, 300, 300, 40000, 70, 2000, 80, 60, 2, 2, 2);
+		ac.addEmphasis("Bethel", "Computer Science");
+		ac.getEmphases("Bethel");
+		String s = "Emphases for Bethel: [Computer Science]";
+		assertEquals(s, outContent.toString().trim());
+		ac.removeEmphasis("Bethel", "Computer Science");
 	}
 	
 	@Test
 	public void testremoveEmphasis() {
-		fail("Not yet implemented");
+		ac.removeEmphasis("AUGSBURG", "PERFORMING-ARTS");
+		ac.getEmphases("AUGSBURG");
+		String s = "Emphases for AUGSBURG: [BUSINESS-ADMINISTRATION, EDUCATION]";
+		assertEquals(s, outContent.toString().trim());
+		ac.addEmphasis("AUGSBURG", "PERFORMING-ARTS");
 	}
 	
 	@Test
 	public void testeditSchool() {
-		fail("Not yet implemented");
+		String og = ac.getSchool("AUGSBURG").toString();
+		ac.editSchool("AUGSBURG", "MINNESOTA", "URBAN", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4);
+		String newS = ac.getSchool("AUGSBURG").toString();
+		assertTrue(!(og.equals(newS)));		
+		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4);
 	}
 	
 	@Test
 	public void testgetEmphases() {
-		fail("Not yet implemented");
+		String s = "Emphases for AUGSBURG: [BUSINESS-ADMINISTRATION, EDUCATION, PERFORMING-ARTS]";
+		ac.getEmphases("AUGSBURG");
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 }

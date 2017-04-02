@@ -17,83 +17,97 @@ public class AdminTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		ad = new Admin();
+		ad = new Admin("John", "Smith", "jsmith", "password", 'a', 'y');
 	}
 	
 
 	@Test
 	public void testgetFirstName() {
-		fail("Not yet implemented");
+		assertEquals("John", ad.getFirstName());
 	}
 
 	@Test
 	public void testsetFirstName() {
-		fail("Not yet implemented");
+		ad.setFirstName("Bob");
+		assertEquals("Bob", ad.getFirstName());
 	}
 	
 	@Test
 	public void testgetLastName() {
-		fail("Not yet implemented");
+		assertEquals("Smith", ad.getLastName());
 	}
 	
 	@Test
 	public void testsetLastName() {
-		fail("Not yet implemented");
+		ad.setLastName("Jones");
+		assertEquals("Jones", ad.getLastName());
 	}
 	
 	@Test
 	public void testgetUserName() {
-		fail("Not yet implemented");
+		assertEquals("jsmith", ad.getUserName());
 	}
 	
 	@Test
 	public void testsetUserName() {
-		fail("Not yet implemented");
+		ad.setUserName("bjones");
+		assertEquals("bjones", ad.getUserName());
 	}
 	
 	@Test
 	public void testgetPassword() {
-		fail("Not yet implemented");
+		assertEquals("password", ad.getPassword());
 	}
 	
 	@Test
 	public void testsetPassword() {
-		fail("Not yet implemented");
+		ad.setPassword("pword");
+		assertEquals("pword", ad.getPassword());
 	}
 	
 	@Test
 	public void testgetType() {
-		fail("Not yet implemented");
+		assertEquals('a', ad.getType());
 	}
 	
 	@Test
 	public void testsetType() {
-		fail("Not yet implemented");
+		ad.setType('u');
+		assertEquals('u', ad.getType());
 	}
 	
 	@Test
 	public void testgetStatus() {
-		fail("Not yet implemented");
+		assertEquals('y', ad.getStatus());
 	}
 	
 	@Test
-	public void testsetStatusisLogon() {
-		fail("Not yet implemented");
+	public void testsetStatus() {
+		ad.setStatus('n');
+		assertEquals('n', ad.getStatus());
+	}
+	
+	@Test
+	public void testisLogon() {
+		assertFalse(ad.isLogon());
 	}
 	
 	@Test
 	public void testsetLogon() {
-		fail("Not yet implemented");
+		ad.setLogon(true);
+		assertTrue(ad.isLogon());
 	}
 	
 	@Test
 	public void testadmin() {
-		fail("Not yet implemented");
+		Admin am = new Admin("Bob", "Jones", "bjones", "pword", 'a', 'y');
+		assertTrue(am != null);
 	}
 	
 	@Test
 	public void testtoString() {
-		fail("Not yet implemented");
+		String s = ad.toString();
+		assertTrue(s != null);
 	}
 	
 }
