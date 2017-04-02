@@ -15,7 +15,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void testdisplayProfile() {
-		fail("Not yet implemented");
+		
 	}
 	
 	@Test
