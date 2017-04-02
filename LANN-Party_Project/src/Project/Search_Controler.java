@@ -31,7 +31,7 @@ public class Search_Controler {
 	 * @return an object array of schools
 	 */
 	public ArrayList<University> displaySearchResults(String schoolName, String state, String location, String control,
-			int numStuH, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
+			int numStuH, int numStuL, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
 			double expensesL, double percFinacialH, double percFinacialL, int numberAppsH, int numberAppsL,
 			double percAdmittedH, double percAdmittedL, double percEnrolledH, double percEnrolledL, int acdemScaleH,
 			int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
@@ -39,6 +39,7 @@ public class Search_Controler {
 
 		ArrayList<University> inRange = new ArrayList<University>();
 		int numStuh = numStuH;
+		int numStul = numStuL;
 		double satVerbh = satVerbH;
 		double satVerbl = satVerbL;
 		double satMathh = satMathH;
@@ -84,43 +85,43 @@ public class Search_Controler {
 		if (satVerbh == 0)
 			satVerbh = Double.MAX_VALUE;
 		if (satVerbl == 0)
-			satVerbl = Double.MIN_VALUE;
+			satVerbl = 0;
 		if (satMathh == 0)
 			satMathh = Double.MAX_VALUE;
 		if (satMathl == 0)
-			satMathl = Double.MIN_VALUE;
+			satMathl = 0;
 		if (acdemScaleh == 0)
 			acdemScaleh = Integer.MAX_VALUE;
 		if (expensesh == 0)
 			expensesh = Double.MAX_VALUE;
 		if (expensesl == 0)
-			expensesl = Double.MIN_VALUE;
+			expensesl = 0;
 		if (percFinacialh == 0)
 			percFinacialh = Double.MAX_VALUE;
 		if (percFinaciall == 0)
-			percFinaciall = Double.MIN_VALUE;
+			percFinaciall = 0;
 		if (numberAppsh == 0)
 			numberAppsh = Integer.MAX_VALUE;
 		if (numberAppsl == 0)
-			numberAppsl = Integer.MIN_VALUE;
+			numberAppsl = 0;
 		if (percAdmittedh == 0)
 			percAdmittedh = Double.MAX_VALUE;
 		if (percAdmittedl == 0)
-			percAdmittedl = Double.MIN_VALUE;
+			percAdmittedl = 0;
 		if (percEnrolledh == 0)
 			percEnrolledh = Double.MAX_VALUE;
 		if (percEnrolledl == 0)
-			percEnrolledl = Double.MIN_VALUE;
+			percEnrolledl = 0;
 		if (acdemScalel == 0)
-			acdemScalel = Integer.MIN_VALUE;
+			acdemScalel = 0;
 		if (socialscaleh == 0)
 			socialscaleh = Integer.MAX_VALUE;
 		if (socialscalel == 0)
-			socialscalel = Integer.MIN_VALUE;
+			socialscalel = 0;
 		if (qualityLifeh == 0)
 			qualityLifeh = Integer.MAX_VALUE;
 		if (qualityLifel == 0)
-			qualityLifel = Integer.MIN_VALUE;
+			qualityLifel = 0;
 		if(emph1!="")
 			numEmphs++;
 		if(emph2!="")
@@ -138,42 +139,43 @@ public class Search_Controler {
 				if (x.getState().contains(state) || state.equals(""))
 					if (x.getLocation().equals(location) || location.equals(""))
 						if (x.getControl().equals(control) || control.equals(""))
-							if (x.getSATVerbal() <= satVerbh && x.getSATVerbal() >= satVerbl)
-								if (x.getSATMath() <= satMathh && x.getSATMath() >= satMathl)
-									if (x.getExpenses() <= expensesh && x.getExpenses() >= expensesl)
-										if (x.getPercentFinancialAid() <= percFinacialh
-												&& x.getPercentFinancialAid() >= percFinaciall)
-											if (x.getNumOfApplicants() <= numberAppsh
-													&& x.getNumOfApplicants() >= numberAppsl)
-												if (x.getPercentAdmitted() <= percAdmittedh
-														&& x.getPercentAdmitted() >= percAdmittedl)
-													if (x.getPercentEnrolled() <= percEnrolledh
-															&& x.getPercentEnrolled() >= percEnrolledl)
-														if (x.getAcademicScale() <= acdemScaleh
-																&& x.getAcademicScale() >= acdemScalel)
-															if (x.getSocialScale() <= socialscaleh
+							if (x.getNumOfStudents() <= numStuh && x.getNumOfStudents() >= numStul)
+								if (x.getSATVerbal() <= satVerbh && x.getSATVerbal() >= satVerbl)
+									if (x.getSATMath() <= satMathh && x.getSATMath() >= satMathl)
+										if (x.getExpenses() <= expensesh && x.getExpenses() >= expensesl)
+											if (x.getPercentFinancialAid() <= percFinacialh
+											&& x.getPercentFinancialAid() >= percFinaciall)
+												if (x.getNumOfApplicants() <= numberAppsh
+												&& x.getNumOfApplicants() >= numberAppsl)
+													if (x.getPercentAdmitted() <= percAdmittedh
+													&& x.getPercentAdmitted() >= percAdmittedl)
+														if (x.getPercentEnrolled() <= percEnrolledh
+														&& x.getPercentEnrolled() >= percEnrolledl)
+															if (x.getAcademicScale() <= acdemScaleh
+															&& x.getAcademicScale() >= acdemScalel)
+																if (x.getSocialScale() <= socialscaleh
 																	&& x.getSocialScale() >= socialscalel)
-																if (x.getQualityOfLife() <= qualityLifeh
+																	if (x.getQualityOfLife() <= qualityLifeh
 																		&& x.getQualityOfLife() >= qualityLifel) {
-																	int c =numEmphs;
-																	if(x.getEmphases() !=null){
-																	for (String s : x.getEmphases()) {
-																		if (s.equals(emph1) || s.equals(emph2)
-																				|| s.equals(emph3) || s.equals(emph4)
-																				|| s.equals(emph5))
-																			c--;
-																	}
-																	}
-																	if(c==0){
-																		inRange.add(x);	
-																	}
-																	}
+																		int c =numEmphs;
+																		if(x.getEmphases() !=null){
+																			for (String s : x.getEmphases()) {
+																				if (s.equals(emph1) || s.equals(emph2)
+																						|| s.equals(emph3) || s.equals(emph4)
+																						|| s.equals(emph5))
+																					c--;
+																			}
+																		}
+																		if(c==0){
+																			inRange.add(x);	
+																		}
+																		}
 
+				}
 			}
-		}
-		return inRange;
+			return inRange;
 
-	}
+		}
 
 	/**
 	 * views one school that they select on the screen
