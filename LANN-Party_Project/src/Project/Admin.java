@@ -126,9 +126,13 @@ public class Admin {
 		 * @param type the type to set
 		 */
 		public void setType(char type) {
+			if(type=='u'||type=='a')
 			this.type = type;
-		}
+			else
+				throw new IllegalArgumentException();
 
+		}
+		
 		/**
 		 * Returns the admin's session status
 		 * 
@@ -145,7 +149,11 @@ public class Admin {
 		 * @param status the status to set
 		 */
 		public void setStatus(char status) {
-			this.status = status;
+			if(status=='Y'||status=='N')
+				this.status = status;
+				else
+					throw new IllegalArgumentException();
+			
 		}
 
 		/**

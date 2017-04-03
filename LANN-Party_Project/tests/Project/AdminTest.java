@@ -17,7 +17,7 @@ public class AdminTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		ad = new Admin("John", "Smith", "jsmith", "password", 'a', 'y');
+		ad = new Admin("John", "Smith", "jsmith", "password", 'a', 'Y');
 	}
 	
 
@@ -76,15 +76,24 @@ public class AdminTest {
 		assertEquals('u', ad.getType());
 	}
 	
+	@Test (expected= IllegalArgumentException.class)
+	public void testsetTypeThrows(){
+		ad.setType('w');
+	}
+	
+	@Test (expected= IllegalArgumentException.class)
+	public void testsetStatusThrows(){
+		ad.setStatus('w');
+	}
 	@Test
 	public void testgetStatus() {
-		assertEquals('y', ad.getStatus());
+		assertEquals('Y', ad.getStatus());
 	}
 	
 	@Test
 	public void testsetStatus() {
-		ad.setStatus('n');
-		assertEquals('n', ad.getStatus());
+		ad.setStatus('N');
+		assertEquals('N', ad.getStatus());
 	}
 	
 	@Test
