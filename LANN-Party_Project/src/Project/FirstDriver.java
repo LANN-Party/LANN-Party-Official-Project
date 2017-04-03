@@ -47,7 +47,7 @@ public class FirstDriver {
   //U6 search schools
   System.out.println();
   System.out.println("Search Results:");
-  studentUI.searchSchool(null, "CALIFORNIA", null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+  studentUI.searchSchool(null, "CALIFORNIA", null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
   System.out.println();
   System.out.println("Recommended Schools:");
   studentUI.viewRecSchools("AUGSBURG");
