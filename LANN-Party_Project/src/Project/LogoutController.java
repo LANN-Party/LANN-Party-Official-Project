@@ -17,6 +17,8 @@ public class LogoutController {
 	 */
 	public boolean studentLogout(String uName){
 		Student s = dc.getUser(uName);
+		if(s==null)
+			return false;
 		s.setLogon(false);
 		if(!s.isLoggedOn()){
 			System.out.println("Logged Off");
@@ -31,6 +33,8 @@ public class LogoutController {
 	 */
 	public boolean adminLogout(String uName){
 		Admin a = dc.getAdmin(uName);
+		if(a==null)
+			return false;
 		a.setLogon(false);;
 		if(!a.isLogon()){
 			System.out.println("Logged Off");

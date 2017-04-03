@@ -99,6 +99,7 @@ public class login_cont {
 	
 	public boolean registerStudent(String fName, String lName, String uName, String pWord, char type, char status){
 		return dc.addUser(uName, fName, lName, pWord, type, status);
+		
 	}
 	
 	public boolean registerAdmin(String fName, String lName, String uName, String pWord, char type, char status){

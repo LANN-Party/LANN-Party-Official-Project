@@ -25,16 +25,22 @@ public class login_contTest {
 	@Test
 	public void testlogon() {
 		assertTrue(lc.logon("ajmac", "password", true));
+		assertFalse(lc.logon("oops", "oops", true));
 	}
 	
 	@Test
 	public void testregisterStudent() {
 		assertTrue(lc.registerStudent("Billy", "TheKid", "bKid", "pword", 'u', 'Y'));
+	assertFalse(lc.registerStudent("Billy", "TheKid", "bKid", "pword", 'x', 'Y'));	
+	assertFalse(lc.registerStudent("Billy", "TheKid", "bKid", "pword", 'u', 'x'));	
+
 	}
 	
 	@Test
 	public void testregisterAdmin() {
 		assertTrue(lc.registerAdmin("Jesus", "Christ", "jChristo", "pword", 'a', 'Y'));
+		assertFalse(lc.registerAdmin("Jesus", "Christ", "jChristo", "pword", 'x', 'Y'));	
+		assertFalse(lc.registerAdmin("Jesus", "Christ", "jChristo", "pword", 'a', 'x'));	
 	}
 	
 }

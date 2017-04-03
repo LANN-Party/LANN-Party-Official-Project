@@ -27,12 +27,15 @@ public class LogoutControllerTest {
 	public void teststudentLogout() {
 		lic.logon("ajmac", "password", true);
 		assertTrue(loc.studentLogout("ajmac"));
+		assertFalse(loc.studentLogout("oops"));
+
 	}
 	
 	@Test
 	public void testadminLogout(){
 		lic.logon("nadmin", "admin", true);
 		assertTrue(loc.adminLogout("nadmin"));
+		assertFalse(loc.adminLogout("oops"));
 	}
 
 }
