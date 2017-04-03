@@ -31,7 +31,11 @@ public class Admin_Controler {
 	 * @param myName : name of admin whose profile will be displayed
 	 */
 	public void displayProfile(String myName){
-		System.out.println(dc.getAdmin(myName).toString());
+		if(dc.getAdmin(myName)==null&&dc.getUser(myName)==null){
+			System.out.println( "User not found. Please try a diffrent name");
+		}
+		System.out.println( dc.getAdmin(myName).toString());
+		
 	}
 	
 	/**
@@ -53,7 +57,9 @@ public class Admin_Controler {
 	  * @param uName : username of user
 	 */
 	public void displayInfo(String uName){
-		
+		if(dc.getAdmin(uName)==null&&dc.getUser(uName)==null){
+			System.out.println( "User not found. Please try a diffrent name");
+		}
 		System.out.println(dc.getUser(uName).toString());
 	}
 
