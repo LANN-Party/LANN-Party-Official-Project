@@ -107,7 +107,10 @@ char type, char status){
 	 * @param uName : name of the user to delete
 	 */
 	public boolean deleteUser(String uName){
+		if(dc.getAdmin(uName)!=null||dc.getUser(uName)!=null)
 		return dc.deleteUser(uName);
+		else return 
+				false;
 	}
 	
 	/**

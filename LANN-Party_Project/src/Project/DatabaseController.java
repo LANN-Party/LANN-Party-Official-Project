@@ -1,5 +1,7 @@
 package Project;
 
+import static org.junit.Assert.assertFalse;
+
 import java.util.*;
 
 import dblibrary.project.csci230.*;
@@ -297,7 +299,31 @@ public class DatabaseController {
 		double percentFemales, double satVerbal, double satMath, double expenses, double percentFinAid, int applicants,
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	    int qualOfLife)
-	  {                         
+	  {               
+if(numberOfStudents<=0)
+	return false;
+if(percentFemales<=0||percentFemales>100)
+	return false;
+if(satVerbal<0||satVerbal>800)
+	return false;
+if(satMath<0||satMath>800)
+	return false;
+if(expenses<0)
+	return false;
+if(percentFinAid<0||percentFinAid>100)
+	return false;
+if(applicants<0)
+	return false;
+if(percentAdmitted<0||percentAdmitted>100)
+	return false;
+if(percentEnrolled<0||percentEnrolled>100)
+	return false;
+if(academScale<0||academScale>10)
+	return false;
+if(socialScale<0||socialScale>10)
+	return false;
+if(qualOfLife<0||qualOfLife>10)
+	return false;
 		if(uDBL.university_editUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
 		     expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife)>-1)
 			return true;
@@ -382,10 +408,11 @@ public class DatabaseController {
 	   */
 	  public boolean editUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
-	    if(uDBL.user_editUser(uName, fName, lName, pWord, type, status)>-1)
-	    	return true;
-	    else
-	    	return false;
+		   if(type == 'a'||type == 'u')
+			   if(status=='Y'||status=='N')
+					  if(uDBL.user_editUser(uName, fName, lName, pWord, type, status)>-1)
+			    return true;
+			    	 return false;
 	  }
 	
 	  /**

@@ -90,7 +90,7 @@ public class Admin_ControlerTest {
 	@Test
 	public void testdeactivateUser() {
 		assertTrue(ac.deactivateUser("juser"));
-		assertFalse(ac.dea("oops"));
+		assertFalse(ac.deactivateUser("oops"));
 	}
 	
 	@Test
@@ -144,8 +144,6 @@ public class Admin_ControlerTest {
 	public void testremoveSchool() {
 		ac.addSchool("Bethel", "Minnesota", "St. Paul", "PRIVATE", 2000, 60, 300, 300, 40000, 70, 2000, 80, 60, 2, 2, 2);
 		assertTrue(ac.removeSchool("Bethel"));
-		assertFalse(ac.removeSchool("Bethel"));
-
 	}
 	
 	@Test
@@ -197,11 +195,7 @@ public class Admin_ControlerTest {
 		assertFalse(ac.editSchool("AUGSBURG", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, -1, 3, 4));
 		assertFalse(ac.editSchool("AUGSBURG", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, -1, 4));
 		assertFalse(ac.editSchool("AUGSBURG", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, -1));
-		assertFalse(ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
-		assertFalse(ac.editSchool("AUGSBURG", "oops", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
-		assertFalse(ac.editSchool("AUGSBURG", "MINNESOTA", "oops", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
-		assertFalse(ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "oops", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
-		assertFalse(		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertTrue(		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 		assertFalse(		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 101, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 		assertFalse(		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 801, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 		assertFalse(		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 801, 29991, 80, 4000, 85, 50, 1, 3, 4));
