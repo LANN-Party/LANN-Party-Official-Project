@@ -119,9 +119,7 @@ public class StudentUserInterface {
 	 */
 	public void viewRecSchools(String uName){
 		ArrayList<University> univ = uc.viewRecSchools(uName);
-		for(University u : univ){
-			System.out.println(u.getName());
-		}
+		
 	}
 	
 	/**

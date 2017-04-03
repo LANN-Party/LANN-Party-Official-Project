@@ -300,6 +300,9 @@ public class Search_Controler {
 		for (int i = 0; i < 5; i++) {
 			top5.add(vectors.pollFirstEntry().getValue());
 		}
+		for(University u : top5){
+			System.out.println(u.getName());
+		}
 		return top5;
 	}
 }
