@@ -259,7 +259,7 @@ import java.util.*;
 		 * 
 		 * @param String school to remove
 		 */
-		public void removeSchool(University school)
+		public void removeSchool(String school)
 		{
 			int index = this.savedSchools.lastIndexOf(school);
 			if (index > -1)
