@@ -24,7 +24,7 @@ public class UniversityTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		uv = new University();
+		uv = new University("UNIVERSITY SCHOOL", "STATE", "TOWNVILLE", "CONTROL", 200, 20, 200, 200, 4000, 30, 300, 20, 20, 3, 3, 3);
 	}
 	
 	@Before
@@ -37,7 +37,22 @@ public class UniversityTest {
 	public void cleanUpStreams() {
 		System.setOut(null);
 	    System.setErr(null);
-	    
+	    uv.setName("UNIVERSITY SCHOOL");
+	    uv.setState("STATE");
+	    uv.setLocation("TOWNVILLE");
+	    uv.setControl("CONTROL");
+	    uv.setNumOfStudents(20);
+	    uv.setPercentFemale(20);
+	    uv.setSATVerbal(200);
+	    uv.setSATMath(200);
+	    uv.setExpenses(4000);
+	    uv.setPercentFinancialAid(30);
+	    uv.setNumOfApplicants(300);
+	    uv.setPercentAdmitted(20);
+	    uv.setPercentEnrolled(20);
+	    uv.setAcademicScale(3);
+	    uv.setSocialScale(3);
+	    uv.setQualityOfLife(3);
 	}
 	
 
@@ -98,6 +113,19 @@ public class UniversityTest {
 		assertEquals("control set", "anatomy", uv.getControl());
 		//fail("Not yet implemented");
 	}
+
+	@Test
+	public void testgetNumOfStudents() {
+		assertEquals("#students found", uv.getNumOfStudents());
+		//fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testsetNumOfStudents() {
+		uv.setNumOfStudents(1000);
+		assertTrue("#students set", 1000 == uv.getNumOfStudents());
+		//fail("Not yet implemented");
+	}
 	
 	@Test
 	public void testgetPercentFemale() {
@@ -146,8 +174,8 @@ public class UniversityTest {
 	
 	@Test
 	public void testsetExpenses() {
-		uv.setExpenses(4000);
-		assertTrue("expenses set", 4000 == uv.getExpenses());
+		uv.setExpenses(5000);
+		assertTrue("expenses set", 5000 == uv.getExpenses());
 		//fail("Not yet implemented");
 	}
 	
@@ -172,21 +200,8 @@ public class UniversityTest {
 	
 	@Test
 	public void testsetNumOfApplicants() {
-		uv.setNumOfApplicants(300);
-		assertTrue("#aplics set", 300 == uv.getNumOfApplicants());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testgetNumOfStudents() {
-		assertEquals("#students found", uv.getNumOfStudents());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testsetNumOfStudents() {
-		uv.setNumOfStudents(1000);
-		assertTrue("#students set", 1000 == uv.getNumOfStudents());
+		uv.setNumOfApplicants(400);
+		assertTrue("#aplics set", 400 == uv.getNumOfApplicants());
 		//fail("Not yet implemented");
 	}
 	
@@ -211,8 +226,8 @@ public class UniversityTest {
 	
 	@Test
 	public void testsetPercentEnrolled() {
-		uv.setPercentEnrolled(20);
-		assertTrue("%enrolled set", 20 == uv.getPercentEnrolled());
+		uv.setPercentEnrolled(30);
+		assertTrue("%enrolled set", 30 == uv.getPercentEnrolled());
 		//fail("Not yet implemented");
 	}
 	
@@ -257,6 +272,9 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetEmphases() {
+		ArrayList<String> name = new ArrayList<>();
+		name.add("hoops");
+		uv.setEmphases(name);
 		assertEquals("emphases found", uv.getEmphases());
 		//fail("Not yet implemented");
 	}

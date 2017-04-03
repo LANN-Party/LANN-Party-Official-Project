@@ -60,9 +60,6 @@ public class University {
 		this.emphases = emphases;
 	}
 	
-	public University() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @return the state
