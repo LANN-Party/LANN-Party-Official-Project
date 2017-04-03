@@ -173,6 +173,9 @@ public class Search_Controler {
 
 				}
 			}
+		for(University u : inRange){
+			System.out.println(u.getName());
+		}
 			return inRange;
 
 		}

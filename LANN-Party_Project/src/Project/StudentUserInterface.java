@@ -106,14 +106,11 @@ public class StudentUserInterface {
 			String emph2, String emph3, String emph4, String emph5)
 	{
 		//TODO: access search controller and give  list of schools
-		ArrayList<University> univ = uc.searchSchool(schoolName, state, location, control, numStuH, numStuL,
+		uc.searchSchool(schoolName, state, location, control, numStuH, numStuL,
 				satVerbH, satVerbL, satMathH, satMathL, expensesH, expensesL, percFinacialH, percFinacialL,
 				numberAppsH, numberAppsL, percAdmittedH, percAdmittedL, percEnrolledH, percEnrolledL, acdemScaleH,
 				acdemScaleL, socialscaleH, socialscaleL, qualityLifeH, qualityLifeL, emph1, emph2, emph3, emph4, emph5);
 		
-		for(University u : univ){
-			System.out.println(u.getName());
-		}
 	}
 	
 	/**
