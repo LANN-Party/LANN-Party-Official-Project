@@ -4,33 +4,37 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.After;
 
 public class login_contTest {
 	private login_cont lc;
+	private Admin_Controler ac;
 	
 	@Before
 	public void setUp() throws Exception {
 		lc = new login_cont();
+		ac = new Admin_Controler();
 	}
 
+	@After
+	public void tearDown() {
+		ac.deleteUser("bKid");
+		ac.deleteUser("jChristo");
+	}
+	
 	@Test
 	public void testlogon() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testloginfail() {
-		fail("Not yet implemented");
+		assertTrue(lc.logon("ajmac", "password", true));
 	}
 	
 	@Test
 	public void testregisterStudent() {
-		fail("Not yet implemented");
+		assertTrue(lc.registerStudent("Billy", "TheKid", "bKid", "pword", 'u', 'Y'));
 	}
 	
 	@Test
 	public void testregisterAdmin() {
-		fail("Not yet implemented");
+		assertTrue(lc.registerAdmin("Jesus", "Christ", "jChristo", "pword", 'a', 'Y'));
 	}
 	
 }

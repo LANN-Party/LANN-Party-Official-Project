@@ -22,7 +22,7 @@ public class login_cont {
 	 * @param boolean steal
 	 */
 	
-	public void logon(String username, String password, boolean steal)
+	public boolean logon(String username, String password, boolean steal)
 	{
 			Student s = dc.getUser(username);
 			Admin a = dc.getAdmin(username);
@@ -31,6 +31,7 @@ public class login_cont {
 					if(!s.isLoggedOn()){
 						s.setLogon(true);
 						System.out.println("Logged on");
+						return true;
 					}
 					else{
 						Scanner scan = new Scanner(System.in);
@@ -40,14 +41,17 @@ public class login_cont {
 						scan.close();
 						if (input.equals("Yes") || input.equals("yes")){
 /*Change? Redundant*/			s.setLogon(true);
+								return true;
 						}
 						else{
 							loginFail();
+							return false;
 						}
 					}
 				}
 				else{
 					loginFail();
+					return false;
 				}
 			}
 			else if(a != null){
@@ -55,6 +59,7 @@ public class login_cont {
 					if(!a.isLogon()){
 						a.setLogon(true);
 						System.out.println("Logged on");
+						return true;
 					}
 					else{
 						Scanner scan = new Scanner(System.in);
@@ -64,18 +69,22 @@ public class login_cont {
 						scan.close();
 						if (input.equals("Yes") || input.equals("yes")){
 	/*Change? Redundant*/			a.setLogon(true);
+									return true;
 						}
 						else{
 							loginFail();
+							return false;
 						}
 					}
 				}
 				else{
 					loginFail();
+					return false;
 				}
 			}
 		else
 			loginFail();
+			return false;
 	}
 	
 	/**

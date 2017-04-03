@@ -15,22 +15,28 @@ public class LogoutController {
 	/**
 	 * @param s the student object to be logged out
 	 */
-	public void studentLogout(String uName){
+	public boolean studentLogout(String uName){
 		Student s = dc.getUser(uName);
 		s.setLogon(false);
-		if(!s.isLoggedOn())
+		if(!s.isLoggedOn()){
 			System.out.println("Logged Off");
+			return true;
+		}
+		return false;
 	}
 	
 	/**
 	 * 
 	 * @param a the admin object to be logged out
 	 */
-	public void adminLogout(String uName){
+	public boolean adminLogout(String uName){
 		Admin a = dc.getAdmin(uName);
 		a.setLogon(false);;
-		if(!a.isLogon())
+		if(!a.isLogon()){
 			System.out.println("Logged Off");
+			return true;
+		}
+		return false;
 	}
 
 }

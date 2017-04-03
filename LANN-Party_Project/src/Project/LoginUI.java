@@ -27,8 +27,10 @@ public class LoginUI {
 	 * @param pass, password
 	 * @param steal, boolean for whether or no to steal the session
 	 */
-	public void logon(String userName, String pass, boolean steal){
-		this.login.logon(userName, pass, steal);
+	public boolean logon(String userName, String pass, boolean steal){
+		if(this.login.logon(userName, pass, steal))
+			return true;
+		return false;
 	}
 	
 	
