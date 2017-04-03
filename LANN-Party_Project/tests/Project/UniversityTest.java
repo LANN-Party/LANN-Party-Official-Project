@@ -55,29 +55,10 @@ public class UniversityTest {
 	    uv.setQualityOfLife(3);
 	}
 	
-
-	@Test
-	public void testUniversity() {
-		
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testgetState() {
-		assertEquals("state found", uv.getState());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testsetState() {
-		uv.setState("IOWA");
-		assertEquals("state set", "IOWA", uv.getState());
-		//fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testgetName() {
-		assertEquals("name found", uv.getName());
+		assertEquals("name found", "UNIVERSITY SCHOOL", uv.getName());
 		//fail("Not yet implemented");
 	}
 	
@@ -89,34 +70,48 @@ public class UniversityTest {
 	}
 	
 	@Test
+	public void testgetState() {
+		assertEquals("state found", "STATE", uv.getState());
+		//fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testsetState() {
+		uv.setState("IOWA");
+		assertEquals("state set", "IOWA", uv.getState());
+		//fail("Not yet implemented");
+	}
+	
+	
+	@Test
 	public void testgetLocation() {
-		assertEquals("location found", uv.getLocation());
+		assertEquals("location found", "TOWNVILLE", uv.getLocation());
 		//fail("Not yet implemented");
 	}
 	
 	@Test
 	public void testsetLocation() {
-		uv.setLocation("Orangeville");
-		assertEquals("location set", "Orangeville", uv.getLocation());
+		uv.setLocation("ORANGVILLE");
+		assertEquals("location set", "ORANGVILLE", uv.getLocation());
 		//fail("Not yet implemented");
 	}
 	
 	@Test
 	public void testgetControl() {
-		assertEquals("control found", uv.getControl());
+		assertEquals("control found", "CONTROL", uv.getControl());
 		//fail("Not yet implemented");
 	}
 	
 	@Test
 	public void testsetControl() {
-		uv.setControl("anatomy");
-		assertEquals("control set", "anatomy", uv.getControl());
+		uv.setControl("ANATOMY");
+		assertEquals("control set", "ANATOMY", uv.getControl());
 		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testgetNumOfStudents() {
-		assertEquals("#students found", uv.getNumOfStudents());
+		assertTrue("#students found", 200 == uv.getNumOfStudents());
 		//fail("Not yet implemented");
 	}
 	
@@ -129,7 +124,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetPercentFemale() {
-		assertEquals("percentF found", uv.getPercentFemale());
+		assertTrue("percentF found", 20 == uv.getPercentFemale());
 		//fail("Not yet implemented");
 	}
 	
@@ -142,7 +137,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetSATVerbal() {
-		assertEquals("SATv found", uv.getSATVerbal());
+		assertTrue("SATv found", 200 == uv.getSATVerbal());
 		//fail("Not yet implemented");
 	}
 	
@@ -155,7 +150,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetSATMath() {
-		assertEquals("SATm found", uv.getSATMath());
+		assertTrue("SATm found", 200 == uv.getSATMath());
 		//fail("Not yet implemented");
 	}
 	
@@ -168,7 +163,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetExpenses() {
-		assertEquals("expenses found", uv.getExpenses());
+		assertTrue("expenses found", 4000 == uv.getExpenses());
 		//fail("Not yet implemented");
 	}
 	
@@ -181,7 +176,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetPercentFinancialAid() {
-		assertEquals("%fin aid found", uv.getPercentFinancialAid());
+		assertTrue("%fin aid found", 30 == uv.getPercentFinancialAid());
 		//fail("Not yet implemented");
 	}
 	
@@ -194,7 +189,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetNumOfApplicants() {
-		assertEquals("#aplics found", uv.getNumOfApplicants());
+		assertTrue("#aplics found", 300 == uv.getNumOfApplicants());
 		//fail("Not yet implemented");
 	}
 	
@@ -207,7 +202,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetPercentAdmitted() {
-		assertEquals("%admtd found", uv.getPercentAdmitted());
+		assertTrue("%admtd found", 20 == uv.getPercentAdmitted());
 		//fail("Not yet implemented");
 	}
 	
@@ -220,7 +215,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetPercentEnrolled() {
-		assertEquals("%enrolled found", uv.getPercentEnrolled());
+		assertTrue("%enrolled found", 20 == uv.getPercentEnrolled());
 		//fail("Not yet implemented");
 	}
 	
@@ -233,7 +228,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetAcademicScale() {
-		assertEquals("academ scale found", uv.getAcademicScale());
+		assertTrue("academ scale found", 3 == uv.getAcademicScale());
 		//fail("Not yet implemented");
 	}
 	
@@ -246,7 +241,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetSocialScale() {
-		assertEquals("socScale found", uv.getSocialScale());
+		assertTrue("socScale found", 3 == uv.getSocialScale());
 		//fail("Not yet implemented");
 	}
 	
@@ -259,7 +254,7 @@ public class UniversityTest {
 	
 	@Test
 	public void testgetQualityOfLife() {
-		assertEquals("qualLife found", uv.getQualityOfLife());
+		assertTrue("qualLife found", 3 == uv.getQualityOfLife());
 		//fail("Not yet implemented");
 	}
 	
@@ -275,7 +270,7 @@ public class UniversityTest {
 		ArrayList<String> name = new ArrayList<>();
 		name.add("hoops");
 		uv.setEmphases(name);
-		assertEquals("emphases found", uv.getEmphases());
+		assertEquals("emphases found", name, uv.getEmphases());
 		//fail("Not yet implemented");
 	}
 	
@@ -284,7 +279,7 @@ public class UniversityTest {
 		ArrayList<String> name = new ArrayList<>();
 		name.add("biology");
 		uv.setEmphases(name);
-		assertEquals("emphases set", "biology", uv.getEmphases());
+		assertEquals("emphases set1", name, uv.getEmphases());
 		//fail("Not yet implemented");
 	}
 	
@@ -294,7 +289,7 @@ public class UniversityTest {
 		name.add("biology");
 		name.add("math");
 		uv.setEmphases(name);
-		assertEquals("emphases set", name, uv.getEmphases());
+		assertEquals("emphases set2", name, uv.getEmphases());
 		//fail("Not yet implemented");
 	}
 	
