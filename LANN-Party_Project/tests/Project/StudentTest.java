@@ -4,8 +4,10 @@
 package Project;
 
 import static org.junit.Assert.*;
+import java.util.*;
 
 import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 
 /**
@@ -17,103 +19,129 @@ public class StudentTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		st = new Student();
+		ArrayList<String> schools = new ArrayList<String>();
+		st = new Student("Teddy", "Roosevelt", "tRoos", "pWord", 'u', 'Y', schools);
 	}
 	
+	@After
+	public void tearDown(){
+		st.setFirstName("Teddy");
+		st.setLastName("Roosevelt");
+		st.setPassword("pWord");
+		st.setStatus('Y');
+		st.setType('u');
+		ArrayList<String> schools = new ArrayList<String>();
+		st.setSavedSchools(schools);
+		st.setLogon(false);
+	}
 	
 	@Test
 	public void testgetFirstName() {
-		fail("Not yet implemented");
+		assertEquals("Teddy", st.getFirstName());
 	}
 	
 	@Test
 	public void testgetLastName() {
-		fail("Not yet implemented");
+		assertEquals("Roosevelt", st.getLastName());
 	}
 	
 	@Test
 	public void testgetUserName() {
-		fail("Not yet implemented");
+		assertEquals("tRoos", st.getUserName());
 	}
 	
 	@Test
 	public void testgetTypegetPassword() {
-		fail("Not yet implemented");
+		assertEquals("pWord", st.getPassword());
 	}
 	
 	@Test
 	public void testsetFirstName() {
-		fail("Not yet implemented");
+		st.setFirstName("Billy");
+		assertEquals("Billy", st.getFirstName());
 	}
 	
 	@Test
 	public void testsetLastName() {
-		fail("Not yet implemented");
+		st.setLastName("Bob");
+		assertEquals("Bob", st.getLastName());
 	}
 	
 	@Test
 	public void testsetPassword() {
-		fail("Not yet implemented");
+		st.setPassword("newPass");
+		assertEquals("newPass", st.getPassword());
 	}
 	
 	@Test
 	public void testsetType() {
-		fail("Not yet implemented");
+		st.setType('a');
+		assertEquals('a', st.getType());
 	}
 	
 	@Test
 	public void testsetStatus() {
-		fail("Not yet implemented");
+		st.setStatus('N');
+		assertEquals('N', st.getStatus());
 	}
 	
 	@Test
 	public void testgetStatus() {
-		fail("Not yet implemented");
+		assertEquals('Y', st.getStatus());
 	}
 	
 	@Test
 	public void testgetSavedSchools() {
-		fail("Not yet implemented");
+		ArrayList<String> s = new ArrayList<String>();
+		assertEquals(s, st.getSavedSchools());
 	}
 	
 	@Test
 	public void testsetSavedSchools() {
-		fail("Not yet implemented");
+		ArrayList<String> sc = new ArrayList<String>();
+		sc.add("St.John's");
+		st.setSavedSchools(sc);
+		assertEquals(sc.toString(), st.getSavedSchools().toString());
 	}
 	
 	@Test
 	public void testaddSchool() {
-		fail("Not yet implemented");
+		st.addSchool("Augsburg");
+		assertTrue(st.getSavedSchools().contains("Augsburg"));
 	}
 	
 	@Test
 	public void testupdateInfo() {
-		fail("Not yet implemented");
+		st.updateInfo("tRoos", "Jack", "Daniels", "pWord", 'u', 'Y');
+		assertEquals("Jack", st.getFirstName());
+		assertEquals("Daniels", st.getLastName());
+		assertEquals("pWord", st.getPassword());
 	}
 	
 	@Test
 	public void testisLoggedOn() {
-		fail("Not yet implemented");
+		st.setLogon(true);
+		assertTrue(st.isLoggedOn());
 	}
 	
 	@Test
 	public void testsetLogon() {
-		fail("Not yet implemented");
+		st.setLogon(true);
+		assertTrue(st.isLoggedOn());
 	}
 	
 	@Test
 	public void testremoveSchool() {
-		fail("Not yet implemented");
+		st.addSchool("Augsburg");
+		assertTrue(st.getSavedSchools().contains("Augsburg"));
+		st.removeSchool("Augsburg");
+		assertTrue(!(st.getSavedSchools().contains("Augsburg")));
 	}
 	
 	@Test
 	public void testtoString() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testtoStringAdmin() {
-		fail("Not yet implemented");
+		String s = "Teddy,Roosevelt,tRoos,pWord,u";
+		assertEquals(s, st.toString());
 	}
 	
 }
