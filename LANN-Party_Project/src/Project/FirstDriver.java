@@ -29,7 +29,6 @@ public class FirstDriver {
   
   adminUI.getEmphases("AUGSBURG");
   adminUI.viewSchool("AUGSBURG");
-  /**
   //U2 View Profile
   studentUI.viewProfile("ajmac");
   
@@ -47,11 +46,11 @@ public class FirstDriver {
   //U6 search schools
   System.out.println();
   System.out.println("Search Results:");
-  studentUI.searchSchool(null, "CALIFORNIA", null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+  studentUI.searchSchool(null, null, null, null, 18000, 4000, 600, 300, 600, 300, 40000, 28000, 100, 60, 10000, 1000, 90, 30, 90, 30, 5, 1, 5, 1, 5, 1, null, null, null, null, null);
   System.out.println();
   System.out.println("Recommended Schools:");
   studentUI.viewRecSchools("AUGSBURG");
-  
+ 
  
   //U8 save school
   studentUI.saveSchool("ajmac", "AUGSBURG");
@@ -67,7 +66,7 @@ public class FirstDriver {
   System.out.println();
   System.out.println("Saved Schools after remove:");
   studentUI.viewSavedSchools("ajmac");
-  
+ 
   //U19 logout
   System.out.println();
   login.studentLogout("ajmac");
@@ -146,7 +145,6 @@ public class FirstDriver {
   
   System.out.println();
   login.adminLogout("nadmin");
-  **/
 
  }
  

@@ -4,63 +4,102 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.After;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.*;
 
 public class UserControllerTest {
 	public UserController uc;
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
 	@Before
 	public void setUp() throws Exception {
 	  uc = new UserController();
 	}
 	
+	@Before
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	}
+	
+	@After
+	public void cleanUpStreams() {
+	    System.setOut(null);
+	    uc.editInfo("ajmac", "Andrew", "McIntyre", "password", 'u', 'Y');
+	    uc.saveSchool("ajmac", "ADELPHI");
+	    uc.removeSchool("ajmac", "AUGSBURG");
+	}
+	
 	@Test
 	public void testdisplayProfile() {
-		//another test
+		uc.displayProfile("ajmac");
+		String s = "Andrew,McIntyre,ajmac,password,u";
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 	@Test
 	public void testeditInfo() {
-		fail("Not yet implemented");
+		assertTrue(uc.editInfo("ajmac", "Aurelius", "McIntyre", "newPWorduruh", 'u', 'Y'));
 	}
 	
 	@Test
 	public void testdisplaySavedSchools() {
-		fail("Not yet implemented");
+		uc.displaySavedSchools("ajmac");
+		String s = "[ADELPHI]";
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 	@Test
 	public void testsearchSchool() {
-		fail("Not yet implemented");
+		uc.searchSchool(null, null, null, null, 18000, 4000, 600, 300, 600, 300, 40000, 28000, 100, 60, 10000, 1000, 90, 30, 90, 30, 5, 1, 5, 1, 5, 1, null, null, null, null, null);
+		String s = "ADELPHI"
+				+ "\nAUGSBURG"
+				+ "\nBARD"
+				+ "\nBUTLER"
+				+ "\nHOFSTRA"
+				+ "\nMANHATTANVILLE COLLEGE"
+				+ "\nMARIST COLLEGE"
+				+ "\nPOLYTECHNIC INSTITUTE OF NEWYORK"
+				+ "\nTRINITY COLLEGE";
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 	@Test
 	public void testviewRecSchools() {
-		fail("Not yet implemented");
+		uc.viewRecSchools("AUGSBURG");
+		String s = "NEWYORK IT"
+				+ "\nHOFSTRA"
+				+ "\nUNIVERSITY OF MAINE"
+				+ "\nUNIVERSITY OF SOUTHERN CALIFORNIA"
+				+ "\nUNIVERSITY OF EVANSVILLE";
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 	@Test
 	public void testremoveSchool() {
-		fail("Not yet implemented");
+		assertTrue(uc.removeSchool("ajmac", "ADELPHI"));
 	}
 	
 	@Test
 	public void testdisplaySchool() {
-		fail("Not yet implemented");
+		String s = "University [name=AUGSBURG, state=MINNESOTA, location=SMALL-CITY, control=PRIVATE, numOfStudents=10000, percentFemale=43.0, SATVerbal=420.0, SATMath=490.0, expenses=29991.0, percentFinancialAid=80.0, numOfApplicants=4000, percentAdmitted=85.0, percentEnrolled=50.0, academicScale=1, socialScale=3, qualityOfLife=4]";
+		uc.displaySchool("AUGSBURG");
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 	@Test
 	public void testsaveSchool() {
-		fail("Not yet implemented");
+		uc.saveSchool("ajmac", "AUGSBURG");
+		uc.displaySavedSchools("ajmac");
+		String s = "[ADELPHI, AUGSBURG]";
+		assertEquals(s, outContent.toString().trim());
 	}
 	
 	@Test
 	public void testlogout() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+		assertTrue(uc.logout("ajmac"));
 	}
 
 }

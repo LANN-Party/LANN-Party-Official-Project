@@ -66,7 +66,7 @@ public class StudentUserInterface {
 	 */
 	public void viewSchool(String sName)
 	{
-		System.out.println(uc.displaySchool(sName).toString());
+		uc.displaySchool(sName);
 	}
 	
 	/**
@@ -117,8 +117,8 @@ public class StudentUserInterface {
 	 * Displays the top 5 recommended schools based on name of school given
 	 * @param uName name of school to compare for top 5 similar schools
 	 */
-	public void viewRecSchools(String uName){
-		ArrayList<University> univ = uc.viewRecSchools(uName);
+	public void viewRecSchools(String sName){
+		ArrayList<University> univ = uc.viewRecSchools(sName);
 		
 	}
 	

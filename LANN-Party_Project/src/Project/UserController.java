@@ -150,7 +150,9 @@ import java.util.ArrayList;
 		   */
 		  public University displaySchool(String sName) 
 		  {
-			  return dc.getSchool(sName);
+			  University u = dc.getSchool(sName);
+			  System.out.println(u.toString());
+			  return u;
 		  }
 		  
 		  
@@ -170,11 +172,11 @@ import java.util.ArrayList;
 		   * 
 		   * @param uName : String, user name of Student to log off
 		   */
-		  public void logout(String uName)
+		  public boolean logout(String uName)
 		  {
 			//send call to logout controller
 			
-			lc.studentLogout(uName);
+			return lc.studentLogout(uName);
 		  }
 	
 	}
