@@ -130,7 +130,7 @@ public class University {
 	/**
 	 * @param percentFemale the percentFemale to set
 	 */
-	public void setPercentFemale(int percentFemale) {
+	public void setPercentFemale(double percentFemale) {
 		this.percentFemale = percentFemale;
 	}
 
@@ -144,7 +144,7 @@ public class University {
 	/**
 	 * @param sATVerbal the sATVerbal to set
 	 */
-	public void setSATVerbal(int sATVerbal) {
+	public void setSATVerbal(double sATVerbal) {
 		SATVerbal = sATVerbal;
 	}
 
@@ -158,7 +158,7 @@ public class University {
 	/**
 	 * @param sATMath the sATMath to set
 	 */
-	public void setSATMath(int sATMath) {
+	public void setSATMath(double sATMath) {
 		SATMath = sATMath;
 	}
 
@@ -172,7 +172,7 @@ public class University {
 	/**
 	 * @param expenses the expenses to set
 	 */
-	public void setExpenses(int expenses) {
+	public void setExpenses(double expenses) {
 		this.expenses = expenses;
 	}
 
@@ -186,7 +186,7 @@ public class University {
 	/**
 	 * @param percentFinancialAid the percentFinancialAid to set
 	 */
-	public void setPercentFinancialAid(int percentFinancialAid) {
+	public void setPercentFinancialAid(double percentFinancialAid) {
 		this.percentFinancialAid = percentFinancialAid;
 	}
 
@@ -307,18 +307,12 @@ public class University {
 	 */
 	@Override
 	public String toString() {
-		return "University [state=" + state + ", name=" + name + ", location=" + location + ", control=" + control
-				+ ", numOfStudents=" + numOfStudents + ", numOfApplicants=" + numOfApplicants + ", \nacademicScale="
-				+ academicScale + ", socialScale=" + socialScale + ", qualityOfLife=" + qualityOfLife
-				+ ", percentFemale=" + percentFemale + ", SATVerbal=" + SATVerbal + ", SATMath=" + SATMath
-				+ ", expenses=" + expenses + ", \npercentFinancialAid=" + percentFinancialAid + ", percentAdmitted="
-				+ percentAdmitted + ", percentEnrolled=" + percentEnrolled + ", emphases=" + emphases.toString()
+		return "University [name=" + name + ", state=" + state + ", location=" + location + ", control=" + control
+				+ ", numOfStudents=" + numOfStudents + ", percentFemale=" + percentFemale + ", SATVerbal=" + SATVerbal 
+				+ ", SATMath=" + SATMath + ", expenses=" + expenses +", percentFinancialAid=" + percentFinancialAid
+				+ ", numOfApplicants=" + numOfApplicants + ", percentAdmitted=" + percentAdmitted + ", percentEnrolled=" + percentEnrolled 
+				+ ", academicScale=" + academicScale + ", socialScale=" + socialScale + ", qualityOfLife=" + qualityOfLife
 				+ "]";
 	}
-	
-	
-	
-	
-	
 
 }
