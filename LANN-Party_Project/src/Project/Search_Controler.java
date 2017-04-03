@@ -31,7 +31,7 @@ public class Search_Controler {
 	 * @return an object array of schools
 	 */
 	public ArrayList<University> displaySearchResults(String schoolName, String state, String location, String control,
-			int numStuH, int numStuL, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
+			int numStuH, int numStuL, double percFemaleH, double percFemaleL, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
 			double expensesL, double percFinacialH, double percFinacialL, int numberAppsH, int numberAppsL,
 			double percAdmittedH, double percAdmittedL, double percEnrolledH, double percEnrolledL, int acdemScaleH,
 			int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
@@ -40,6 +40,8 @@ public class Search_Controler {
 		ArrayList<University> inRange = new ArrayList<University>();
 		int numStuh = numStuH;
 		int numStul = numStuL;
+		double percFemaleh = percFemaleH;
+		double percFemalel = percFemaleL;
 		double satVerbh = satVerbH;
 		double satVerbl = satVerbL;
 		double satMathh = satMathH;
@@ -70,18 +72,22 @@ public class Search_Controler {
 			location="";
 		if(control==null)
 			control="";
-		if(emph1==null)
-			emph1="";
-		if(emph2==null)
-			emph2="";
-		if(emph3==null)
-			emph3="";
-		if(emph4==null)
-			emph4="";
-		if(emph5==null)
-			emph5="";
+		if(emph1!=null)
+			numEmphs++;
+		if(emph2!=null)
+			numEmphs++;
+		if(emph3!=null)
+			numEmphs++;
+		if(emph4!=null)
+			numEmphs++;
+		if(emph5!=null)
+			numEmphs++;
 		if (numStuh == 0)
 			numStuh = Integer.MAX_VALUE;
+		if(percFemaleh == 0)
+			percFemaleh = Double.MAX_VALUE;
+		if(percFemalel == 0)
+			percFemalel = 0;
 		if (satVerbh == 0)
 			satVerbh = Double.MAX_VALUE;
 		if (satVerbl == 0)
@@ -122,16 +128,6 @@ public class Search_Controler {
 			qualityLifeh = Integer.MAX_VALUE;
 		if (qualityLifel == 0)
 			qualityLifel = 0;
-		if(emph1!="")
-			numEmphs++;
-		if(emph2!="")
-			numEmphs++;
-		if(emph3!="")
-			numEmphs++;
-		if(emph4!="")
-			numEmphs++;
-		if(emph5!="")
-			numEmphs++;
 		
 		
 		for (University x : dc.getSchools()) {
@@ -140,6 +136,7 @@ public class Search_Controler {
 					if (x.getLocation().equals(location) || location.equals(""))
 						if (x.getControl().equals(control) || control.equals(""))
 							if (x.getNumOfStudents() <= numStuh && x.getNumOfStudents() >= numStul)
+								if (x.getPercentFemale() <= percFemaleh && x.getPercentFemale() >= percFemalel)
 								if (x.getSATVerbal() <= satVerbh && x.getSATVerbal() >= satVerbl)
 									if (x.getSATMath() <= satMathh && x.getSATMath() >= satMathl)
 										if (x.getExpenses() <= expensesh && x.getExpenses() >= expensesl)
@@ -158,8 +155,8 @@ public class Search_Controler {
 																	if (x.getQualityOfLife() <= qualityLifeh
 																		&& x.getQualityOfLife() >= qualityLifel) {
 																		int c =numEmphs;
-																		if(x.getEmphases() !=null){
-																			for (String s : x.getEmphases()) {
+																		if(dc.getEmphases(x.getName()) !=null){
+																			for (String s : dc.getEmphases(x.getName())) {
 																				if (s.equals(emph1) || s.equals(emph2)
 																						|| s.equals(emph3) || s.equals(emph4)
 																						|| s.equals(emph5))

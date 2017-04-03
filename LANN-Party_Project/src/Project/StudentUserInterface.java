@@ -99,14 +99,14 @@ public class StudentUserInterface {
 	 * @param name; String, name of school
 	 */
 	public void searchSchool(String schoolName, String state, String location, String control,
-			int numStuH, int numStuL, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
+			int numStuH, int numStuL, double percFemaleH, double percFemaleL, double satVerbH, double satVerbL, double satMathH, double satMathL, double expensesH,
 			double expensesL, double percFinacialH, double percFinacialL, int numberAppsH, int numberAppsL,
 			double percAdmittedH, double percAdmittedL, double percEnrolledH, double percEnrolledL, int acdemScaleH,
 			int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
 			String emph2, String emph3, String emph4, String emph5)
 	{
 		//TODO: access search controller and give  list of schools
-		uc.searchSchool(schoolName, state, location, control, numStuH, numStuL,
+		uc.searchSchool(schoolName, state, location, control, numStuH, numStuL, percFemaleH, percFemaleL,
 				satVerbH, satVerbL, satMathH, satMathL, expensesH, expensesL, percFinacialH, percFinacialL,
 				numberAppsH, numberAppsL, percAdmittedH, percAdmittedL, percEnrolledH, percEnrolledL, acdemScaleH,
 				acdemScaleL, socialscaleH, socialscaleL, qualityLifeH, qualityLifeL, emph1, emph2, emph3, emph4, emph5);

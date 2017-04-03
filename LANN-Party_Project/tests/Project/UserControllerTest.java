@@ -53,7 +53,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void testsearchSchool() {
-		uc.searchSchool(null, null, null, null, 18000, 4000, 600, 300, 600, 300, 40000, 28000, 100, 60, 10000, 1000, 90, 30, 90, 30, 5, 1, 5, 1, 5, 1, null, null, null, null, null);
+		uc.searchSchool(null, null, null, null, 18000, 4000, 100, 0, 600, 300, 600, 300, 40000, 28000, 100, 60, 10000, 1000, 90, 30, 90, 30, 5, 1, 5, 1, 5, 1, null, null, null, null, null);
 		String s = "ADELPHI"
 				+ "\nAUGSBURG"
 				+ "\nBARD"
