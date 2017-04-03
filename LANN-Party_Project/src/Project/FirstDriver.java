@@ -27,16 +27,9 @@ public class FirstDriver {
   //U1 Login
   login.logon("ajmac", "password", true);
   
+  adminUI.getEmphases("AUGSBURG");
+  adminUI.viewSchool("AUGSBURG");
   /**
-  if(login.registerStudent("Andrew", "McIntyre", "ajmac", "password", 'u', 'n')){
-   login.logon("ajmac", "password", true);
-  }
-  else{
-   System.out.println("Registration Failed");
-   System.exit(0); //TODO change this later
-  }
-  **/
-  
   //U2 View Profile
   studentUI.viewProfile("ajmac");
   
@@ -59,7 +52,7 @@ public class FirstDriver {
   System.out.println("Recommended Schools:");
   studentUI.viewRecSchools("AUGSBURG");
   
-  /*
+ 
   //U8 save school
   studentUI.saveSchool("ajmac", "AUGSBURG");
   studentUI.saveSchool("ajmac", "ADELPHI");
@@ -127,6 +120,9 @@ public class FirstDriver {
   
   adminUI.viewSchools();
   
+  System.out.println();
+  
+  adminUI.viewSchool("AUGSBURG");
   
   
   
@@ -150,7 +146,8 @@ public class FirstDriver {
   
   System.out.println();
   login.adminLogout("nadmin");
-  */
+  **/
+
  }
  
  
