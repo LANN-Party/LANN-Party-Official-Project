@@ -19,7 +19,7 @@ import dblibrary.project.csci230.*;
 public class DatabaseController {
 	
 	private UniversityDBLibrary uDBL;
-	private Search_Controler search; 
+	//private Search_Controler search = new Search_Controler(); 
 	
 	/**
 	 * This method initializes uDBL
@@ -252,11 +252,12 @@ public class DatabaseController {
 	   * 
 	   * @param university: University, university to get related schools for
 	   */
-	  public ArrayList<University> getRelatedSchools(University university)
+	 /** public ArrayList<University> getRelatedSchools(University university)
 	  {
-		  return search.viewSchool(university.getName());
+		  String name = university.getName();
+		  return search.viewSchool(name);
 	  }
-	  
+	  **/
 	  /**
 	   * When called, this method returns an array list of all the schools from DBL 
 	   * 

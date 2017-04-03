@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 import static org.junit.Assert.*;
-import Project.DatabaseController;
 
 public class DatabaseControllerTest {
 	public DatabaseController dbc;
@@ -18,8 +17,8 @@ public class DatabaseControllerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-	  dbc = new DatabaseController("database", "LANN-Party", "somethingwewontforget");
-	  stu = new Student("logan", "dahlquist", "logo", "yanktrain",'a','y',null);
+	  dbc = new DatabaseController("lannp", "lannp", "csci230");
+	  stu = new Student("logan", "dahlquist", "logo", "yanktrain",'u','y',null);
 	  admin = new Admin("bob", "saget", "bsag", "yanktrain", 'a', 'y');
 	  school = new University("test2", "Minnesota", "St. Cloud", "control", 15, 58, 400, 300, 50000, 30, 400, 54, 44, 5, 5, 5);
 	  dbc.addEmphasis("test2", "test");
@@ -38,6 +37,10 @@ public class DatabaseControllerTest {
 		dbc.removeSchool("test");
 		dbc.removeSchool("test2");
 		dbc.removeSchool("test3");
+		dbc.removeSavedSchool(stu.getFirstName(), "AUGSBURG");
+		dbc.removeEmphasis("test", "test2");
+		dbc.removeSavedSchool("logo", "test");
+		
 		
 
 
@@ -47,17 +50,15 @@ public class DatabaseControllerTest {
 	
 	@Test 
 	public void testgetStudents() {
-		ArrayList<Student> expResult = new ArrayList<Student>();
 		ArrayList<Student> result = dbc.getStudents();
-		assertEquals("The list of users is" + expResult, expResult, result);
+		assertTrue(result!=null);
 		//fail("Not yet implemented");
 	}
 	
 	@Test 
 	public void testgetAdmins() {
-		ArrayList<Admin> expResult = new ArrayList<Admin>();
 		ArrayList<Admin> result = dbc.getAdmins();
-		assertEquals("The list of admins is" + expResult, expResult, result);
+		assertTrue(result!=null);
 		//fail("Not yet implemented");
 	}
 	
@@ -76,44 +77,48 @@ public class DatabaseControllerTest {
 	@Test 
 	public void testremoveSchool() {
 		dbc.addSchool("test", "Minnesota", "St. Cloud", "control", 15, 58, 400, 300, 50000, 30, 400, 54, 44, 5, 5, 5);
+		dbc.removeEmphasis("test", "test2");
+		ArrayList<String> s = dbc.getEmphases("test");
 		assertTrue(dbc.removeSchool("test"));
 	}
 	
 	@Test 
 	public void testremoveSavedSchool() {
-		stu.addSchool("St. John's");
-		assertTrue(dbc.removeSavedSchool(stu.getUserName(), "St. John's"));
+		dbc.addSchool("test", "Minnesota", "St. Cloud", "control", 15, 58, 400, 300, 50000, 30, 400, 54, 44, 5, 5, 5);
+		dbc.addUser(stu.getUserName(), stu.getFirstName(), stu.getLastName(), stu.getPassword(), stu.getType(), stu.getStatus());
+		dbc.saveSchool(stu.getUserName(), "test");
+		assertTrue(dbc.removeSavedSchool(stu.getUserName(), "test"));
 	}
 	
 	@Test 
 	public void testsaveSchool() {
-		assertTrue(dbc.saveSchool(stu.getUserName(),"MSU"));
+		dbc.addSchool("test", "Minnesota", "St. Cloud", "control", 15, 58, 400, 300, 50000, 30, 400, 54, 44, 5, 5, 5);
+		dbc.addUser(stu.getUserName(), stu.getFirstName(), stu.getLastName(), stu.getPassword(), stu.getType(), stu.getStatus());
+		assertTrue(dbc.saveSchool("logo","test"));
 	}
 	
 	@Test 
 	public void testgetUser() {
+		dbc.addUser(stu.getUserName(), stu.getFirstName(), stu.getLastName(), stu.getPassword(), stu.getType(), stu.getStatus());
 		Student output;
 		output = dbc.getUser(stu.getUserName());
-		assertTrue(output.equals(stu));
+		assertEquals("", output.getFirstName(),"logan");
 	}
 	
 	@Test 
 	public void testgetAdmin() {
+		dbc.addUser(admin.getUserName(), admin.getFirstName(), admin.getLastName(), admin.getPassword(), admin.getType(), admin.getStatus());
 		Admin output;
 		output = dbc.getAdmin(admin.getUserName());
-		assertTrue(output.equals(admin));
+		assertEquals("", output.getFirstName(),"bob");
 	}
 	
 	@Test 
 	public void testgetSchool() {
+		dbc.addSchool(school.getName(), school.getState(), school.getLocation(), school.getControl(), school.getNumOfStudents(), school.getPercentFemale(), school.getSATVerbal(), school.getSATMath(), school.getExpenses(), school.getPercentFinancialAid(), school.getNumOfApplicants(), school.getPercentAdmitted(), school.getPercentEnrolled(), school.getAcademicScale(), school.getSocialScale(), school.getQualityOfLife());
 		University output;
 		output = dbc.getSchool(school.getName());
-		assertTrue(output.equals(school));
-	}
-	
-	@Test 
-	public void testgetRelatedSchoolsReturnsArrayList() {
-		assertTrue(dbc.getRelatedSchools(school)!= null);
+		assertEquals("",output.getName(), school.getName());
 	}
 	
 	@Test 
@@ -136,17 +141,21 @@ public class DatabaseControllerTest {
 	@Test 
 	public void testaddEmphasis() {
 		String newEmph = "test2";
-		dbc.addEmphasis("test2", newEmph);
+		dbc.addSchool("test", "Minnesota", "St. Cloud", "control", 15, 58, 400, 300, 50000, 30, 400, 54, 44, 5, 5, 5);
+		dbc.addEmphasis("test", newEmph);
 		ArrayList<String> emph = new ArrayList<String>();
-		emph = dbc.getEmphases("test2");
+		emph = dbc.getEmphases("test");
 		assertTrue(emph.contains(newEmph));
+		dbc.removeEmphasis("test", "test2");
 		
 	}
 	
 	@Test 
 	public void testremoveEmphasis() {
+		dbc.addSchool("test", "Minnesota", "St. Cloud", "control", 15, 58, 400, 300, 50000, 30, 400, 54, 44, 5, 5, 5);
 		String newEmph = "test";
-		dbc.removeEmphasis("test2", newEmph);
+		dbc.addEmphasis("test", newEmph);
+		dbc.removeEmphasis("test", newEmph);
 		ArrayList<String> emph = new ArrayList<String>();
 		emph = dbc.getEmphases("test2");
 		assertFalse(emph.contains("test"));
@@ -154,10 +163,11 @@ public class DatabaseControllerTest {
 	
 	@Test 
 	public void testeditUser() {
-		String name = stu.getFirstName();
+		dbc.addUser(stu.getUserName(), stu.getFirstName(), stu.getLastName(), stu.getPassword(), stu.getType(), stu.getStatus());
+		Student test = dbc.getUser(stu.getUserName());
 		dbc.editUser(stu.getUserName(), "jim", stu.getLastName(), stu.getPassword(), stu.getType(), stu.getStatus());
-		String newName = stu.getFirstName();
-		assertFalse(name.equals(newName));
+		Student test2 = dbc.getUser(stu.getUserName());
+		assertFalse(test.getFirstName()==test2.getFirstName());
 	}
 	
 	@Test 
