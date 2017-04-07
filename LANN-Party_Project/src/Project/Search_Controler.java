@@ -36,6 +36,28 @@ public class Search_Controler {
 			double percAdmittedH, double percAdmittedL, double percEnrolledH, double percEnrolledL, int acdemScaleH,
 			int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
 			String emph2, String emph3, String emph4, String emph5) {
+		
+		String[] states = {"ALABAMA", "ALASKA", "ARIZONA", "ARKANSAS", "CALIFORNIA", "COLORADO", "CONNECTICUT", "DELAWARE", "FLORIDA", "GEORGIA", "HAWAII", "IDAHO", "ILLINOIS", "INDIANA", "IOWA",
+				"KANSAS", "KENTUCKY", "LOUISIANA", "MAINE", "MARYLAND", "MASSACHUSETTS", "MICHIGAN", "MINNESOTA", "MISSISSIPPI", "MISSOURI", "MONTANA", "NEBRASKA", "NEVADA", "NEW HAMPSHIRE", 
+				"NEW JERSEY", "NEW MEXICO", "NEW YORK", "NORTH CAROLINA", "NORTH DAKOTA", "OHIO", "OKLAHOMA", "OREGON", "OREGON", "PENNSYLVANIA", "RHODE ISLAND", "SOUTH CAROLINA", "SOUTH DAKOTA",
+				"TENNESSEE", "TEXAS", "UTAH", "VERMONT", "VIRGINIA", "WASHINGTON", "WEST VERGINIA", "WISCONSIN", "WYOMING"};
+		boolean b = false;
+		
+		for(int i = 0; i<=49; i++){
+			if(states[i].equals(state)){
+				b = true;
+				break;
+			}
+			else
+				b = false;
+		}
+		if(b==false)
+			throw new IllegalArgumentException("State not real");
+		
+		if(!location.equals("URBAN") || !location.equals("SUBURBAN") || !location.equals("SMALL-CITY")){
+			throw new IllegalArgumentException("Not valid location");
+		}
+		
 
 		ArrayList<University> inRange = new ArrayList<University>();
 		int numStuh = numStuH;
