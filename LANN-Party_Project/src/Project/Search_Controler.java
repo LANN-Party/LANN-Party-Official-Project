@@ -190,6 +190,8 @@ public class Search_Controler {
 		ArrayList<University> top5 = new ArrayList<University>();
 		// the uni the user has selected from search results
 		University selected = dc.getSchool(uName);
+		if(selected == null)
+			throw new NullPointerException("School not found");
 		// the current vector being calculated
 		Double vector = 0.0;
 		int ctr = 0;

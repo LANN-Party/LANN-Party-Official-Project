@@ -358,6 +358,30 @@ if(qualOfLife<0||qualOfLife>10)
 	   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	   int qualOfLife)
 	  {
+		  if(numberOfStudents<=0)
+				return false;
+			if(percentFemales<=0||percentFemales>100)
+				return false;
+			if(satVerbal<0||satVerbal>800)
+				return false;
+			if(satMath<0||satMath>800)
+				return false;
+			if(expenses<0)
+				return false;
+			if(percentFinAid<0||percentFinAid>100)
+				return false;
+			if(applicants<0)
+				return false;
+			if(percentAdmitted<0||percentAdmitted>100)
+				return false;
+			if(percentEnrolled<0||percentEnrolled>100)
+				return false;
+			if(academScale<0||academScale>10)
+				return false;
+			if(socialScale<0||socialScale>10)
+				return false;
+			if(qualOfLife<0||qualOfLife>10)
+				return false;
 		//TODO: create University object and add it to the list of Universities in DBL
 		if(uDBL.university_addUniversity(name, state, location, control, numberOfStudents, percentFemales, satVerbal, satMath,
 				expenses, percentFinAid, applicants, percentAdmitted, percentEnrolled, academScale, socialScale, qualOfLife)>-1)

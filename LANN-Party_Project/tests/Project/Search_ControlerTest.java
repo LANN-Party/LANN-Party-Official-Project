@@ -508,5 +508,10 @@ public class Search_ControlerTest {
 				+ "\nUNIVERSITY OF EVANSVILLE";
 		assertEquals(s, outContent.toString().trim());
 	}
+	
+	@Test (expected= NullPointerException.class)
+	public void testviewSchoolFailsForWrongSchool(){
+		ArrayList<University> u = sc.viewSchool("FDAFSD");
+	}
 
 }
