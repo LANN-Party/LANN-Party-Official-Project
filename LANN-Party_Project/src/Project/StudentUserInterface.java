@@ -80,19 +80,7 @@ public class StudentUserInterface {
 		return uc.removeSchool(uName, sName);
 	}
 	
-	/*
-	/**
-	 * Gets confirmation from user to delete selected school
-	 * 
-	 * @return
-	 */
-	/*IGNORE for phase 2
-	public boolean confirmRemove()
-	{
-		//TODO: send selected school to removeSavedSchool() in DatabaseController
-		return false;
-	}
-	*/
+	
 	/**
 	 * Shows results for name of school given from the user
 	 * 
@@ -105,7 +93,6 @@ public class StudentUserInterface {
 			int acdemScaleL, int socialscaleH, int socialscaleL, int qualityLifeH, int qualityLifeL, String emph1,
 			String emph2, String emph3, String emph4, String emph5)
 	{
-		//TODO: access search controller and give  list of schools
 		uc.searchSchool(schoolName, state, location, control, numStuH, numStuL, percFemaleH, percFemaleL,
 				satVerbH, satVerbL, satMathH, satMathL, expensesH, expensesL, percFinacialH, percFinacialL,
 				numberAppsH, numberAppsL, percAdmittedH, percAdmittedL, percEnrolledH, percEnrolledL, acdemScaleH,
