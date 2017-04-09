@@ -28,6 +28,7 @@ public class DatabaseControllerTest {
 	
 	@After
 	public void tearDown(){
+		dbc.removeSavedSchool("logo", "test");
 		dbc.deleteUser("logo");
 		dbc.deleteUser("logo100");
 		dbc.deleteUser("bsag");
@@ -39,7 +40,7 @@ public class DatabaseControllerTest {
 		dbc.removeSchool("test3");
 		dbc.removeSavedSchool(stu.getFirstName(), "AUGSBURG");
 		dbc.removeEmphasis("test", "test2");
-		dbc.removeSavedSchool("logo", "test");
+		
 		
 		
 
