@@ -301,9 +301,9 @@ public class DatabaseController {
 		double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	    int qualOfLife)
 	  {               
-if(numberOfStudents<=0)
+if(numberOfStudents<0)
 	return false;
-if(percentFemales<=0||percentFemales>100)
+if(percentFemales<0||percentFemales>100)
 	return false;
 if(satVerbal<0||satVerbal>800)
 	return false;
@@ -358,9 +358,9 @@ if(qualOfLife<0||qualOfLife>10)
 	   double percentAdmitted, double percentEnrolled, int academScale, int socialScale, 
 	   int qualOfLife)
 	  {
-		  if(numberOfStudents<=0)
+		  if(numberOfStudents<0)
 				return false;
-			if(percentFemales<=0||percentFemales>100)
+			if(percentFemales<0||percentFemales>100)
 				return false;
 			if(satVerbal<0||satVerbal>800)
 				return false;
