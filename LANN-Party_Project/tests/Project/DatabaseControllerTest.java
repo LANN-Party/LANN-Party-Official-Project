@@ -131,7 +131,7 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testeditSchoolFailNotAState() {
-		assertTrue(dbc.editSchool("St. Thomas", "RUSSIA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
+		assertFlase(dbc.editSchool("St. Thomas", "RUSSIA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
 	}
 	
 	@Test
@@ -401,7 +401,7 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testaddSchoolFailNotAState() {
-		assertTrue(dbc.addSchool("St. Thomas", "RUSSIA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
+		assertFalse(dbc.addSchool("St. Thomas", "RUSSIA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
 	}
 	
 	@Test
@@ -571,7 +571,7 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testaddSchoolPercEnrolledZero() {
-		assertTrue(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 0, 1, 3, 4));
+		assertTrue(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 10, 0, 1, 3, 4));
 	}
 	
 	@Test
@@ -661,7 +661,7 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testaddSchoolQualOfLife10() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 10, 3, 10));
+		assertTrue(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 5, 3, 10));
 	}
 	
 	@Test 

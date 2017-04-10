@@ -21,13 +21,20 @@ public class login_contTest {
 		ac.deleteUser("bKid");
 		ac.deleteUser("jChristo");
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing login with valid args and invalid
+	 */
 	@Test
 	public void testlogon() {
 		assertTrue(lc.logon("ajmac", "password", true));
 		assertFalse(lc.logon("oops", "oops", true));
 	}
-	
+	/*
+	 * basic testing
+	 * description: registering a student 
+	 * with valid and invalid args
+	 */
 	@Test
 	public void testregisterStudent() {
 		assertTrue(lc.registerStudent("Billy", "TheKid", "bKid", "pword", 'u', 'Y'));
@@ -35,7 +42,11 @@ public class login_contTest {
 	assertFalse(lc.registerStudent("Billy", "TheKid", "bKid", "pword", 'u', 'x'));	
 
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing registering an admin with valid
+	 * and invalid args
+	 */
 	@Test
 	public void testregisterAdmin() {
 		assertTrue(lc.registerAdmin("Jesus", "Christ", "jChristo", "pword", 'a', 'Y'));

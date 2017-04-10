@@ -127,13 +127,6 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test (expected=UnsupportedOperationException.class)
-	public void testsetNumOfStudentsNeg1() {
-		uv.setNumOfStudents(-1);
-		assertFalse("#students set is invalid at -1", -1 == uv.getNumOfStudents());
-		//fail("Not yet implemented");
-	}
-	
 	@Test
 	public void testgetPercentFemale() {
 		assertTrue("percentF found", 20 == uv.getPercentFemale());
@@ -151,19 +144,8 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test (expected=UnsupportedOperationException.class)
-	public void testsetPercentFemaleNeg1() {
-		uv.setPercentFemale(-1);
-		assertFalse("percentF set is invalid at", -1 == uv.getPercentFemale());
-		//fail("Not yet implemented");
-	}
 	
-	@Test (expected=UnsupportedOperationException.class)
-	public void testsetPercentFemaleOver100() {
-		uv.setPercentFemale(101);
-		assertFalse("percentF set is invalid at", 101 == uv.getPercentFemale());
-		//fail("Not yet implemented");
-	}
+	
 	
 	@Test
 	public void testgetSATVerbal() {
@@ -182,20 +164,8 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetSATVerbalNegScore() {
-		uv.setSATVerbal(-1);
-		assertFalse("SATv set is invalid at -1", -1 == uv.getSATVerbal());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testsetSATVerbalOver800() {
-		uv.setSATVerbal(801);
-		assertFalse("SATv set is invalid at 801", 801 == uv.getSATVerbal());
-		//fail("Not yet implemented");
-	}
-	
+
+
 	@Test
 	public void testgetSATMath() {
 		assertTrue("SATm found", 200 == uv.getSATMath());
@@ -213,20 +183,8 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetSATMathNegScore() {
-		uv.setSATMath(-1);
-		assertFalse("SATm set is invalid at -1", -1 == uv.getSATMath());
-		//fail("Not yet implemented");
-	}
 	
-	@Test
-	public void testsetSATMathOver800() {
-		uv.setSATVerbal(801);
-		assertFalse("SATm set is invalid at 801", 801 == uv.getSATVerbal());
-		//fail("Not yet implemented");
-	}
-	
+
 	@Test
 	public void testgetExpenses() {
 		assertTrue("expenses found", 4000 == uv.getExpenses());
@@ -242,12 +200,7 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetExpensesNegative() {
-		uv.setExpenses(-1);
-		assertFalse("expenses set is invalid at -1", -1 == uv.getExpenses());
-		//fail("Not yet implemented");
-	}
+	
 	
 	@Test
 	public void testgetPercentFinancialAid() {
@@ -266,19 +219,9 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetPercentFinancialAidOver100() {
-		uv.setPercentFinancialAid(101);
-		assertFalse("%fin aid set is invalid at 101", 101 == uv.getPercentFinancialAid());
-		//fail("Not yet implemented");
-	}
+
 	
-	@Test
-	public void testsetPercentFinancialAidNegative() {
-		uv.setPercentFinancialAid(-1);
-		assertFalse("%fin aid set is invalid at -1", -1 == uv.getPercentFinancialAid());
-		//fail("Not yet implemented");
-	}
+
 	
 	@Test
 	public void testgetNumOfApplicants() {
@@ -294,14 +237,7 @@ public class UniversityTest {
 		assertTrue("#aplics set is valid at 0", 0 == uv.getNumOfApplicants());
 		//fail("Not yet implemented");
 	}
-	
-	@Test
-	public void testsetNumOfApplicantsNegative() {
-		uv.setNumOfApplicants(-1);
-		assertFalse("#aplics set is invalid at -1", -1 == uv.getNumOfApplicants());
-		//fail("Not yet implemented");
-	}
-	
+
 	@Test
 	public void testgetPercentAdmitted() {
 		assertTrue("%admtd found", 20 == uv.getPercentAdmitted());
@@ -319,19 +255,8 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetPercentAdmittedNegative() {
-		uv.setPercentAdmitted(-1);
-		assertFalse("%admtd set is invalid at -1", -1 == uv.getPercentAdmitted());
-		//fail("Not yet implemented");
-	}
 	
-	@Test
-	public void testsetPercentAdmittedOver100() {
-		uv.setPercentAdmitted(101);
-		assertFalse("%admtd set is invalid at 101", 101 == uv.getPercentAdmitted());
-		//fail("Not yet implemented");
-	}
+
 	
 	@Test
 	public void testgetPercentEnrolled() {
@@ -349,20 +274,8 @@ public class UniversityTest {
 		assertTrue("%enrolled set is valid at 100", 100 == uv.getPercentEnrolled());
 		//fail("Not yet implemented");
 	}
-	
-	@Test
-	public void testsetPercentEnrolledOver100() {
-		uv.setPercentEnrolled(101);
-		assertFalse("%enrolled set is invalid at 101", 101 == uv.getPercentEnrolled());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testsetPercentEnrolledNegative() {
-		uv.setPercentEnrolled(-1);
-		assertFalse("%enrolled set is invalid at -1", -1 == uv.getPercentEnrolled());
-		//fail("Not yet implemented");
-	}
+
+
 	
 	@Test
 	public void testgetAcademicScale() {
@@ -381,19 +294,9 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetAcademicScaleNegative() {
-		uv.setAcademicScale(-1);
-		assertFalse("academ scale set is invalid at -1", -1 == uv.getAcademicScale());
-		//fail("Not yet implemented");
-	}
+
 	
-	@Test
-	public void testsetAcademicScaleOver10() {
-		uv.setAcademicScale(11);
-		assertFalse("academ scale set is invalid at 11", 11 == uv.getAcademicScale());
-		//fail("Not yet implemented");
-	}
+
 	
 	@Test
 	public void testgetSocialScale() {
@@ -412,20 +315,8 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetSocialScaleNegative() {
-		uv.setSocialScale(-1);
-		assertFalse("soScale is invalid at -1", -1 == uv.getSocialScale());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testsetSocialScaleOver11() {
-		uv.setSocialScale(11);
-		assertFalse("soScale is invalid at 11", 11 == uv.getSocialScale());
-		//fail("Not yet implemented");
-	}
-	
+
+
 	@Test
 	public void testgetQualityOfLife() {
 		assertTrue("qualLife found", 3 == uv.getQualityOfLife());
@@ -443,19 +334,6 @@ public class UniversityTest {
 		//fail("Not yet implemented");
 	}
 	
-	@Test
-	public void testsetQualityOfLifeNegative() {
-		uv.setQualityOfLife(-1);
-		assertFalse("qualLife set is invalid at -1", -1 == uv.getQualityOfLife());
-		//fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testsetQualityOfLifeOver11() {
-		uv.setQualityOfLife(11);
-		assertFalse("qualLife set is invalid at 11", 11 == uv.getQualityOfLife());
-		//fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testgetEmphases() {
@@ -488,8 +366,13 @@ public class UniversityTest {
 	@Test
 	public void testtoString() {
 		University u = new University("School", "State", "town", "control", 200, 20, 200, 200, 4000, 30, 300, 20, 20, 3, 3, 3);
-		String s = "University [state=State, name=School, location=town, control=control, numOfStudents=200, percentFemale=20, SATVerbal=200, SATMath=200, expenses=4000, percentFinancialAid=30,numOfApplicants=300, percentAdmitted=20, percentEnrolled=20, academicScale=3,socialScale=3, qualityOfLife=3]";
-		assertEquals("toString worked", s, u.toString());
+
+		System.out.println(u.toString());
+	
+		
+		String s = 	"University [name=School, state=State, location=town, control=control, numOfStudents=200, percentFemale=20.0, SATVerbal=200.0, SATMath=200.0, expenses=4000.0, percentFinancialAid=30.0, numOfApplicants=300, percentAdmitted=20.0, percentEnrolled=20.0, academicScale=3, socialScale=3, qualityOfLife=3]";	
+
+		assertTrue("toString works",s.equals(u.toString()));
 		//fail("Not yet implemented");
 	}
 
