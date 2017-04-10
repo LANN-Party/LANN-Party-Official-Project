@@ -22,6 +22,7 @@ public class UCTest {
 	DatabaseController dbc;
 	Search_Controler sc;
 	UserController uc;
+	LogoutController lc;
 	String uName = "case123";
 	String pWord = "case123";
 	String fName = "case";
@@ -39,6 +40,7 @@ public class UCTest {
 		dbc = new DatabaseController("lannp", "lannp","csci230");
 		sc = new Search_Controler();
 		uc = new UserController();
+		lc = new LogoutController();
 		Student caseTester = new Student(fName, lName, uName, pWord, type, status, null);
 		dbc.addUser(uName, fName, lName, pWord, type, status);
 	}
@@ -53,6 +55,7 @@ public class UCTest {
 	    System.setOut(null);
 	    dbc.removeSavedSchool(uName, "AUGSBURG");
 	    dbc.deleteUser(uName);
+	    dbc.deleteUser(lName);
 	}
 	
 	/*
@@ -448,39 +451,90 @@ public class UCTest {
 	 */
 	@Test
 	public void testUC17(){
-		
+		adminUI.addSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 200, .9, 600, 600, 100, .9, 5, 1, 1, 5, 5, 5);
+		assertTrue(adminUI.editSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 300, .9, 600, 600, 100, .9, 5, 1, 1, 5, 5, 5));
+		assertTrue(dbc.getSchool("Weird1").getNumOfStudents()==300);
+		dbc.removeSchool("Weird1");
 	}
+	
+	/*
+	 * Add School Test
+	 * 	checks to see if the school has been added
+	 */
 	@Test
 	public void testUC18(){
-		
+		assertTrue(adminUI.addSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 200, .9, 600, 600, 100, .9, 5, 1, 1, 5, 5, 5));
+		assertTrue(dbc.getSchool("Weird1").getNumOfStudents()==200);
+		dbc.removeSchool("Weird1");
+
 	}
+	
+	/*
+	 * Logout User
+	 * 	tests to see if a user can log out
+	 */
 	@Test
 	public void testUC19(){
-		
+		assertTrue(lc.studentLogout(uName));
 	}
+	
+	/*
+	 * Login Fail wrong Password
+	 * 	tests to see if entering a wrong password
+	 * 	fails the login
+	 */
 	@Test
 	public void testUC20(){
-		
+		assertFalse(loginUI.logon("nadmin", "pass", true));
 	}
+	
+	/*
+	 * Edit School Fails for out of bounds params
+	 * 	makes sure that you cannot edit a school crazily
+	 */
 	@Test
 	public void testUC21(){
-		
+		adminUI.addSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 200, .9, 600, 600, 100, .9, 5, 1, 1, 5, 5, 5);
+		assertFalse(adminUI.editSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 200, .9, 600, 600, 100, .9, 5, 1, 1, 10, 5, 5));
+		dbc.removeSchool("Weird1");
 	}
+	
+	/*
+	 * Test add school fails with wrong params
+	 * 	makes sure you cannot add a school with bad params
+	 */
 	@Test
 	public void testUC22(){
-		
+		assertFalse(adminUI.addSchool("Weird1", "Alaska", "Fairbanks", "PRIVATE", 200, .9, 600, 600, 100, .9, 5, 1, 1, 10, 5, 5));
+		dbc.removeSchool("Weird1");
 	}
+	
+	/*
+	 * Test Edit user fails for wrong params
+	 * 	makes sure that the user isn't changed if the status isn't valid
+	 */
 	@Test
 	public void testUC23(){
-		
+		assertFalse(adminUI.editUser(uName, fName, lName, pWord, type, 'f'));
 	}
+	
+	/*
+	 * Test Add User Fails
+	 * 	makes sure you cannot add a user who is already in the database
+	 */
 	@Test
 	public void testUC24(){
-		
+		assertFalse(adminUI.addUser(uName, fName, lName, pWord, type, status));
+
 	}
+	
+	/*
+	 * Test Login Fails for Wrong User Name
+	 * 	makes sure you can't log in with wrong username
+	 */
 	@Test
 	public void testUC25(){
-		
+		assertFalse(loginUI.logon("admin", "admin",true));
 	}
 	
 

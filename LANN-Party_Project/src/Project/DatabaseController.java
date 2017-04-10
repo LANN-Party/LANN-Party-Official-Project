@@ -103,7 +103,6 @@ public class DatabaseController {
 	   */
 	  public boolean addUser(String uName, String fName, String lName, String pWord, char type, char status)
 	  {
-		 
 		int i = uDBL.user_addUser(fName, lName, uName, pWord, type);
 		if(i>-1)
 			return true;
