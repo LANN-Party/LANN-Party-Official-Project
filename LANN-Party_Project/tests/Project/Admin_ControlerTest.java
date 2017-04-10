@@ -159,7 +159,7 @@ public class Admin_ControlerTest {
 	
 	@Test
 	public void testaddSchoolZeroStudents() {
-		assertFalse(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
@@ -353,13 +353,13 @@ public class Admin_ControlerTest {
 	}
 	
 	@Test
-	public void testaddSchoolAcademScale9() {
-		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 9, 3, 4));
+	public void testaddSchoolAcademScale4() {
+		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 4));
 	}
 	
 	@Test
-	public void testaddSchoolAcademScale10() {
-		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 10, 3, 4));
+	public void testaddSchoolAcademScale6() {
+		assertFalse(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 6, 3, 4));
 	}
 	
 	@Test
@@ -378,13 +378,13 @@ public class Admin_ControlerTest {
 	}
 	
 	@Test
-	public void testaddSchoolSocialScale9() {
-		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 9, 4));
+	public void testaddSchoolSocialScale4() {
+		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 4, 4));
 	}
 	
 	@Test
-	public void testaddSchoolSocialScale10() {
-		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 10, 4));
+	public void testaddSchoolSocialScale6() {
+		assertFalse(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 6, 4));
 	}
 	
 	@Test
@@ -403,13 +403,13 @@ public class Admin_ControlerTest {
 	}
 	
 	@Test
-	public void testaddSchoolQualOfLife9() {
-		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 9, 3, 9));
+	public void testaddSchoolQualOfLife4() {
+		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 4));
 	}
 	
 	@Test
-	public void testaddSchoolQualOfLife10() {
-		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 10, 3, 10));
+	public void testaddSchoolQualOfLife6() {
+		assertFalse(ac.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 6));
 	}
 	
 	/*
@@ -485,7 +485,7 @@ public class Admin_ControlerTest {
 	
 	@Test
 	public void testeditSchoolZeroStudents() {
-		assertFalse(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
@@ -679,13 +679,13 @@ public class Admin_ControlerTest {
 	}
 	
 	@Test
-	public void testeditSchoolAcademScale9() {
-		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 9, 3, 4));
+	public void testeditSchoolAcademScale4() {
+		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 4));
 	}
 	
 	@Test
-	public void testeditSchoolAcademScale10() {
-		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 10, 3, 4));
+	public void testeditSchoolAcademScale6() {
+		assertFalse(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 6, 3, 4));
 	}
 	
 	@Test
@@ -704,13 +704,13 @@ public class Admin_ControlerTest {
 	}
 	
 	@Test
-	public void testeditSchoolSocialScale9() {
-		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 9, 4));
+	public void testeditSchoolSocialScale4() {
+		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 4, 4));
 	}
 	
 	@Test
-	public void testeditSchoolSocialScale10() {
-		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 10, 4));
+	public void testeditSchoolSocialScale6() {
+		assertFalse(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 6, 4));
 	}
 	
 	@Test
@@ -729,13 +729,13 @@ public class Admin_ControlerTest {
 	}
 	
 	@Test
-	public void testeditSchoolQualOfLife9() {
-		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 9, 3, 9));
+	public void testeditSchoolQualOfLife4() {
+		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 4));
 	}
 	
 	@Test
-	public void testeditSchoolQualOfLife10() {
-		assertTrue(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 10, 3, 10));
+	public void testeditSchoolQualOfLife6() {
+		assertFalse(ac.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 6));
 	}
 	
 	

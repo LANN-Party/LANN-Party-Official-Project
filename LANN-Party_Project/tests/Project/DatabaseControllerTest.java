@@ -40,9 +40,7 @@ public class DatabaseControllerTest {
 		dbc.removeSchool("test3");
 		dbc.removeSavedSchool(stu.getFirstName(), "AUGSBURG");
 		dbc.removeEmphasis("test", "test2");
-		
-		
-		
+		dbc.removeSchool("St. Thomas");
 
 
 	}
@@ -141,17 +139,17 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testeditSchoolZeroStudents() {
-		assertFalse(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertTrue(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
 	public void testeditSchoolFailNegativePercentFemale() {
-		assertFalse(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 100, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertFalse(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, -10, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
 	public void testeditSchoolFailOver100PercentFemale() {
-		assertFalse(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, -1, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertFalse(dbc.editSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 110, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
@@ -411,17 +409,17 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testaddSchoolZeroStudents() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertTrue(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 0, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
 	public void testaddSchoolFailNegativePercentFemale() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 100, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, -10, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
 	public void testaddSchoolFailOver100PercentFemale() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, -1, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
+		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 110, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4));
 	}
 	
 	@Test
@@ -605,13 +603,13 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testaddSchoolAcademScale9() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 9, 3, 4));
+	public void testaddSchoolAcademScale5() {
+		assertTrue(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 5, 3, 4));
 	}
 	
 	@Test
-	public void testaddSchoolAcademScale10() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 10, 3, 4));
+	public void testaddSchoolAcademScale6() {
+		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 6, 3, 4));
 	}
 	
 	@Test
@@ -655,13 +653,13 @@ public class DatabaseControllerTest {
 	}
 	
 	@Test
-	public void testaddSchoolQualOfLife9() {
-		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 9, 3, 9));
+	public void testaddSchoolQualOfLife4() {
+		assertTrue(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 4, 3, 4));
 	}
 	
 	@Test
-	public void testaddSchoolQualOfLife10() {
-		assertTrue(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 5, 3, 10));
+	public void testaddSchoolQualOfLife6() {
+		assertFalse(dbc.addSchool("St. Thomas", "MINNESOTA", "URBAN", "PRIVATE", 1, 43, 420, 490, 29991, 80, 4000, 85, 50, 5, 3, 6));
 	}
 	
 	@Test 
