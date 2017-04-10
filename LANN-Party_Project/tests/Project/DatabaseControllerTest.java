@@ -46,21 +46,16 @@ public class DatabaseControllerTest {
 
 
 	}
-	
-	
-	
-	@Test 
+	 
 	public void testgetStudents() {
 		ArrayList<Student> result = dbc.getStudents();
 		assertTrue(result!=null);
-		//fail("Not yet implemented");
 	}
 	
 	@Test 
 	public void testgetAdmins() {
 		ArrayList<Admin> result = dbc.getAdmins();
 		assertTrue(result!=null);
-		//fail("Not yet implemented");
 	}
 	
 	@Test 
