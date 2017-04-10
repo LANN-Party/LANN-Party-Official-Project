@@ -513,5 +513,45 @@ public class Search_ControlerTest {
 	public void testviewSchoolFailsForWrongSchool(){
 		ArrayList<University> u = sc.viewSchool("FDAFSD");
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForNonState(){
+		sc.displaySearchResults("CORNELL", "Puerto Rico", null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForNonLocation(){
+		sc.displaySearchResults("CORNELL", null, "Downtown", null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForNonControl(){
+		sc.displaySearchResults("CORNELL", null, null, "pub-private", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForNegStudents(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, -500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighPercFem(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 150, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowPercFem(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighSATV(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowSATV(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
 
 }

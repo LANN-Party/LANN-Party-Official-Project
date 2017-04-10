@@ -121,11 +121,11 @@ char type, char status){
 	 */
 	public boolean deactivateUser(String uName){
 		if(dc.getUser(uName) != null){
-			dc.getUser(uName).setStatus('n');
+			dc.getUser(uName).setStatus('N');
 			return true;
 		}
 		else if(dc.getAdmin(uName) != null){
-			dc.getAdmin(uName).setStatus('n');
+			dc.getAdmin(uName).setStatus('N');
 			return true;
 		}
 		else

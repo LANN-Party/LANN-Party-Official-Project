@@ -34,55 +34,86 @@ public class StudentTest {
 		st.setSavedSchools(schools);
 		st.setLogon(false);
 	}
-	
+	/*
+	 * basic testing
+	 * description: geting to first name
+	 */
 	@Test
 	public void testgetFirstName() {
 		assertEquals("Teddy", st.getFirstName());
 	}
-	
+	/*
+	 * basic testing
+	 * description:geting the last name
+	 */
 	@Test
 	public void testgetLastName() {
 		assertEquals("Roosevelt", st.getLastName());
 	}
-	
+	/*
+	 * basic testing
+	 * description:getting the user name
+	 */
 	@Test
 	public void testgetUserName() {
 		assertEquals("tRoos", st.getUserName());
 	}
-	
+	/*
+	 * basic testing
+	 * description:getting the password
+	 */
 	@Test
 	public void testgetTypegetPassword() {
 		assertEquals("pWord", st.getPassword());
 	}
-	
+	/*
+	 * basic testing
+	 * description: setting the first name
+	 */
 	@Test
 	public void testsetFirstName() {
 		st.setFirstName("Billy");
 		assertEquals("Billy", st.getFirstName());
 	}
-	
+	/*
+	 * basic testing
+	 * description:setting the last name
+	 */
 	@Test
 	public void testsetLastName() {
 		st.setLastName("Bob");
 		assertEquals("Bob", st.getLastName());
 	}
-	
+	/*
+	 * basic testing
+	 * description:throwing exception for invalid type set
+	 */
 	@Test (expected= IllegalArgumentException.class)
 	public void testsetTypeThrows(){
 		st.setType('w');
 	}
-	
+	/*
+	 * basic testing
+	 * description:throwing exception for invalid
+	 * status set
+	 */
 	@Test (expected= IllegalArgumentException.class)
 	public void testsetStatusThrows(){
 		st.setStatus('w');
 	}
-	
+	/*
+	 * basic testing
+	 * description:testing set password
+	 */
 	@Test
 	public void testsetPassword() {
 		st.setPassword("newPass");
 		assertEquals("newPass", st.getPassword());
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing set type
+	 */
 	@Test
 	public void testsetType() {
 		st.setType('a');
@@ -94,18 +125,28 @@ public class StudentTest {
 		st.setStatus('N');
 		assertEquals('N', st.getStatus());
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing get status
+	 */	
 	@Test
 	public void testgetStatus() {
 		assertEquals('Y', st.getStatus());
 	}
-	
+	/*
+	 * basic testing
+	 * description:getting users saved schools
+	 */
 	@Test
 	public void testgetSavedSchools() {
 		ArrayList<String> s = new ArrayList<String>();
 		assertEquals(s, st.getSavedSchools());
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing setting/adding a 
+	 * users saved schools
+	 */
 	@Test
 	public void testsetSavedSchools() {
 		ArrayList<String> sc = new ArrayList<String>();
@@ -113,13 +154,19 @@ public class StudentTest {
 		st.setSavedSchools(sc);
 		assertEquals(sc.toString(), st.getSavedSchools().toString());
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing add school
+	 */
 	@Test
 	public void testaddSchool() {
 		st.addSchool("Augsburg");
 		assertTrue(st.getSavedSchools().contains("Augsburg"));
 	}
-	
+	/*
+	 * basic testing
+	 * description: updating a users info
+	 */
 	@Test
 	public void testupdateInfo() {
 		st.updateInfo("tRoos", "Jack", "Daniels", "pWord", 'u', 'Y');
@@ -127,19 +174,28 @@ public class StudentTest {
 		assertEquals("Daniels", st.getLastName());
 		assertEquals("pWord", st.getPassword());
 	}
-	
+	/*
+	 * basic testing
+	 * description:logged on or not
+	 */
 	@Test
 	public void testisLoggedOn() {
 		st.setLogon(true);
 		assertTrue(st.isLoggedOn());
 	}
-	
+	/*
+	 * basic testing
+	 * description: setting loged on
+	 */
 	@Test
 	public void testsetLogon() {
 		st.setLogon(true);
 		assertTrue(st.isLoggedOn());
 	}
-	
+	/*
+	 * basic testing
+	 * description: removing a school
+	 */
 	@Test
 	public void testremoveSchool() {
 		st.addSchool("Augsburg");
@@ -147,7 +203,10 @@ public class StudentTest {
 		st.removeSchool("Augsburg");
 		assertTrue(!(st.getSavedSchools().contains("Augsburg")));
 	}
-	
+	/*
+	 * basic testing
+	 * description: toString correct output
+	 */
 	@Test
 	public void testtoString() {
 		String s = "Teddy,Roosevelt,tRoos,pWord,u";

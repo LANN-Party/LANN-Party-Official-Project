@@ -22,7 +22,11 @@ public class LogoutControllerTest {
 		loc = new LogoutController();
 		lic = new login_cont();
 	}
-	
+	/*
+	 * basic testing
+	 * description: testing a student login out with
+	 * existing and non existing users
+	 */
 	@Test
 	public void teststudentLogout() {
 		lic.logon("ajmac", "password", true);
@@ -30,7 +34,11 @@ public class LogoutControllerTest {
 		assertFalse(loc.studentLogout("oops"));
 
 	}
-	
+	/*
+	 * basic testing
+	 * description:  testing a admin login out with
+	 * existing and non existing users
+	 */
 	@Test
 	public void testadminLogout(){
 		lic.logon("nadmin", "admin", true);

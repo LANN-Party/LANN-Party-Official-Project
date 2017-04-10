@@ -51,13 +51,51 @@ public class Search_Controler {
 			else
 				b = false;
 		}
-		if(b==false)
-			throw new IllegalArgumentException("State not real");
+		if(b==false && !(state == null))
+			throw new IllegalArgumentException("Not valid state");
 		
-		if(!location.equals("URBAN") || !location.equals("SUBURBAN") || !location.equals("SMALL-CITY")){
+		if(!(location == null) && !(location.equals("URBAN") || location.equals("SUBURBAN") || location.equals("SMALL-CITY"))){
 			throw new IllegalArgumentException("Not valid location");
 		}
 		
+		if(!(control == null) && !(control.equals("PRIVATE") || control.equals("PUBLIC")))
+			throw new IllegalArgumentException("Not valid control");
+		
+		if(numStuL <0)
+			throw new IllegalArgumentException("Invalid number of students");
+		
+		if(percFemaleH > 100 || percFemaleL <0)
+			throw new IllegalArgumentException("Percent of Female students must be between 0 and 100");
+		
+		if(satVerbH > 800 || satVerbL < 0)
+			throw new IllegalArgumentException("SAT Verbal must be between 0 and 800");
+		
+		if(satMathH > 800 || satMathL <0)
+			throw new IllegalArgumentException("SAT Math must be between 0 and 800");
+		
+		if(expensesL < 0)
+			throw new IllegalArgumentException("Expenses must not be negative");
+		
+		if(percFinacialH > 100 || percFinacialL < 0)
+			throw new IllegalArgumentException("Percent Financial Aid must be between 0 and 100");
+		
+		if(numberAppsL < 0)
+			throw new IllegalArgumentException("Number of Apllicants must not be negative");
+		
+		if(percAdmittedH > 100 || percAdmittedL < 0)
+			throw new IllegalArgumentException("Percent Admitted must be between 0 and 100");
+		
+		if(percEnrolledH > 100 || percEnrolledL < 0)
+			throw new IllegalArgumentException("Percent Enrolled must be between 0 and 100");
+		
+		if(acdemScaleH > 5 || acdemScaleL < 0)
+			throw new IllegalArgumentException("Academic Scale must be between 0 and 5");
+		
+		if(socialscaleH > 5 || socialscaleL < 0)
+			throw new IllegalArgumentException("Social Scale must be between 0 and 5");
+		
+		if(qualityLifeH > 5 || qualityLifeL <0)
+			throw new IllegalArgumentException("Quality of Life must be between 0 and 5");
 
 		ArrayList<University> inRange = new ArrayList<University>();
 		int numStuh = numStuH;
