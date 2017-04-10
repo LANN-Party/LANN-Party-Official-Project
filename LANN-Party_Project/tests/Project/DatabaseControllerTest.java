@@ -131,7 +131,7 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testeditSchoolFailNotAState() {
-		assertFlase(dbc.editSchool("St. Thomas", "RUSSIA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
+		assertFalse(dbc.editSchool("St. Thomas", "RUSSIA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
 	}
 	
 	@Test
