@@ -21,12 +21,13 @@ public class Admin_ControlerTest {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
+
 	@Before
 	public void setup() throws Exception{
 		ac = new Admin_Controler();
 		ad = new Admin("Noreen", "Admin", "nadmin", "admin", 'a', 'Y');
 	}
-	
+
 	@Before
 	public void setUpStreams() {
 	    System.setOut(new PrintStream(outContent));
@@ -42,7 +43,10 @@ public class Admin_ControlerTest {
 	    ac.removeSchool("St. Thomas");
 	}
 	
-	
+	/*
+	 * basic testing
+	 *Description: to test a profile being displayed
+	 */
 	@Test
 	public void testdisplayProfile() {
 		String sa = ad.toString();
@@ -51,6 +55,10 @@ public class Admin_ControlerTest {
 		assertEquals(sa, s);
 	}
 	
+	/*
+	 * basic testing
+	 *Description: testing the view all users method
+	 */
 	@Test
 	public void testviewUsers() {
 		ac.viewUsers();
@@ -58,6 +66,10 @@ public class Admin_ControlerTest {
 		
 	}
 	
+	/*
+	 * basic testing
+	 *Description: to display a users info including saved schools
+	 */
 	@Test
 	public void testdisplayInfo() {
 		ArrayList<String> schools = new ArrayList<String>();
@@ -65,14 +77,20 @@ public class Admin_ControlerTest {
 		ac.displayInfo("juser");
 		assertEquals(s.toString(), outContent.toString().trim());
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing addUser method for correct and incorrect arguments
+	 */
 	@Test
 	public void testaddUser() {
 		assertTrue(ac.addUser("jcena", "John", "Cena", "ucantseeme", 'u', 'Y'));
 		assertFalse(ac.addUser("ajmac", "Jimmy", "McIntyre", "password", 'r', 'Y'));
 		assertFalse(ac.addUser("ajmac", "Jimmy", "McIntyre", "password", 'u', 'r'));
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing to edit a user with valid and invalid arguments 
+	 */
 	@Test
 	public void testeditUser() {
 		assertTrue(ac.editUser("ajmac", "Jimmy", "McIntyre", "password", 'u', 'Y'));
@@ -80,19 +98,28 @@ public class Admin_ControlerTest {
 		assertFalse(ac.editUser("ajmac", "Jimmy", "McIntyre", "password", 'u', 'r'));
 		ac.editUser("ajmac", "Andrew", "McIntyre", "password", 'u', 'Y');
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing delete working for a user existing and not
+	 */
 	@Test
 	public void testdeleteUser() {
 		assertTrue(ac.deleteUser("juser"));
 		assertFalse(ac.deleteUser("oops"));
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing deactivate user method for valid and invalid names 
+	 */
 	@Test
 	public void testdeactivateUser() {
 		assertTrue(ac.deactivateUser("juser"));
 		assertFalse(ac.deactivateUser("oops"));
 	}
-	
+	/*
+	 * basic testing
+	 *Description: displaying a schools profile
+	 */
 	@Test
 	public void testdisplaySchool() {
 		String s = ac.getSchool("AUGSBURG").toString();
@@ -100,13 +127,19 @@ public class Admin_ControlerTest {
 		String oC = outContent.toString().trim();
 		assertEquals(s, oC);
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing displaying all schools 
+	 */
 	@Test
 	public void testdisplaySchools() {
 		ac.displaySchools();
 		assertTrue(outContent.toString() != null);
 	}
-	
+	/*
+	 * black box testing
+	 *Description: testing the add method for a school with invalid and valid perams and boundaries 
+	 */
 	@Test
 	public void testaddSchool() {
 		assertTrue(ac.addSchool("St. Thomas", "MINNESOTA", "St. Paul", "PRIVATE", 10000, 50, 300, 300, 50000, 60, 4500, 60, 500, 3, 3, 3));
@@ -139,20 +172,29 @@ public class Admin_ControlerTest {
 
 
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing remove school
+	 */
 	@Test
 	public void testremoveSchool() {
 		ac.addSchool("Bethel", "Minnesota", "St. Paul", "PRIVATE", 2000, 60, 300, 300, 40000, 70, 2000, 80, 60, 2, 2, 2);
 		assertTrue(ac.removeSchool("Bethel"));
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing getting one school
+	 */
 	@Test
 	public void testgetSchool() {
 		assertTrue(ac.getSchool("AUGSBURG") != null);
 		assertTrue(ac.getSchool("oops") == null);
 		
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing adding a Emphasis to a school
+	 */
 	@Test
 	public void testaddEmphasis() {
 		ac.addSchool("Bethel", "Minnesota", "St. Paul", "PRIVATE", 2000, 60, 300, 300, 40000, 70, 2000, 80, 60, 2, 2, 2);
@@ -162,7 +204,10 @@ public class Admin_ControlerTest {
 		assertEquals(s, outContent.toString().trim());
 		ac.removeEmphasis("Bethel", "Computer Science");
 	}
-	
+	/*
+	 * basic testing
+	 *Description: testing removing a emphasis
+	 */
 	@Test
 	public void testremoveEmphasis() {
 		ac.removeEmphasis("AUGSBURG", "PERFORMING-ARTS");
@@ -175,7 +220,10 @@ public class Admin_ControlerTest {
 		String x = "Emphases for AUGSBURG: [BUSINESS-ADMINISTRATION, EDUCATION]";
 		assertFalse(x.equals(outContent.toString().trim()));
 	}
-	
+	/*
+	 * black box testing
+	 *Description: testing bounties, invalid and valid parameters for edit schools
+	 */
 	@Test
 	public void testeditSchool() {
 		String og = ac.getSchool("AUGSBURG").toString();
@@ -210,7 +258,10 @@ public class Admin_ControlerTest {
 		ac.editSchool("AUGSBURG", "MINNESOTA", "SMALL-CITY", "PRIVATE", 10000, 43, 420, 490, 29991, 80, 4000, 85, 50, 1, 3, 4);
 
 	}
-	
+	/*
+	 * basic testing
+	 *Description:testing get emphases for a school
+	 */
 	@Test
 	public void testgetEmphases() {
 		String s = "Emphases for AUGSBURG: [BUSINESS-ADMINISTRATION, EDUCATION, PERFORMING-ARTS]";

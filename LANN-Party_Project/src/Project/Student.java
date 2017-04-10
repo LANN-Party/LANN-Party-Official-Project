@@ -161,10 +161,14 @@ import java.util.*;
 		 * 
 		 * @param String new type to be set
 		 */
-		public void setType(char type)
-		{
+		public void setType(char type) {
+			if(type=='u'||type=='a')
 			this.type = type;
+			else
+				throw new IllegalArgumentException();
+
 		}
+		
 		
 		/**
 		 * Sets the Student's Stat
@@ -173,8 +177,11 @@ import java.util.*;
 		 */
 		public void setStatus(char stat)
 		{
-			this.status = stat;
-		}
+			if(stat=='Y'||stat=='N')
+				this.status = stat;
+				else
+					throw new IllegalArgumentException();
+			}
 		
 
 		/**

@@ -67,6 +67,16 @@ public class StudentTest {
 		assertEquals("Bob", st.getLastName());
 	}
 	
+	@Test (expected= IllegalArgumentException.class)
+	public void testsetTypeThrows(){
+		st.setType('w');
+	}
+	
+	@Test (expected= IllegalArgumentException.class)
+	public void testsetStatusThrows(){
+		st.setStatus('w');
+	}
+	
 	@Test
 	public void testsetPassword() {
 		st.setPassword("newPass");
