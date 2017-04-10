@@ -553,5 +553,85 @@ public class Search_ControlerTest {
 	public void testdisplaySearchResultsFailsForLowSATV(){
 		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighSATM(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowSATM(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowExpenses(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, -500, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighPercFin(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowPercFin(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowNumApp(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighPercAdmit(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowPercAdmit(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighPercEnr(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowPercEnr(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighAcadScale(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowAcadScale(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighSocScale(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowSocScale(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, 0, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForHighQualLife(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, null, null, null, null, null);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testdisplaySearchResultsFailsForLowQualLife(){
+		sc.displaySearchResults("CORNELL", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5, null, null, null, null, null);
+	}
 
 }
