@@ -26,7 +26,9 @@ public class UCTest {
 	char type = 'u';
 	char status= 'y';
 	Student caseTester = new Student(fName, lName, uName, pWord, type, status, null);
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
+	@Before
 	public void setup(){
 		loginUI = new LoginUI();
 		studentUI = new StudentUserInterface();
@@ -34,6 +36,12 @@ public class UCTest {
 		Student caseTester = new Student(fName, lName, uName, pWord, type, status, null);
 	}
 	
+	@Before
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	}
+	
+	@After
 	public void teardown(){
 		
 	}
@@ -50,23 +58,32 @@ public class UCTest {
 	 */
 	public void testUC2(){
 		String info = dbc.getUser(fName).toString();
-		assertTrue(studentUI.viewProfile(fName).equals(info));
+		studentUI.viewProfile(fName);
+		String output = outContent.toString();
+		assertTrue(output.equals(info));
 	}
 	
 	/*
-	 * manage profile test
+	 * Manage Profile Tests
+	 * 	tests changing the first name
+	 * 	tests changing the last name
+	 * 	tests changing the password
 	 */
 	public void testUC3_1editFirstName(){
 		assertTrue(studentUI.editInfo(uName, "bob", lName, pWord, type, status));
 		assertTrue(caseTester.getFirstName().equals("bob"));
 	}
 	public void testUC3_2editLastName(){
-		assertTrue(studentUI.editInfo(uName, "bob", "theBuilder", pWord, type, status));
-		assertTrue(caseTester.getFirstName().equals("bob"));
+		assertTrue(studentUI.editInfo(uName, fName, "theBuilder", pWord, type, status));
+		assertTrue(caseTester.getLastName().equals("theBuilder"));
 	}
 	public void testUC3_3editPassword(){
-		assertTrue(studentUI.editInfo(uName, "bob", "theBuilder", "case321", type, status));
-		assertTrue(caseTester.getFirstName().equals("bob"));
+		assertTrue(studentUI.editInfo(uName, fName, lName, "case321", type, status));
+		assertTrue(caseTester.getPassword().equals("bob"));
+	}
+	
+	public void testUC4(){
+		
 	}
 	
 	/*
