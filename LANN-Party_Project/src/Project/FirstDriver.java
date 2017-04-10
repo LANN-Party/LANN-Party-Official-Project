@@ -29,6 +29,9 @@ public class FirstDriver {
   
   adminUI.getEmphases("AUGSBURG");
   adminUI.viewSchool("AUGSBURG");
+  System.out.println();
+  adminUI.viewSchools();
+  System.out.println();
   //U2 View Profile
   studentUI.viewProfile("ajmac");
   
@@ -78,7 +81,7 @@ public class FirstDriver {
   System.out.println();
   //FIX getUsers() in dbcontroller based on getUser()
   adminUI.viewusers();
-  
+ 
   System.out.println();
   
   //U16 add university
@@ -145,6 +148,8 @@ public class FirstDriver {
   
   System.out.println();
   login.adminLogout("nadmin");
+  
+  System.out.println();
   
  }
  

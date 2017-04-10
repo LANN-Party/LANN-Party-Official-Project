@@ -21,12 +21,13 @@ public class UCTest {
 	StudentUserInterface studentUI;
 	DatabaseController dbc;
 	Search_Controler sc;
+	UserController uc;
 	String uName = "case123";
 	String pWord = "case123";
 	String fName = "case";
 	String lName = "tester";
 	char type = 'u';
-	char status= 'y';
+	char status= 'Y';
 	Student caseTester = new Student(fName, lName, uName, pWord, type, status, null);
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
@@ -37,7 +38,9 @@ public class UCTest {
 		studentUI = new StudentUserInterface();
 		dbc = new DatabaseController("lannp", "lannp","csci230");
 		sc = new Search_Controler();
+		uc = new UserController();
 		Student caseTester = new Student(fName, lName, uName, pWord, type, status, null);
+		dbc.addUser(uName, fName, lName, pWord, type, status);
 	}
 	
 	@Before
@@ -65,9 +68,9 @@ public class UCTest {
 	 */
 	@Test
 	public void testUC2(){
-		String info = dbc.getUser(fName).toString();
-		studentUI.viewProfile(fName);
-		String output = outContent.toString();
+		String info = dbc.getUser(uName).toString();
+		studentUI.viewProfile(uName);
+		String output = outContent.toString().trim();
 		assertTrue(output.equals(info));
 	}
 	
@@ -80,17 +83,17 @@ public class UCTest {
 	@Test
 	public void testUC3_1editFirstName(){
 		assertTrue(studentUI.editInfo(uName, "bob", lName, pWord, type, status));
-		assertTrue(caseTester.getFirstName().equals("bob"));
+		assertTrue(dbc.getUser(uName).getFirstName().equals("bob"));
 	}
 	@Test
 	public void testUC3_2editLastName(){
 		assertTrue(studentUI.editInfo(uName, fName, "theBuilder", pWord, type, status));
-		assertTrue(caseTester.getLastName().equals("theBuilder"));
+		assertTrue(dbc.getUser(uName).getLastName().equals("theBuilder"));
 	}
 	@Test
 	public void testUC3_3editPassword(){
 		assertTrue(studentUI.editInfo(uName, fName, lName, "case321", type, status));
-		assertTrue(caseTester.getPassword().equals("bob"));
+		assertTrue(dbc.getUser(uName).getPassword().equals("case321"));
 	}
 	/*
 	 * View Saved Schools Test
@@ -100,8 +103,8 @@ public class UCTest {
 	@Test
 	public void testUC4(){
 		studentUI.viewSavedSchools(uName);
-		String output = outContent.toString();
-		assertTrue(output.equals(caseTester.getSavedSchools().toString()));
+		String output = outContent.toString().trim();
+		assertTrue(output.equals(dbc.getUser(uName).getSavedSchools().toString()));
 	}
 	
 	/*
@@ -122,12 +125,17 @@ public class UCTest {
 	 */
 	@Test
 	public void testUC6(){
-		studentUI.searchSchool("AUGSBURG", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
-		String output1 = outContent.toString();
-		System.setOut(null);
-		sc.displaySearchResults("AUGSBURG", null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, null, null);
-		String output2 = outContent.toString();
-		assertTrue(output1.equals(output2));
+		studentUI.searchSchool(null, null, null, null, 18000, 4000, 100, 0, 600, 300, 600, 300, 40000, 28000, 100, 60, 10000, 1000, 90, 30, 90, 30, 5, 1, 5, 1, 5, 1, null, null, null, null, null);
+		String s = "ADELPHI"
+				+ "\nAUGSBURG"
+				+ "\nBARD"
+				+ "\nBUTLER"
+				+ "\nHOFSTRA"
+				+ "\nMANHATTANVILLE COLLEGE"
+				+ "\nMARIST COLLEGE"
+				+ "\nPOLYTECHNIC INSTITUTE OF NEWYORK"
+				+ "\nTRINITY COLLEGE";
+		assertEquals(s, outContent.toString().trim());
 	}
 	/*
 	 * View School Test
@@ -137,7 +145,7 @@ public class UCTest {
 	@Test
 	public void testUC7(){
 		studentUI.viewSchool("AUGSBURG");
-		String output1 = outContent.toString();
+		String output1 = outContent.toString().trim();
 		System.setOut(null);
 		assertTrue(output1.equals(dbc.getSchool("AUGSBURG").toString()));
 	}
@@ -157,7 +165,7 @@ public class UCTest {
 	 */
 	@Test
 	public void testUC9(){
-		assertTrue(loginUI.logon("admin", "admin", true));
+		assertTrue(loginUI.logon("nadmin", "admin", true));
 	}
 	
 	/*
@@ -166,19 +174,15 @@ public class UCTest {
 	 */
 	@Test
 	public void testUC10(){
+		dbc.deleteUser(uName);
+		String expected = "Andrew,McIntyre,ajmac,password,u"
+				+ "\nJohn,User,juser,user,u"
+				+ "\nLynn,User,luser,user,u"
+				+ "\nNoreen,Admin,nadmin,admin,a"
+				+ "\nnick,floeder,nflo,nick,a";
 		adminUI.viewusers();
-		String output1 = outContent.toString();
-		System.setOut(null);
-		ArrayList<Student> s = dbc.getStudents();
-		ArrayList<Admin> a = dbc.getAdmins();
-		for(Student e : s){
-			System.out.println(e.toString());
-		}
-		for(Admin ea : a){
-			System.out.println(ea.toString());
-		}
-		String output2 = outContent.toString();
-		assertTrue(output1.equals(output2));
+		String output = outContent.toString().trim();
+		assertTrue(output.equals(expected));
 	}
 	
 	/*
@@ -188,12 +192,11 @@ public class UCTest {
 	 */
 	@Test
 	public void testUC11(){
-		adminUI.veiwUser(uName);
-		String output1 = outContent.toString();
-		System.setOut(null);
-		System.out.println(dbc.getUser(uName).toString());
-		String output2 = outContent.toString();
-		assertTrue(output1.equals(output2));
+		String expected  = "John,User,juser,user,u";
+		adminUI.veiwUser("juser");
+		String output1 = outContent.toString().trim();
+		assertTrue(expected.equals(output1));
+		
 	}
 	
 	/*
@@ -205,17 +208,17 @@ public class UCTest {
 	@Test
 	public void testUC12_1editFirstName(){
 		assertTrue(adminUI.editUser(uName, "bob", lName, pWord, type, status));
-		assertTrue(caseTester.getFirstName().equals("bob"));
+		assertTrue(dbc.getUser(uName).getFirstName().equals("bob"));
 	}
 	@Test
 	public void testUC12_2editLastName(){
 		assertTrue(adminUI.editUser(uName, fName, "theBuilder", pWord, type, status));
-		assertTrue(caseTester.getLastName().equals("theBuilder"));
+		assertTrue(dbc.getUser(uName).getLastName().equals("theBuilder"));
 	}
 	@Test
 	public void testUC12_3editPassword(){
 		assertTrue(adminUI.editUser(uName, fName, lName, "case321", type, status));
-		assertTrue(caseTester.getPassword().equals("bob"));
+		assertTrue(dbc.getUser(uName).getPassword().equals("case321"));
 	}
 	/*
 	 * Add User Test
@@ -245,14 +248,186 @@ public class UCTest {
 	@Test
 	public void testUC15(){
 		adminUI.viewSchools();
-		String output1 = outContent.toString();
-		System.setOut(null);
-		for(University x: dbc.getSchools())
-		{
-			System.out.println(x.getName());
-		}
-		String output2 = outContent.toString();
-		assertTrue(output1.equals(output2));
+		String output1 = outContent.toString().trim();
+		String schools ="ABILENE CHRISTIAN UNIVERSITY"
+				+ "\nADELPHI"
+				+ "\nAMERICAN UNIVERSITY OF BEIRUT"
+				+ "\nARIZONA STATE"
+				+ "\nAUBURN"
+				+ "\nAUGSBURG"
+				+ "\nBARD"
+				+ "\nBARNARD"
+				+ "\nBARUCH"
+				+ "\nBAYLOR UNIVERSITY"
+				+ "\nBENNINGTON"
+				+ "\nBOSTON COLLEGE"
+				+ "\nBOSTON UNIVERSITY"
+				+ "\nBRANDEIS"
+				+ "\nBROWN"
+				+ "\nBRYN MAWR"
+				+ "\nBUCKNELL"
+				+ "\nBUTLER"
+				+ "\nCAL TECH"
+				+ "\nCARNEGIE MELLON"
+				+ "\nCASE WESTERN"
+				+ "\nCCNY"
+				+ "\nCHALMERS UNIVERSITY OF TECHNOLOGY"
+				+ "\nCLARK UNIVERSITY"
+				+ "\nCLARKSON UNIVERSITY"
+				+ "\nCOLGATE"
+				+ "\nCOLLEGE OF NEWROCHELLE"
+				+ "\nCOLORADO COLLEGE"
+				+ "\nCOLORADO SCHOOL OF MINES"
+				+ "\nCOLUMBIA"
+				+ "\nCONNECTICUT COLLEGE"
+				+ "\nCOOPER UNION"
+				+ "\nCORNELL"
+				+ "\nCORPUS CHRISTI STATE U"
+				+ "\nDALLAS BAPTIST COLLEGE"
+				+ "\nDARTMOUTH"
+				+ "\nDEPAUL UNIVERSITY"
+				+ "\nDREW"
+				+ "\nEASTERN MICHIGAN"
+				+ "\nEASTMAN SCHOOL OF MUSIC"
+				+ "\nECOLE NATIONALE SUPERIEURE DE TELECOMMUNICATION DE PARIS"
+				+ "\nECOLE POLYTECHNIQUE"
+				+ "\nEMORY"
+				+ "\nFLORIDA ACADEMIC UNIVERSITY"
+				+ "\nFLORIDA STATE"
+				+ "\nFLORIDA TECH"
+				+ "\nFORDHAM"
+				+ "\nGEORGE WASHINGTON"
+				+ "\nGEORGETOWN"
+				+ "\nGEORGIA TECH"
+				+ "\nGLASSBORO STATE COLLEGE"
+				+ "\nGOLDEN GATE COLLEGE"
+				+ "\nGOTHENBURG UNIVERSITY"
+				+ "\nHAMPSHIRE COLLEGE"
+				+ "\nHARVARD"
+				+ "\nHOFSTRA"
+				+ "\nHOLY CROSS"
+				+ "\nHUNTINGTON COLLEGE"
+				+ "\nILLINOIS TECH"
+				+ "\nJOHNS HOPKINS"
+				+ "\nJUILLIARD"
+				+ "\nLEHIGH UNIVERSITY"
+				+ "\nLESLEY"
+				+ "\nLEWIS AND CLARK"
+				+ "\nMANHATTANVILLE COLLEGE"
+				+ "\nMARIST COLLEGE"
+				+ "\nMASSACHUSETTS INSTITUTE OF TECHNOLOGY"
+				+ "\nMESA"
+				+ "\nMICHIGAN STATE"
+				+ "\nMONMOUTH COLLEGE"
+				+ "\nMORGAN STATE"
+				+ "\nMOUNT HOLYOKE"
+				+ "\nNEW JERSEY TECH"
+				+ "\nNEW YORK UNIVERSITY"
+				+ "\nNEWENGLAND COLLEGE"
+				+ "\nNEWJERSEY TECH"
+				+ "\nNEWYORK IT"
+				+ "\nNICHOLLS STATE"
+				+ "\nNORTH CAROLINA STATE UNIVERSITY"
+				+ "\nNORTHWESTERN"
+				+ "\nNOTRE DAME"
+				+ "\nOBERLIN"
+				+ "\nOHIO STATE"
+				+ "\nOKLAHOMA STATE UNIVERSITY"
+				+ "\nORAL ROBERTS UNIVERSITY"
+				+ "\nOREGON INSTITUTE OF TECHNOLOGY"
+				+ "\nOREGON STATE"
+				+ "\nPENN STATE"
+				+ "\nPOLYTECHNIC INSTITUTE OF NEWYORK"
+				+ "\nPRATT"
+				+ "\nPRINCETON"
+				+ "\nPURDUE"
+				+ "\nQUEENS"
+				+ "\nREED"
+				+ "\nRENSSELAER"
+				+ "\nRICE"
+				+ "\nROCHESTER TECH"
+				+ "\nRUTGERS"
+				+ "\nSAINT ELIZABETHS"
+				+ "\nSAM HOUSTON STATE UNIVERSITY"
+				+ "\nSAN JOSE STATE"
+				+ "\nSETON HALL"
+				+ "\nSMITH"
+				+ "\nST JOHNS UNIVERSITY"
+				+ "\nSTANFORD"
+				+ "\nSTEVENS"
+				+ "\nSUFFOLK COMMUNITY COLLEGE"
+				+ "\nSUNY ALBANY"
+				+ "\nSUNY BINGHAMTON"
+				+ "\nSUNY BUFFALO"
+				+ "\nSUNY PLATTSBURGH"
+				+ "\nSUNY PURCHASE"
+				+ "\nSUNY STONY BROOK"
+				+ "\nSWARTHMORE"
+				+ "\nSYRACUSE"
+				+ "\nTEMPLE"
+				+ "\nTEXAS A&M"
+				+ "\nTEXAS CHRISTIAN UNIVERSITY"
+				+ "\nTOURO"
+				+ "\nTRINITY COLLEGE"
+				+ "\nTUFTS"
+				+ "\nTULANE"
+				+ "\nUNIVERSITE SAINT JOSEPH"
+				+ "\nUNIVERSITY OF ALABAMA"
+				+ "\nUNIVERSITY OF BRIDGEPORT"
+				+ "\nUNIVERSITY OF CALIFORNIA BERKELEY"
+				+ "\nUNIVERSITY OF CALIFORNIA DAVIS"
+				+ "\nUNIVERSITY OF CALIFORNIA LOS ANGELES"
+				+ "\nUNIVERSITY OF CALIFORNIA SAN DIEGO"
+				+ "\nUNIVERSITY OF CALIFORNIA SANTA CRUZ"
+				+ "\nUNIVERSITY OF CHICAGO"
+				+ "\nUNIVERSITY OF COLORADO"
+				+ "\nUNIVERSITY OF DENVER"
+				+ "\nUNIVERSITY OF EVANSVILLE"
+				+ "\nUNIVERSITY OF GEORGIA"
+				+ "\nUNIVERSITY OF HARTFORD"
+				+ "\nUNIVERSITY OF KANSAS"
+				+ "\nUNIVERSITY OF LOWELL"
+				+ "\nUNIVERSITY OF MAINE"
+				+ "\nUNIVERSITY OF MARYLAND"
+				+ "\nUNIVERSITY OF MASSACHUSETTS AMHERST"
+				+ "\nUNIVERSITY OF MICHIGAN"
+				+ "\nUNIVERSITY OF MINNESOTA"
+				+ "\nUNIVERSITY OF MISSISSIPPI"
+				+ "\nUNIVERSITY OF MISSOURI"
+				+ "\nUNIVERSITY OF MONTANA"
+				+ "\nUNIVERSITY OF NORTHCAROLINA"
+				+ "\nUNIVERSITY OF NOTRE DAME"
+				+ "\nUNIVERSITY OF OKLAHOMA"
+				+ "\nUNIVERSITY OF OREGON"
+				+ "\nUNIVERSITY OF PENNSYLVANIA"
+				+ "\nUNIVERSITY OF PITTSBURGH"
+				+ "\nUNIVERSITY OF PORTLAND"
+				+ "\nUNIVERSITY OF PUGET SOUND"
+				+ "\nUNIVERSITY OF ROCHESTER"
+				+ "\nUNIVERSITY OF SAN FRANCISCO"
+				+ "\nUNIVERSITY OF SOUTH DAKOTA"
+				+ "\nUNIVERSITY OF SOUTHERN CALIFORNIA"
+				+ "\nUNIVERSITY OF TEXAS"
+				+ "\nUNIVERSITY OF THE DISTRICT OF COLUMBIA"
+				+ "\nUNIVERSITY OF THE PACIFIC"
+				+ "\nUNIVERSITY OF THE SOUTH"
+				+ "\nUNIVERSITY OF TOLEDO"
+				+ "\nUNIVERSITY OF TULSA"
+				+ "\nUNIVERSITY OF VIRGINIA"
+				+ "\nUNIVERSITY OF WASHINGTON"
+				+ "\nUNIVERSITY WEST VIRGINIA"
+				+ "\nVANDERBILT"
+				+ "\nVASSAR"
+				+ "\nVILLANOVA"
+				+ "\nWALLA WALLA COLLEGE"
+				+ "\nWASHINGTON AND LEE"
+				+ "\nWAYNE STATE COLLEGE"
+				+ "\nWESLEYAN"
+				+ "\nWILLIAM PATERSON COLLEGE"
+				+ "\nWORCESTER"
+				+ "\nYALE"
+				+ "\nYANKTOWN COLLEGE";
+		assertTrue(schools.equals(output1));
 	}
 	
 	/*
@@ -262,7 +437,7 @@ public class UCTest {
 	@Test
 	public void testUC16(){
 		adminUI.viewSchool("AUGSBURG");
-		String output1 = outContent.toString();
+		String output1 = outContent.toString().trim();
 		System.setOut(null);
 		assertTrue(output1.equals(dbc.getSchool("AUGSBURG").toString()));
 	}
